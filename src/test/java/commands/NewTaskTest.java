@@ -7,8 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class NewTaskTest {
-    DataAccessor dataAccessor;
-    NewTask newtaskCommand = new NewTask();
+    private DataAccessor dataAccessor;
+    private final NewTask newtaskCommand = new NewTask();
 
     @BeforeEach
     void setUp() {

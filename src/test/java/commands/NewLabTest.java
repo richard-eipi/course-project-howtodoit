@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 
 
 class NewLabTest {
-    DataAccessor dataAccessor;
-    NewProj newlabCommand = new NewProj();
+    private DataAccessor dataAccessor;
+    private final NewProj newlabCommand = new NewProj();
 
     @BeforeEach
     public void setUp() {
