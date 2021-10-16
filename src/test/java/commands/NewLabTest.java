@@ -2,31 +2,32 @@ package commands;
 
 import driver.DataAccessor;
 import driver.DataManager;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class NewLabTest {
     DataAccessor dataAccessor;
-    NewLab newlabCommand = new NewLab();
+    NewProj newlabCommand = new NewProj();
 
-    @Before
+    @BeforeEach
     public void setUp() {
         this.dataAccessor = new DataManager();
     }
 
     @Test
-    public void testSuccesslyAddedLabel() {
+    public void testSuccessfullyAddedLab() {
         try {
             String[] args = {"CS"};
             this.newlabCommand.execute(this.dataAccessor, args);
             // Check that the system has this label
-            assertTrue(this.dataAccessor.getSystem().getLabels().containsKey("CS"),
-                    "Failure: label has not been added successfully");
+            Assertions.assertTrue(this.dataAccessor.getSystem().getProjects().containsKey("CS"),
+                    "Failure: Label has not been added successfully");
         } catch (Exception e) {
-            fail("Failure: an unexpected Exception was thrown.");
+            Assertions.fail("Failure: an unexpected Exception was thrown.");
         }
-    }
 
+
+    }
 }
