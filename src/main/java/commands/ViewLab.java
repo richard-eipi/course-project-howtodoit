@@ -1,7 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Label;
+import todoSystem.Folder;
 import todoSystem.TodoSystem;
 import todoSystem.Task;
 
@@ -22,14 +22,15 @@ public class ViewLab implements Executable {
 
         // Map user arguments to label name
         String name = args[0];
-        // Get label and sort its tasks
-        Label lab = todoSystem.getLabels().get(name);
-        HashMap<String, Task> tasks = lab.getTasks(); // Get all tasks from this project
+
+        Folder label = todoSystem.getLabels().get(name);
+        HashMap<String, Task> tasks = label.getTasks(); // Get all tasks from this label
         List<Task> sortedTasks = ChronologicalSort.tasks_in_ch_order(tasks); // Sort them
         StringBuilder output = new StringBuilder("This label <" + name + "> contains the following tasks:\n");
         for (Task task : sortedTasks) {
             output.append(task.toString()).append('\n'); // Each line will be a task
         }
+
         return output.toString();
     }
 }

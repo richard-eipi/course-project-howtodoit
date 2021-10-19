@@ -1,6 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
+import todoSystem.Folder;
 import todoSystem.TodoSystem;
 
 /**
@@ -22,8 +23,9 @@ public class NewProj implements Executable {
 
         // Map user arguments to name
         String name = args[0];
-        // Add new project to our system
-        todoSystem.addProj(name);
+        // Add new project to the system
+        todoSystem.getProjects().put(name, new Folder(name, true));
+
         return "Project <" + name + "> has been added successfully.";
     }
 

@@ -21,13 +21,13 @@ public class Rename implements Executable{
         // checkArgs(todoSystem, args); // Check whether arguments are valid
 
         // Map user arguments to old name, new name
-        String name1 = args[0];
-        String name2 = args[1];
+        String oldName = args[0];
+        String newName = args[1];
         // Get task and rename it
-        Task task = todoSystem.getTasks().get(name1);
-        task.setName(name2);
+        Task task = todoSystem.getTasks().get(oldName);
+        task.setName(newName);
 
-        return "Task renamed successfully.";
+        return "Task <" + oldName + "> has been renamed to <" + newName + "> successfully.";
     }
 
 }

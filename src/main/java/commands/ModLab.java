@@ -1,7 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Label;
+import todoSystem.Folder;
 import todoSystem.TodoSystem;
 
 /**
@@ -21,12 +21,12 @@ public class ModLab implements Executable{
         // checkArgs(todoSystem, name); // Check whether argument are valid
 
         // Map user arguments to old name, new name
-        String name1 = args[0];
-        String name2 = args[1];
-        // Get label and rename it
-        Label label = todoSystem.getLabels().get(name1);
-        label.setName(name2);
+        String oldName = args[0];
+        String newName = args[1];
 
-        return "Label <" + name1 + "> has been renamed to <" + name2 + "> successfully.";
+        Folder label = todoSystem.getLabels().get(oldName);
+        label.setName(newName); // Rename label
+
+        return "Label <" + oldName + "> has been renamed to <" + newName + "> successfully.";
     }
 }

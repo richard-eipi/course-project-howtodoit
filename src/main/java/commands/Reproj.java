@@ -1,7 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Project;
+import todoSystem.Folder;
 import todoSystem.Task;
 import todoSystem.TodoSystem;
 
@@ -23,12 +23,13 @@ public class Reproj implements Executable {
         // Map user arguments to name, dueDate, description
         String taskName = args[0];
         String projName = args[1];
-        // Move task to a different project
-        Task task = todoSystem.getTasks().get(taskName); // Get task
-        task.getProject().delTask(taskName); // Delete task from current project
-        Project newProj = todoSystem.getProjects().get(projName); // Get new project
-        newProj.addTask(task); // Add task to new project
+
+        Task task = todoSystem.getTasks().get(taskName);
+        task.getProject().getTasks().remove(taskName); // Delete task from current project
+        Folder newProj = todoSystem.getProjects().get(projName);
+        newProj.getTasks().put(taskName, task); // Add task to new project
         task.setProject(newProj);
+
         return "Task <"+ taskName + "> has been successfully moved to project <" + projName + ">.";
     }
 }

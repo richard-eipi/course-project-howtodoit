@@ -1,7 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Project;
+import todoSystem.Folder;
 import todoSystem.TodoSystem;
 
 /**
@@ -21,12 +21,12 @@ public class ModProj implements Executable{
         // checkArgs(todoSystem, name); // Check whether argument are valid
 
         // Map user arguments to old name, new name
-        String name1 = args[0];
-        String name2 = args[1];
-        // Get project and rename it
-        Project project = todoSystem.getProjects().get(name1);
-        project.setName(name2);
+        String oldName = args[0];
+        String newName = args[1];
 
-        return "Project <" + name1 + "> has been renamed to <" + name2 + "> successfully.";
+        Folder project = todoSystem.getProjects().get(oldName);
+        project.setName(newName); // Rename project
+
+        return "Project <" + oldName + "> has been renamed to <" + newName + "> successfully.";
     }
 }

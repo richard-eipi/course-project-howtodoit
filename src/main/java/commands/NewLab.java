@@ -1,6 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
+import todoSystem.Folder;
 import todoSystem.TodoSystem;
 
 /**
@@ -22,8 +23,9 @@ public class NewLab implements Executable {
 
         // Map user arguments to name
         String name = args[0];
-        // Add new label to our system
-        todoSystem.addLab(name);
+        // Add new label to the system
+        todoSystem.getLabels().put(name, new Folder(name, false));
+
         return "Label <" + name + "> has been added successfully.";
     }
 }

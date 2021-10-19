@@ -1,7 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Label;
+import todoSystem.Folder;
 import todoSystem.Task;
 import todoSystem.TodoSystem;
 
@@ -18,11 +18,11 @@ public class DelTaskLab implements Executable {
         // Map user arguments to task name and label name
         String taskName = args[0];
         String labName = args[1];
-        // Remove task from label
+
         Task task = todoSystem.getTasks().get(taskName);
-        Label label = todoSystem.getLabels().get(labName);
+        Folder label = todoSystem.getLabels().get(labName);
+        label.getTasks().remove(taskName); // Remove task from label
         task.getLabels().remove(label);
-        label.delTask(taskName);
 
         return "Task <" + taskName + "> has been removed from label <" + labName + "> successfully.";
     }

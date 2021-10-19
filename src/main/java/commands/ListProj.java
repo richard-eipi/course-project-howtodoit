@@ -1,7 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Project;
+import todoSystem.Folder;
 import todoSystem.TodoSystem;
 
 import java.util.HashMap;
@@ -19,7 +19,7 @@ public class ListProj implements Executable {
         TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
         // checkArgs(todoSystem, args); // Check whether arguments are valid
 
-        HashMap<String, Project> projects = todoSystem.getProjects();
+        HashMap<String, Folder> projects = todoSystem.getProjects();
         Set<String> projNames = projects.keySet(); // Get all project names
         List<String> sortedNames = projNames.stream().sorted().collect(Collectors.toList()); // Sort them
         // Put Inbox at the end

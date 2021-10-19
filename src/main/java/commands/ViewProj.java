@@ -1,7 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Project;
+import todoSystem.Folder;
 import todoSystem.TodoSystem;
 import todoSystem.Task;
 
@@ -21,14 +21,15 @@ public class ViewProj implements Executable {
 
         // Map user arguments to project name
         String name = args[0];
-        // Get project and sort its tasks
-        Project project = todoSystem.getProjects().get(name);
+
+        Folder project = todoSystem.getProjects().get(name);
         HashMap<String, Task> tasks = project.getTasks(); // Get all tasks from this project
         List<Task> sortedTasks = ChronologicalSort.tasks_in_ch_order(tasks); // Sort them
         StringBuilder output = new StringBuilder("This project <" + name + "> contains the following tasks:\n");
         for (Task task: sortedTasks) {
             output.append(task.toString()).append('\n'); // Each line will be a task
         }
+
         return output.toString();
     }
 }

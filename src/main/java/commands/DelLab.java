@@ -1,7 +1,11 @@
 package commands;
 
 import driver.DataAccessor;
+import todoSystem.Folder;
+import todoSystem.Task;
 import todoSystem.TodoSystem;
+
+import java.util.HashMap;
 
 /**
  * This class deletes a label.
@@ -15,8 +19,15 @@ public class DelLab implements Executable {
 
         // Map user arguments to label name
         String name = args[0];
-        // Delete this label from our system
-        todoSystem.delLab(name);
+
+        HashMap<String, Folder> labels = todoSystem.getLabels();
+        Folder label = labels.get(name);
+        // Remove this label from all tasks it contains
+        for (String taskName : label.getTasks().keySet()) {
+            Task task = todoSystem.getTasks().get(taskName);
+            task.getLabels().remove(label);
+        }
+        labels.remove(name); // Delete label from the system
 
         return "Label <" + name + "> has been removed successfully.";
     }

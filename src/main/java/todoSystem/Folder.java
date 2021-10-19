@@ -9,13 +9,15 @@ import java.util.HashMap;
 public class Folder implements Serializable {
     private String name;
     private final HashMap<String, Task> tasks = new HashMap<>();
+    private final boolean isProj;
 
-    public Folder(String name) {
+    public Folder(String name, boolean isProj) {
         this.name = name;
+        this.isProj = isProj;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -23,14 +25,11 @@ public class Folder implements Serializable {
     }
 
     public HashMap<String, Task> getTasks() {
-        return tasks;
+        return this.tasks;
     }
 
-    public void addTask(Task task) {
-        this.tasks.put(task.getName(), task);
+    public boolean getIsProj() {
+        return isProj;
     }
 
-    public void delTask(String name) {
-        this.tasks.remove(name);
-    }
 }

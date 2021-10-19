@@ -1,7 +1,8 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Project;
+import todoSystem.Folder;
+import todoSystem.Task;
 import todoSystem.TodoSystem;
 
 import java.text.SimpleDateFormat;
@@ -29,9 +30,11 @@ public class NewTask implements Executable {
         String name = args[0];
         String dueDate = args[1];
         String description = args[2];
-        // Add new task to Inbox
-        Project inbox = todoSystem.getProjects().get("Inbox");
-        todoSystem.addTask(name, dueDate, description, inbox);
+
+        Folder inbox = todoSystem.getProjects().get("Inbox");
+        Task task = new Task(name, dueDate, description, inbox);
+        todoSystem.getTasks().put(name, task); // Add new task to the system
+        inbox.getTasks().put(name, task); // Add new task to Inbox
 
         return "Task <" + name + "> has been added successfully.";
     }

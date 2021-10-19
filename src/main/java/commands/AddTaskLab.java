@@ -1,8 +1,8 @@
 package commands;
 
 import driver.DataAccessor;
+import todoSystem.Folder;
 import todoSystem.TodoSystem;
-import todoSystem.Label;
 import todoSystem.Task;
 
 /**
@@ -18,10 +18,10 @@ public class AddTaskLab implements Executable {
         // Map user arguments to task name and label name
         String taskName = args[0];
         String labName = args[1];
-        // Add task to label
+
         Task task = todoSystem.getTasks().get(taskName);
-        Label label = todoSystem.getLabels().get(labName);
-        label.addTask(task);
+        Folder label = todoSystem.getLabels().get(labName);
+        label.getTasks().put(taskName, task); // Add task to label
         task.getLabels().add(label);
 
         return "Task <" + taskName + "> has been added to label <" + labName + "> successfully.";

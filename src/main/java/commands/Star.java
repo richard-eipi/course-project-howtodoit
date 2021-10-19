@@ -1,7 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Label;
+import todoSystem.Folder;
 import todoSystem.Task;
 import todoSystem.TodoSystem;
 
@@ -22,10 +22,10 @@ public class Star implements Executable{
 
         // Map user arguments to task name
         String name = args[0];
-        // Add the task to Starred
+
         Task task = todoSystem.getTasks().get(name);
-        Label starred = todoSystem.getLabels().get("Starred");
-        starred.addTask(task);
+        Folder starred = todoSystem.getLabels().get("Starred");
+        starred.getTasks().put(name, task); // Add task to Starred
         task.getLabels().add(starred);
 
         return "Task <" + name + "> has been added to label <Starred> successfully.";

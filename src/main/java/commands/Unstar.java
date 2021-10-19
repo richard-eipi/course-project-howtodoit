@@ -1,7 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Label;
+import todoSystem.Folder;
 import todoSystem.Task;
 import todoSystem.TodoSystem;
 
@@ -17,11 +17,11 @@ public class Unstar implements Executable {
 
         // Map user arguments to task name
         String name = args[0];
-        // Remove task from Starred
+
         Task task = todoSystem.getTasks().get(name);
-        Label starred = todoSystem.getLabels().get("Starred");
+        Folder starred = todoSystem.getLabels().get("Starred");
+        starred.getTasks().remove(name); // Remove task from Starred
         task.getLabels().remove(starred);
-        starred.delTask(name);
 
         return "Task <" + name + "> has been removed from label <Starred> successfully.";
     }

@@ -1,7 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Label;
+import todoSystem.Folder;
 import todoSystem.TodoSystem;
 
 import java.util.HashMap;
@@ -19,7 +19,7 @@ public class ListLab implements Executable {
         TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
         // checkArgs(todoSystem, args); // Check whether arguments are valid
 
-        HashMap<String, Label> labels = todoSystem.getLabels();
+        HashMap<String, Folder> labels = todoSystem.getLabels();
         Set<String> labNames = labels.keySet(); // Get all label names
         List<String> sortedNames = labNames.stream().sorted().collect(Collectors.toList()); // Sort them
         // Put Starred at the beginning
