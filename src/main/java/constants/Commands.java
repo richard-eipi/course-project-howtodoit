@@ -1,45 +1,57 @@
 package constants;
 
-import driver.commands.*;
+import commands.*;
 
 import java.util.HashMap;
+import java.util.TreeSet;
 
 /**
- * This class stores and initializes all Command objects.
+ * This class stores and initializes all Executable objects.
  */
 public class Commands {
-    public static final HashMap<String, Command> COMMANDS = new HashMap<>();
+    public static final HashMap<String, Executable> COMMANDS = new HashMap<>();
+    public static final TreeSet<String> NON_MUTATING_COMMANDS= new TreeSet<>();
 
     /**
-     * This class loads all driver.commands.
+     * This class loads all commands.
      */
     public static void loadCommands() {
-        COMMANDS.put("modUsn", new ModUsn());
-        COMMANDS.put("modPwd", new ModPwd());
-
-        COMMANDS.put("viewTeams", new ViewTeams());
-        COMMANDS.put("viewMemsIn", new ViewMemsInTeam());
-        COMMANDS.put("viewProj", new ViewProj());
-        COMMANDS.put("viewTasks", new ViewTasks());
-        COMMANDS.put("viewTasksInProj", new ViewTasksInProj());
-
-        COMMANDS.put("newProj", new NewProj());
-        COMMANDS.put("delProj", new DelProj());
-        COMMANDS.put("modProj", new ModProj());
-
-        COMMANDS.put("newTeam", new NewTeam());
-        COMMANDS.put("modTeam", new ModTeam());
-        COMMANDS.put("addMem", new AddMem());
-        COMMANDS.put("leaveTeam", new LeaveTeam());
-        COMMANDS.put("addAdmin", new AddAdmin());
-
-        COMMANDS.put("newTask", new NewTask());
-        COMMANDS.put("completeTask", new CompleteTask());
+        COMMANDS.put("newtask", new NewTask());
+        COMMANDS.put("upcoming", new Upcoming());
+        COMMANDS.put("completetask", new CompleteTask());
         COMMANDS.put("star", new Star());
         COMMANDS.put("unstar", new Unstar());
         COMMANDS.put("rename", new Rename());
-        COMMANDS.put("redesc", new Redesc());
         COMMANDS.put("retime", new Retime());
-        COMMANDS.put("assignTask", new AssignTask());
+        COMMANDS.put("redesc", new Redesc());
+        COMMANDS.put("reproj", new Reproj());
+        COMMANDS.put("addtasklab", new AddTaskLab());
+        COMMANDS.put("deltasklab", new DelTaskLab());
+
+
+        COMMANDS.put("newproj", new NewProj());
+        COMMANDS.put("modproj", new ModProj());
+        COMMANDS.put("delproj", new DelProj());
+        COMMANDS.put("viewproj", new ViewProj());
+        COMMANDS.put("listproj", new ListProj());
+
+        COMMANDS.put("newlab", new NewLab());
+        COMMANDS.put("modlab", new ModLab());
+        COMMANDS.put("dellab", new DelLab());
+        COMMANDS.put("viewlab", new ViewLab());
+        COMMANDS.put("listlab", new ListLab());
+
+        COMMANDS.put("regret", new Regret());
+
+        populateNonMutatingCommands();
+    }
+
+    private static void populateNonMutatingCommands() {
+        NON_MUTATING_COMMANDS.add("upcoming");
+        NON_MUTATING_COMMANDS.add("viewproj");
+        NON_MUTATING_COMMANDS.add("listproj");
+        NON_MUTATING_COMMANDS.add("viewlab");
+        NON_MUTATING_COMMANDS.add("listlab");
+        NON_MUTATING_COMMANDS.add("regret");
     }
 }
