@@ -22,7 +22,12 @@ public class CommandExecutor {
         Executable command  = Commands.COMMANDS.getOrDefault(userCommandName, null);
         if (command != null) {
             String[] args = Arrays.copyOfRange(inputArray, 1, inputArray.length); // Get user arguments
-            return command.execute(dataAccessor, args); // Execute the command
+            String output = command.execute(dataAccessor, args);
+            // Timestamp current state if it's a mutating command
+            if (!Commands.NON_MUTATING_COMMANDS.contains(userCommandName)) {
+                Commands.COMMANDS.get("regret").execute(dataAccessor, new String[]{"setMemento"});
+            }
+            return output; // Execute the command
         } else {
             throw new Exception("Command not found!");
         }

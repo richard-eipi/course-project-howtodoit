@@ -48,7 +48,7 @@ public class DataManager implements DataAccessor {
 
     /**
      * This function returns the TodoSystem (it's the one defined by the interface DataAccessor).
-     * @return todoSystem
+     * @return our TodoSystem object
      */
     public TodoSystem getSystem() {
         return this.todoSystem;

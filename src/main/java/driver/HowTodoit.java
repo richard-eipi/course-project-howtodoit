@@ -20,6 +20,13 @@ public class HowTodoit {
         // Read data from local files
         dataManager.readData();
 
+        // Set up initial Memento
+        try {
+            Commands.COMMANDS.get("regret").execute(dataManager, new String[]{"setMemento"});
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
         // Let user type their commands and execute them
         Scanner in = new Scanner(System.in);
         while (true) {
