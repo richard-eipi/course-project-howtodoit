@@ -12,12 +12,14 @@ public class Team {
     private HashMap<String, User> members;
     private HashMap<String, User> admin;
 
+    /**
+     * @param name name of the team
+     */
     public Team(String name) {
         this.name = name;
         this.members = new HashMap<>();
         this.admin = new HashMap<>();
     }
-
     public String getName() {
         return this.name;
     }

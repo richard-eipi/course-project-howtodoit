@@ -10,6 +10,12 @@ public class User {
     private HashMap<String, Project> project;
     private HashMap<String, Team> team;
 
+    /**
+     * Constructor for user with given name and password.
+     * Generate empty map.
+     * @param name the username
+     * @param password password of the new user
+     */
     public User(String name, String password) {
         this.name = name;
         this.password = password;

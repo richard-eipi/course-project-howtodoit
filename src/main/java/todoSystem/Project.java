@@ -6,14 +6,25 @@ import java.util.HashMap;
  * A project stores a collection of tasks, but those tasks must be in exactly one project.
  */
 public class Project {
+
     private String name;
     private HashMap<String, Task> task;
     private String team;
-
+    /**
+     * Construct a team project with project name and the team name.
+     */
     public Project(String name, String teamName) {
         this.name = name;
         this.task = new HashMap<>();
         this.team = teamName;
+    }
+    /**
+    * Construct a personal project with given name
+    */
+    public Project(String name) {
+        this.name = name;
+        this.task = new HashMap<>();
+        this.team = null;
     }
 
     public String getName() {
