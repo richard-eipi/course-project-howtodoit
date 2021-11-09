@@ -1,8 +1,6 @@
 package helpers;
 
-import todoSystem.Folder;
 import todoSystem.Task;
-import todoSystem.TodoSystem;
 
 import java.util.HashMap;
 import java.util.List;

@@ -10,14 +10,15 @@ public class Task implements Serializable {
     private String name;
     private String dueDate;
     private String description;
-    private Folder project;
-    private final ArrayList<Folder> labels = new ArrayList<>();
+    private Project project;
+    private boolean isStarred = false;
 
-    public Task(String name, String dueDate, String description, Folder project) {
+    public Task(String name, String dueDate, String description, Project project) {
         this.name = name;
         this.dueDate = dueDate;
         this.description = description;
         this.project = project;
+        this.isStarred = false;
     }
 
     public String getName() {
@@ -28,16 +29,12 @@ public class Task implements Serializable {
         return this.dueDate;
     }
 
-    public String getDescription() {
-        return this.description;
+    public Project getProject() {
+        return project;
     }
 
-    public Folder getProject() {
-        return this.project;
-    }
-
-    public ArrayList<Folder> getLabels() {
-        return this.labels;
+    public boolean getStarred() {
+        return this.isStarred;
     }
 
     public void setName(String name) {
@@ -52,17 +49,21 @@ public class Task implements Serializable {
         this.description = description;
     }
 
-    public void setProject(Folder project) {
+    public void setProject(Project project) {
         this.project = project;
     }
 
-    @Override
+    public void setStarred(boolean starred) {
+        this.isStarred = starred;
+    }
+
+    /* @Override
     public String toString() {
         StringBuilder labelNames = new StringBuilder();
-        for (Folder label : this.labels) {
+        for (Label label : this.labels) {
             labelNames.append(label.getName()).append(", ");
         }
         return this.name + ": due on " + this.dueDate + "; in project <" + this.project.getName() + "> with labels <"
                 + labelNames + ">; description: "  + this.description;
-    }
+    } */
 }

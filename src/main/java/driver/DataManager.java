@@ -1,7 +1,5 @@
 package driver;
 
-import todoSystem.TodoSystem;
-
 import java.io.*;
 
 import static constants.FilePaths.systemFilePath;
