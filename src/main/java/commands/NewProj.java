@@ -1,8 +1,6 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Folder;
-import todoSystem.TodoSystem;
 
 /**
  * This class creates a new project
