@@ -1,8 +1,7 @@
 package driver;
 
-import controllers.DataMemoryController;
-import driver.commands.CommandExecutor;
-import driver.commands.LoginRegisterExecutor;
+import commands.CommandExecutor;
+import loginregister.LoginRegisterExecutor;
 import constants.Commands;
 
 import java.util.Scanner;
@@ -13,7 +12,7 @@ import java.util.Scanner;
 public class CLI {
     public static void run() {
         // Greetings
-        System.out.println("Welcome to HowTodoit: our virtual to-do-list system (version 1).");
+        System.out.println("Welcome to HowTodoit: our virtual to-do-list system (version 0).");
 
         // Setup
         Scanner in = new Scanner(System.in);
@@ -32,7 +31,7 @@ public class CLI {
     /**
      *
      * @param in the scanner
-     * @param commandExecutor the class that's responsible for finding driver.commands to execute
+     * @param commandExecutor the class that's responsible for finding commands to execute
      * @return true if user logs in, false if exit
      */
     private static boolean dealWithLoginRegister(Scanner in, CommandExecutor commandExecutor) {
@@ -44,7 +43,6 @@ public class CLI {
             try {
                 String username = loginRegisterExecutor.executeCommand(userInput);
                 commandExecutor.setUsername(username);
-                DataMemoryController.getInstance().setTimeStamp();
                 return true;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -53,49 +51,23 @@ public class CLI {
     }
 
     /**
-     * Let user type their driver.commands and execute them
+     * Let user type their commands and execute them
      * @param in the scanner
-     * @param commandExecutor the class that's responsible for finding a command to execute
+     * @param commandExecutor the class that's responsible for finding commands to execute
      * @return true if user just logs out but does not exit the program (may log in again), false if exit
      */
     private static boolean executeCommands(Scanner in, CommandExecutor commandExecutor) {
         while (true) {
             System.out.print("User command: ");
             String userInput = in.nextLine();
-            switch (userInput) {
-                case "logout":
-                    System.out.println(DataMemoryController.getInstance().save()); // auto save data when logging out
-                    DataMemoryController.getInstance().cleanMemory(); // clean memory for next user login
-                    return true;
-                case "exit":
-                    return false;
-                case "save":
-                    System.out.println(DataMemoryController.getInstance().save());
-                    break;
-                case "undo":
-                    System.out.println(DataMemoryController.getInstance().undo());
-                    break;
-                case "redo":
-                    System.out.println(DataMemoryController.getInstance().redo());
-                    break;
-                default:
-                    executeCommand(commandExecutor, userInput);
-                    break;
+            if (userInput.equals("exit")) return false;
+            if (userInput.equals("logout")) return true;
+            try {
+                String output = commandExecutor.executeCommand(userInput);
+                System.out.println(output);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-        }
-    }
-
-    /**
-     * Helper method for executing one command.
-     * @param commandExecutor the class that's responsible for finding a command to execute
-     * @param userInput user input String
-     */
-    private static void executeCommand(CommandExecutor commandExecutor, String userInput) {
-        try {
-            String output = commandExecutor.executeCommand(userInput);
-            System.out.println(output);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
     }
 }

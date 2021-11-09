@@ -25,8 +25,6 @@ public class Commands {
         COMMANDS.put("retime", new Retime());
         COMMANDS.put("redesc", new Redesc());
         COMMANDS.put("reproj", new Reproj());
-        COMMANDS.put("addtasklab", new AddTaskLab());
-        COMMANDS.put("deltasklab", new DelTaskLab());
 
 
         COMMANDS.put("newproj", new NewProj());
@@ -34,12 +32,6 @@ public class Commands {
         COMMANDS.put("delproj", new DelProj());
         COMMANDS.put("viewproj", new ViewProj());
         COMMANDS.put("listproj", new ListProj());
-
-        COMMANDS.put("newlab", new NewLab());
-        COMMANDS.put("modlab", new ModLab());
-        COMMANDS.put("dellab", new DelLab());
-        COMMANDS.put("viewlab", new ViewLab());
-        COMMANDS.put("listlab", new ListLab());
 
         COMMANDS.put("regret", new Regret());
 
