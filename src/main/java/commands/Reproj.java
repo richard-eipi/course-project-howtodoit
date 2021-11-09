@@ -1,9 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Folder;
 import todoSystem.Task;
-import todoSystem.TodoSystem;
 
 /**
  * This class updates the project a task is in.

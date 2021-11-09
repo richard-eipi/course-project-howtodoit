@@ -1,8 +1,6 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Folder;
-import todoSystem.TodoSystem;
 
 import java.util.HashMap;
 import java.util.List;

@@ -2,7 +2,6 @@ package commands;
 
 import driver.DataAccessor;
 import todoSystem.Task;
-import todoSystem.TodoSystem;
 
 /**
  * This class updates the description of a task.

@@ -1,7 +1,5 @@
 package driver;
 
-import todoSystem.TodoSystem;
-
 /**
  * This interface provides access to our main entity TodoSystem.
  */
