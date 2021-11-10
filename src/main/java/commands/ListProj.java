@@ -1,6 +1,6 @@
 package commands;
 
-import driver.DataAccessor;
+import driver.DataSaver;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,8 +13,8 @@ import java.util.stream.Collectors;
 public class ListProj implements Executable {
 
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) {
-        TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
+    public String execute(DataSaver dataSaver, String[] args) {
+        TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
         // checkArgs(todoSystem, args); // Check whether arguments are valid
 
         HashMap<String, Folder> projects = todoSystem.getProjects();

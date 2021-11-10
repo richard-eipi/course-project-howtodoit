@@ -1,7 +1,7 @@
 package commands;
 
-import driver.DataAccessor;
+import driver.DataSaver;
 
 public interface Executable {
-    String execute(DataAccessor dataAccessor, String[] args) throws Exception;
+    String execute(DataSaver dataSaver, String[] args) throws Exception;
 }

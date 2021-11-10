@@ -1,6 +1,6 @@
 package commands;
 
-import driver.DataAccessor;
+import driver.DataSaver;
 import entities.Task;
 
 /**
@@ -16,8 +16,8 @@ public class Redesc implements Executable {
      * @return a String indicating a task's description has been updated
      */
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) {
-        TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
+    public String execute(DataSaver dataSaver, String[] args) {
+        TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
         // checkArgs(todoSystem, args); // Check whether arguments are valid
 
         // Map user arguments to task name and new description

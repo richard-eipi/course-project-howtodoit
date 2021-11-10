@@ -1,6 +1,6 @@
 package commands;
 
-import driver.DataAccessor;
+import driver.DataSaver;
 
 /**
  * This class creates a new project
@@ -15,8 +15,8 @@ public class NewProj implements Executable {
      * @return a String indicating a new project has been created successfully
      */
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) throws Exception {
-        TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
+    public String execute(DataSaver dataSaver, String[] args) throws Exception {
+        TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
         checkArgs(todoSystem, args); // Check whether arguments are valid
 
         // Map user arguments to name

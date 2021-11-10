@@ -1,5 +1,8 @@
 package driver;
 
+import entities.UserList;
+import helpers.IUseCaseControllerBuilder;
+
 import java.io.*;
 
 import static constants.FilePaths.systemFilePath;
@@ -7,48 +10,47 @@ import static constants.FilePaths.systemFilePath;
 /**
  * This class reads data from and writes data into local files.
  */
-public class DataManager implements DataAccessor {
-    private TodoSystem todoSystem = new TodoSystem();
+public class DataManager implements DataSaver {
+    private UserList userlist;
+    private final IUseCaseControllerBuilder builder;
+
+    public DataManager(IUseCaseControllerBuilder builder){
+        this.builder = builder;
+    }
 
     /**
      * This function reads data from local files and initializes todoSystem.
      */
-    public void readData() {
+    public String readData() {
         try {
             FileInputStream fileIn = new FileInputStream(systemFilePath);
             ObjectInputStream in = new ObjectInputStream(fileIn);
-            this.todoSystem = (TodoSystem) in.readObject();
+            this.userlist = (UserList) in.readObject();
+            this.builder.build(this.userlist); // Let the builder build use cases and controllers
             in.close();
             fileIn.close();
-            System.out.println("Data has been loaded successfully.");
+            return "Data has been loaded successfully.";
         } catch (IOException i) {
-            System.out.println("Local data not found. We are starting with a new empty system.");
+            return "Data not found. We are starting with a new empty system.";
         } catch (ClassNotFoundException c) {
-            System.out.println("TodoSystem class not found. We are starting with a new empty system.");
+            return "UserList class not found. We are starting with a new empty system.";
         }
     }
 
     /**
      * This function writes data (tasks, projects...) into the given file.
      */
-    public void writeData(){
+    @Override
+    public String writeData() {
         try {
             FileOutputStream fileOut = new FileOutputStream(systemFilePath);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(this.todoSystem);
+            out.writeObject(this.userlist);
             out.close();
             fileOut.close();
-            System.out.println("Data has been saved successfully.");
+            return "Data has been saved successfully.";
         } catch (IOException i) {
             i.printStackTrace();
         }
-    }
-
-    /**
-     * This function returns the TodoSystem (it's the one defined by the interface DataAccessor).
-     * @return our TodoSystem object
-     */
-    public TodoSystem getSystem() {
-        return this.todoSystem;
     }
 }

@@ -1,5 +1,5 @@
 package commands;
-import driver.DataAccessor;
+import driver.DataSaver;
 /**
  * This class deletes a member from a team
  */
@@ -12,7 +12,7 @@ public class DelMem implements Executable {
      * @return a String indicating a member has been removed successfully
      */
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) throws Exception {
+    public String execute(DataSaver dataSaver, String[] args) throws Exception {
         return "";
     }
 }
