@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class CompleteTask implements Executable {
 
     /**
-     * This function executes the completetask command: delete the task that's already finished
+     * This function executes the completeTask command: delete the task that's already finished
      * The task must already exist in the system.
      *
      * @param args a list of Strings with length 1, representing user arguments
