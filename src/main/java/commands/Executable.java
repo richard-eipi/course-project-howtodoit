@@ -3,5 +3,5 @@ package commands;
 import driver.DataSaver;
 
 public interface Executable {
-    String execute(DataSaver dataSaver, String[] args) throws Exception;
+    String execute(String username, String[] args) throws Exception;
 }

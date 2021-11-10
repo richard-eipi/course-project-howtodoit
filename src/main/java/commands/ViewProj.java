@@ -1,6 +1,4 @@
 package commands;
-
-import driver.DataSaver;
 import entities.Task;
 
 import java.util.List;
@@ -12,11 +10,12 @@ public class ViewProj implements Executable {
     /**
      * This function executes the viewProj command: show all projects for the user.
      *
+     * @param username current username
      * @param args a list of Strings with length 0, representing user arguments
      * @return a String indicating the all peojects have been successfully displayed.
      */
     @Override
-    public String execute(DataSaver dataSaver, String[] args) {
+    public String execute(String username, String[] args) {
         TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
         // checkArgs(todoSystem, args); // Check whether arguments are valid
 

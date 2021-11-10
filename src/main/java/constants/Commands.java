@@ -57,12 +57,6 @@ public class Commands {
         COMMANDS.put("retime", new Retime());
         COMMANDS.put("reproj", new Reproj());
 
-
-        COMMANDS.put("upcoming", new Upcoming());
-        COMMANDS.put("listProj", new ListProj());
-
-
-
         populateNonMutatingCommands();
     }
 

@@ -1,6 +1,4 @@
 package commands;
-
-import driver.DataSaver;
 import entities.Task;
 
 /**
@@ -10,11 +8,13 @@ public class Star implements Executable{
     /**
      * This function executes the star command: Add a task called <name> to Starred label
      * The task must already exist in the system.
+     *
+     * @param username current username
      * @param args a String, representing user arguments
      * @return a String indicating a task has been added to Starred label
      */
     @Override
-    public String execute(DataSaver dataSaver, String[] args) {
+    public String execute(String username, String[] args) {
         TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
         // checkArgs(todoSystem, name); // Check whether argument are valid
 
