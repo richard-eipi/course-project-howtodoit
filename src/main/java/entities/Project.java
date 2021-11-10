@@ -1,11 +1,12 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.HashMap;
 /**
  * This class represents a project.
  * A project stores a collection of tasks, but those tasks must be in exactly one project.
  */
-public class Project {
+public class Project implements Serializable {
 
     private String name;
     private final HashMap<String, Task> tasks = new HashMap<>();
