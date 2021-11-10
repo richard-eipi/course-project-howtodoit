@@ -1,4 +1,7 @@
-package login.register;
+package commands;
+
+import usecasesControllers.LoginRegisterController;
+import usecasesControllers.LoginRegisterUseCases;
 
 public class LoginRegisterExecutor {
     public String executeCommand(String userInput) throws Exception {
@@ -10,9 +13,9 @@ public class LoginRegisterExecutor {
 
         String userCommandName = inputArray[0];
         if (userCommandName.equals("login")) {
-            LoginRegister.getInstance().login(inputArray[1], inputArray[2]);
+            LoginRegisterController.getInstance().login(inputArray[1], inputArray[2]);
         } else if (userCommandName.equals("register")) {
-            LoginRegister.getInstance().register(inputArray[1], inputArray[2]);
+            LoginRegisterController.getInstance().register(inputArray[1], inputArray[2]);
         } else {
             throw new Exception("Command not found!");
         }
