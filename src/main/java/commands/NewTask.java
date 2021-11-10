@@ -1,6 +1,8 @@
 package commands;
 
 import entities.Task;
+import usecasesControllers.TaskController;
+import usecasesControllers.UserAccountController;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -22,20 +24,22 @@ public class NewTask implements Command {
      */
     @Override
     public String execute(String username, String[] args) throws Exception {
-        TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
-        checkArgs(todoSystem, args); // Check whether arguments are valid
-
-        // Map user arguments to name, dueDate, description
-        String name = args[0];
-        String dueDate = args[1];
-        String description = args[2];
-
-        Folder inbox = todoSystem.getProjects().get("Inbox");
-        Task task = new Task(name, dueDate, description, inbox);
-        todoSystem.getTasks().put(name, task); // Add new task to the system
-        inbox.getTasks().put(name, task); // Add new task to Inbox
-
-        return "Task <" + name + "> has been added successfully.";
+//        TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
+//        checkArgs(todoSystem, args); // Check whether arguments are valid
+//
+//        // Map user arguments to name, dueDate, description
+//        String name = args[0];
+//        String dueDate = args[1];
+//        String description = args[2];
+//
+//        Folder inbox = todoSystem.getProjects().get("Inbox");
+//        Task task = new Task(name, dueDate, description, inbox);
+//        todoSystem.getTasks().put(name, task); // Add new task to the system
+//        inbox.getTasks().put(name, task); // Add new task to Inbox
+//
+//        return "Task <" + name + "> has been added successfully.";
+        if (args.length != 3) throw new Exception("Incorrect argument length!");
+        return TaskController.getInstance().newTask(username, args[0], args[1], args[2]);
     }
 
     private void checkArgs(TodoSystem todoSystem, String[] args) throws Exception {
