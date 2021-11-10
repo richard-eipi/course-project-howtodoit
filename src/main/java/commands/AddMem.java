@@ -1,5 +1,5 @@
 package commands;
-import driver.DataAccessor;
+import driver.DataSaver;
 /**
  * This class adds a new member to a team
  */
@@ -12,7 +12,7 @@ public class AddMem implements Executable {
      * @return a String indicating a new member has been added successfully
      */
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) throws Exception {
+    public String execute(DataSaver dataSaver, String[] args) throws Exception {
         return "";
     }
 }

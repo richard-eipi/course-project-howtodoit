@@ -1,6 +1,6 @@
 package commands;
 
-import driver.DataAccessor;
+import driver.DataSaver;
 import entities.Task;
 
 import java.util.ArrayList;
@@ -19,8 +19,8 @@ public class CompleteTask implements Executable {
      * @return a String indicating the completed task has been deleted.
      */
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) {
-        TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
+    public String execute(DataSaver dataSaver, String[] args) {
+        TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
         // checkArgs(todoSystem, name); // Check whether argument are valid
 
         // Map user arguments to task name
