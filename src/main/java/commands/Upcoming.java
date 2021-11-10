@@ -1,7 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Task;
+import entities.Task;
 import helpers.ChronologicalSort;
 
 import java.util.HashMap;

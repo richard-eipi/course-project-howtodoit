@@ -1,12 +1,11 @@
 package entities;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 /**
  * This class represents a task, which has name, due date, description, project, and labels.
  */
-public class Task implements Serializable, Comparable<Task> {
+public class Task implements Serializable {
     private String name;
     private String dueDate;
     private String description;
@@ -36,7 +35,7 @@ public class Task implements Serializable, Comparable<Task> {
         return project;
     }
 
-    public boolean getIsStarred() {
+    public boolean getStarred() {
         return this.isStarred;
     }
 
@@ -60,23 +59,13 @@ public class Task implements Serializable, Comparable<Task> {
         this.isStarred = starred;
     }
 
-    @Override
+    /* @Override
     public String toString() {
-        String star = this.isStarred ? "*STARRED* " : "";
-        return star + this.name + ": due on " + this.dueDate + "; in project <" + this.project.getName() + ">; description: "  + this.description;
-    }
-
-    @Override
-    public int compareTo(Task o) {
-        LocalDate thisDueDate = LocalDate.parse(this.dueDate);
-        LocalDate otherDueDate = LocalDate.parse(o.getDueDate());
-        if (thisDueDate.isBefore(otherDueDate)) {
-            return -1;
-        } else if (otherDueDate.isBefore(thisDueDate)) {
-            return 1;
-        } else {
-            return 0;
+        StringBuilder labelNames = new StringBuilder();
+        for (Label label : this.labels) {
+            labelNames.append(label.getName()).append(", ");
         }
-
-    }
+        return this.name + ": due on " + this.dueDate + "; in project <" + this.project.getName() + "> with labels <"
+                + labelNames + ">; description: "  + this.description;
+    } */
 }

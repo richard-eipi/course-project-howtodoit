@@ -1,24 +1,29 @@
 package entities;
 
-import java.io.Serializable;
-import java.util.*;
-
+import java.util.HashMap;
 /**
  * This class represents a project.
  * A project stores a collection of tasks, but those tasks must be in exactly one project.
  */
-public class Project implements Serializable, Iterable<Task>, Comparable<Project> {
+public class Project {
 
     private String name;
-    private final HashMap<String, Task> tasks;
+    private final HashMap<String, Task> tasks = new HashMap<>();
+    private Team team;
 
     /**
-     * Create a personal project with given name
-     * @param name project name
+     * Create a team project with project name and team.
      */
+    public Project(String name, Team team) {
+        this.name = name;
+        this.team = team;
+    }
+
+    /**
+    * Create a personal project with name only
+    */
     public Project(String name) {
         this.name = name;
-        this.tasks = new HashMap<>();
     }
 
     public String getName() {
@@ -29,39 +34,15 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
         this.name = name;
     }
 
-    public boolean hasTask(String name) { return this.tasks.containsKey(name); }
+    public HashMap<String, Task> getTasks() {
+        return this.tasks;
+    }
 
     public Task getTask(String name) {
-        return this.tasks.getOrDefault(name, null);
+        return this.tasks.get(name);
     }
 
-    public void addTask(Task task) {
-        this.tasks.putIfAbsent(task.getName(), task);
-    }
-
-    public void delTask(Task task) {
-        this.tasks.remove(task.getName());
-    }
-
-    @Override
-    public String toString() {
-        Task[] tasks = this.tasks.values().toArray(new Task[0]);
-        Arrays.sort(tasks); // Sort them
-        StringBuilder output = new StringBuilder("This project <" + this.name + "> contains the following tasks:\n");
-        for (Task task: tasks) {
-            output.append(task.toString()).append('\n'); // Each line will be a task
-        }
-
-        return output.toString();
-    }
-
-    @Override
-    public Iterator<Task> iterator() {
-        return this.tasks.values().iterator();
-    }
-
-    @Override
-    public int compareTo(Project o) {
-        return this.name.compareToIgnoreCase(o.getName());
+    public Team getTeam() {
+        return this.team;
     }
 }
