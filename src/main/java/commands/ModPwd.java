@@ -1,8 +1,11 @@
 package commands;
+
+import usecasesControllers.UserAccountController;
+
 /**
  * This class modifies a password.
  */
-public class ModPwd implements Executable{
+public class ModPwd implements Command {
     /**
      * This function executes the modUsn command: modify the password from <pw1> to <pw2>.
      *
@@ -11,7 +14,8 @@ public class ModPwd implements Executable{
      * @return a String indicating a password has been changed
      */
     @Override
-    public String execute(String username, String[] args){
-        return "";
+    public String execute(String username, String[] args) throws Exception{
+        if (args.length != 2) throw new Exception("Incorrect argument length!");
+        return UserAccountController.getInstance().modPwd(username, args[0], args[1]);
     }
 }

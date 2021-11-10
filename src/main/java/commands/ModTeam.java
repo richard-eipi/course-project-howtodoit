@@ -1,9 +1,11 @@
 package commands;
 
+import usecasesControllers.TeamController;
+
 /**
  * This class modifies a team name
  */
-public class ModTeam implements Executable {
+public class ModTeam implements Command {
     /**
      * This function executes the modTeam command: rename the team from <name1> to <name2>.
      * Only admins of the team can perform this action.
@@ -14,7 +16,8 @@ public class ModTeam implements Executable {
      */
     @Override
     public String execute(String username, String[] args) throws Exception {
-        return "";
+        if (args.length != 2) throw new Exception("Incorrect argument length!");
+        return TeamController.getInstance().modTeam(username, args[0], args[1]);
     }
 
 }

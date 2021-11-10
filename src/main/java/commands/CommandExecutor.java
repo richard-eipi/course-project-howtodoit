@@ -23,7 +23,7 @@ public class CommandExecutor {
         String[] inputArray = userInput.split(";"); // Use ";" to split user input String
         String userCommandName = inputArray[0];
         // Get the corresponding command object
-        Executable command  = Commands.COMMANDS.getOrDefault(userCommandName, null);
+        Command command  = Commands.COMMANDS.getOrDefault(userCommandName, null);
         if (command != null) {
             String[] args = Arrays.copyOfRange(inputArray, 1, inputArray.length); // Get user arguments
             return command.execute(this.username, args); // Execute the command

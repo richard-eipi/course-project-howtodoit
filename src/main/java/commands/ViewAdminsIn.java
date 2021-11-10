@@ -2,7 +2,7 @@ package commands;
 /**
  * This class show all admins in the team.
  */
-public class ViewAdminsIn implements Executable{
+public class ViewAdminsIn implements Command {
 
     /**
      * This function executes the viewAdminsIn command: show all admins in the team called <name>.

@@ -1,8 +1,11 @@
 package commands;
+
+import usecasesControllers.TeamController;
+
 /**
  * This class deletes a member from a team.
  */
-public class DelMem implements Executable {
+public class DelMem implements Command {
     /**
      * This function executes the delMem command: Remove the user called <username> from the team called <teamname>.
      * Only admins of the team can perform this action.
@@ -13,6 +16,7 @@ public class DelMem implements Executable {
      */
     @Override
     public String execute(String username, String[] args) throws Exception {
-        return "";
+        if (args.length != 2) throw new Exception("Incorrect argument length!");
+        return TeamController.getInstance().delMem(username, args[0], args[1]);
     }
 }
