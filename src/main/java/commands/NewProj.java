@@ -3,7 +3,7 @@ package commands;
 /**
  * This class creates a new project.
  */
-public class NewProj implements Executable {
+public class NewProj implements Command {
 
     /**
      * This function executes the newProj command: create a new project with given params.

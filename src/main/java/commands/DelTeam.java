@@ -1,9 +1,11 @@
 package commands;
 
+import usecasesControllers.TeamController;
+
 /**
  * This class deletes a team.
  */
-public class DelTeam implements Executable {
+public class DelTeam implements Command {
     /**
      * This function executes the delTeam command: delete the team called <name>.
      * Only admins of the team can perform this action.
@@ -14,7 +16,8 @@ public class DelTeam implements Executable {
      */
     @Override
     public String execute(String username, String[] args) throws Exception {
-        return "";
+        if (args.length != 1) throw new Exception("Incorrect argument length!");
+        return TeamController.getInstance().delTeam(username, args[0]);
     }
 
 }

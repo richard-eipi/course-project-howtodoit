@@ -1,8 +1,11 @@
 package commands;
+
+import usecasesControllers.TeamController;
+
 /**
  * This class adds a new member to a team.
  */
-public class AddMem implements Executable {
+public class AddMem implements Command {
     /**
      * This function executes the addMem command: add a user called <username> to the team called <teamname>.
      * Only admins of the team can perform this action.
@@ -13,6 +16,7 @@ public class AddMem implements Executable {
      */
     @Override
     public String execute(String username, String[] args) throws Exception {
-        return "";
+        if (args.length != 2) throw new Exception("Incorrect argument length!");
+        return TeamController.getInstance().addMem(username, args[0], args[1]);
     }
 }

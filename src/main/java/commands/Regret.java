@@ -5,7 +5,7 @@ import helpers.Memento;
 /**
  * This class undos or redos actions
  */
-public class Regret implements Executable {
+public class Regret implements Command {
     private Memento currentMemento;
 
     /**
