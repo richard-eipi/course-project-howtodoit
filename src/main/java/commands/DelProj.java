@@ -1,9 +1,5 @@
 package commands;
 
-import driver.DataSaver;
-
-import java.util.HashMap;
-
 /**
  * This class deletes a project.
  */
@@ -13,12 +9,12 @@ public class DelProj implements Executable {
      * if the project is personal.
      * If the project is a team project, this user must be an admin and all tasks are deleted.
      *
-     *
+     * @param username current username
      * @param args a list of Strings with length 1, representing user arguments
      * @return a String indicating a  project has been deleted successfully
      */
     @Override
-    public String execute(DataSaver dataSaver, String[] args) {
+    public String execute(String username, String[] args) {
         TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
         // checkArgs(todoSystem, args); // Check whether arguments are valid
 
