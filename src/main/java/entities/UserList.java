@@ -1,12 +1,13 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  * This class represents a UserList.
  * A UserList stores a collection of Users,
  */
-public class UserList {
+public class UserList implements Serializable {
     private static final UserList instance = new UserList();
     private HashMap<String, User> users;
 

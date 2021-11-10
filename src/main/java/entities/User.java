@@ -1,9 +1,10 @@
 package entities;
+import java.io.Serializable;
 import java.util.HashMap;
 /**
  * This class represents a User.
  */
-public class User {
+public class User implements Serializable {
     protected String name;
     protected String password;
     private final HashMap<String, Task> tasks;
