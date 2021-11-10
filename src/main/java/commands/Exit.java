@@ -3,7 +3,7 @@ package commands;
 /**
  * This class quits the program and save data.
  */
-public class Exit implements Executable{
+public class Exit implements Command {
 
     /**
      * This function executes the exit command: quit the program and save data.

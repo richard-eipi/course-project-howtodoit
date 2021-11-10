@@ -1,5 +1,8 @@
 package commands;
-public class ViewTasks implements Executable{
+
+import usecasesControllers.QueryController;
+
+public class ViewTasks implements Command {
 
     /**
      * This function executes the viewTasks command: show all upcoming tasks in all projects in chronological order
@@ -10,7 +13,8 @@ public class ViewTasks implements Executable{
      * @return a String indicating all tasks have been successfully displayed.
      */
     @Override
-    public String execute(String username, String[] args) {
-        return "";
+    public String execute(String username, String[] args) throws Exception{
+        if (args.length != 0) throw new Exception("Incorrect argument length!");
+        return QueryController.getInstance().viewTasks(username);
     }
 }

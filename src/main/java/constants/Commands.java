@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.TreeSet;
 
 /**
- * This class stores and initializes all Executable objects.
+ * This class stores and initializes all Command objects.
  */
 public class Commands {
-    public static final HashMap<String, Executable> COMMANDS = new HashMap<>();
+    public static final HashMap<String, Command> COMMANDS = new HashMap<>();
     public static final TreeSet<String> NON_MUTATING_COMMANDS= new TreeSet<>();
 
     /**

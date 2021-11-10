@@ -8,7 +8,7 @@ import java.time.LocalDate;
 /**
  * This class creates a new task.
  */
-public class NewTask implements Executable {
+public class NewTask implements Command {
 
     /**
      * This function executes the newTask command: create a new task called <task name> with due date <time> and add it
