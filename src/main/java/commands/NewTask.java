@@ -1,6 +1,5 @@
 package commands;
 
-import driver.DataSaver;
 import entities.Task;
 
 import java.text.SimpleDateFormat;
@@ -17,11 +16,12 @@ public class NewTask implements Executable {
      * A valid example of <time> would be “2021-1015”.
      * If the project is a team project, then this user must be an admin of the team; description is initially empty.
      *
+     * @param username current username
      * @param args a list of Strings with length 3, representing user arguments
      * @return a String indicating a new task has been added successfully
      */
     @Override
-    public String execute(DataSaver dataSaver, String[] args) throws Exception {
+    public String execute(String username, String[] args) throws Exception {
         TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
         checkArgs(todoSystem, args); // Check whether arguments are valid
 
