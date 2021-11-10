@@ -1,13 +1,16 @@
 package driver;
 
+import helpers.UseCaseControllerBuilder;
+
 /**
  * This is where our program will be run.
  */
 public class HowTodoit {
     public static void main(String[] args) {
         // Initialize DataManager and read data
-        DataManager dataManager = new DataManager();
-        dataManager.readData();
+        UseCaseControllerBuilder builder = new UseCaseControllerBuilder();
+        DataManager dataManager = new DataManager(builder);
+        System.out.println(dataManager.readData());
 
         // Set up initial Memento
 //        try {
@@ -20,6 +23,6 @@ public class HowTodoit {
         CLI.run();
 
         // Write data into local files and exit the system
-        dataManager.writeData();
+        System.out.println(dataManager.writeData());
     }
 }
