@@ -14,6 +14,13 @@ public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
         this.userList = userList;
     }
 
+    /**
+     * Lets the user log in.
+     * @param username user's username
+     * @param password user's password
+     * @return LoginResult indicating whether success, failure, or no such user
+     */
+    @Override
     public LoginResult login(String username, String password) {
         User user = this.userList.getUser(username);
         if (user == null) return LoginResult.NO_SUCH_USER;
@@ -21,6 +28,13 @@ public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
         return LoginResult.SUCCESS;
     }
 
+    /**
+     * Lets the user register for a new account.
+     * @param username user's username
+     * @param password user's password
+     * @return RegisterResult indicating whether success, failure, or no such user
+     */
+    @Override
     public RegisterResult register(String username, String password) {
         User user = this.userList.getUser(username);
         if (user != null) {
