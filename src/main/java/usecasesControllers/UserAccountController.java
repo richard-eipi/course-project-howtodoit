@@ -16,6 +16,13 @@ public class UserAccountController {
         this.inputBoundary = inputBoundary;
     }
 
+    /**
+     * Change username.
+     * @param username current username
+     * @param newName new username
+     * @return String indicating success
+     * @throws Exception failure to change username because new username already exists
+     */
     public String modUsn(String username, String newName) throws Exception {
         boolean result = this.inputBoundary.modUsn(username, newName);
         if (result) {
@@ -25,6 +32,14 @@ public class UserAccountController {
         }
     }
 
+    /**
+     * Change password.
+     * @param username current username
+     * @param pw1 current password
+     * @param pw2 new password
+     * @return String indicating success
+     * @throws Exception failure to change password because current password is incorrect
+     */
     public String modPwd(String username, String pw1, String pw2) throws Exception {
         boolean result = this.inputBoundary.modPwd(username, pw1, pw2);
         if (result) {
