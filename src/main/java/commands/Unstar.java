@@ -7,7 +7,12 @@ import entities.Task;
  * This class unstars a task.
  */
 public class Unstar implements Executable {
-
+    /**
+     * This function executes the unstar command: Add a task called <name> to Starred label
+     * The task must already exist in the system.
+     * @param args a String, representing user arguments
+     * @return a String indicating a task has been added to Starred label
+     */
     @Override
     public String execute(DataAccessor dataAccessor, String[] args) {
         TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities

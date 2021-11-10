@@ -7,11 +7,14 @@ import java.util.List;
 import java.util.HashMap;
 import helpers.ChronologicalSort;
 
-/**
- * This class lists all tasks contained in a project.
- */
-public class ViewProj implements Executable {
 
+public class ViewProj implements Executable {
+    /**
+     * This function executes the viewProj command: show all projects for the user.
+     *
+     * @param args a list of Strings with length 0, representing user arguments
+     * @return a String indicating the all peojects have been successfully displayed.
+     */
     @Override
     public String execute(DataAccessor dataAccessor, String[] args) {
         TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
