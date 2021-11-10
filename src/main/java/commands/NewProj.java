@@ -8,7 +8,7 @@ import driver.DataAccessor;
 public class NewProj implements Executable {
 
     /**
-     * This function executes the newproj command: create a new project with given params.
+     * This function executes the newProj command: create a new project with given params.
      * The project must not already exist in the system.
      *
      * @param args a list of Strings with length 1, representing user arguments

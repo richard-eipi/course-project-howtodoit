@@ -12,9 +12,10 @@ import java.time.LocalDate;
 public class NewTask implements Executable {
 
     /**
-     * This function executes the newtask command: create a new task with given params and add it to Inbox.
-     * The task must not already exist in the system.
-     * The due day should be after the current time and have length of 8, in the format of YYYY-MM-DD.
+     * This function executes the newTask command: create a new task called <task name> with due date <time> and add it
+     * to a project called <proj name>.
+     * A valid example of <time> would be “2021-1015”.
+     * If the project is a team project, then this user must be an admin of the team; description is initially empty.
      *
      * @param args a list of Strings with length 3, representing user arguments
      * @return a String indicating a new task has been added successfully
