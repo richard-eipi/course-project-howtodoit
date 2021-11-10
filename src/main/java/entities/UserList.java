@@ -1,7 +1,6 @@
-package todoSystem;
+package entities;
 
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * This class represents a UserList.
@@ -15,12 +14,8 @@ public class UserList {
         return instance;
     }
 
-    public HashMap<String, User> getUsers() {
-        return users;
-    }
-
     public User getUser(String name) {
-        return this.users.get(name);
+        return this.users.getOrDefault(name, null);
     }
 
     public void addUser(User user) {

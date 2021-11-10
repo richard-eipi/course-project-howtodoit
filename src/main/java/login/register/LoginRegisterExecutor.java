@@ -1,6 +1,4 @@
-package loginregister;
-
-import constants.Commands;
+package login.register;
 
 public class LoginRegisterExecutor {
     public String executeCommand(String userInput) throws Exception {
