@@ -1,12 +1,13 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  * This class represents a Team.
  * A team stores a collection of team members and team admins,
  */
-public class Team {
+public class Team implements Serializable {
 
     private String name;
     private final HashMap<String, User> members;
