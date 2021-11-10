@@ -1,4 +1,4 @@
-package todoSystem;
+package entities;
 
 import java.util.HashMap;
 
@@ -13,9 +13,6 @@ public class TeamList {
 
     public static TeamList getInstance() {
         return instance;
-    }
-    public HashMap<String, Team> getTeams() {
-        return this.teams;
     }
 
     public Team getTeam(String name) {

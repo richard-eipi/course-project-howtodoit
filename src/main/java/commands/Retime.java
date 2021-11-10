@@ -1,7 +1,7 @@
 package commands;
 
 import driver.DataAccessor;
-import todoSystem.Task;
+import entities.Task;
 
 /**
  * This class updates the due date of a task.

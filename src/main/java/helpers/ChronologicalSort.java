@@ -1,6 +1,6 @@
 package helpers;
 
-import todoSystem.Task;
+import entities.Task;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

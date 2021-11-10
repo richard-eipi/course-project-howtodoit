@@ -1,6 +1,7 @@
-package loginregister;
+package login.register;
 
-import java.security.AuthProvider;
+import entities.User;
+import entities.UserList;
 
 public class LoginRegister {
     private static final LoginRegister instance = new LoginRegister();
@@ -16,6 +17,11 @@ public class LoginRegister {
     }
 
     public void register(String username, String password) throws Exception {
-
+        User user = UserList.getInstance().getUser(username);
+        if (user != null) {
+            throw new Exception("User already exists!");
+        } else {
+            UserList.getInstance().addUser(new User(username, password));
+        }
     }
 }
