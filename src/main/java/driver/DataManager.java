@@ -1,6 +1,6 @@
 package driver;
 
-import entities.UserList;
+import usecasesControllers.UserList;
 import helpers.IUseCaseControllerBuilder;
 
 import java.io.*;
