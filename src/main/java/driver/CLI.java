@@ -1,7 +1,7 @@
 package driver;
 
 import commands.CommandExecutor;
-import login.register.LoginRegisterExecutor;
+import commands.LoginRegisterExecutor;
 import constants.Commands;
 
 import java.util.Scanner;

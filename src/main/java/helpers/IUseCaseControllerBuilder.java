@@ -1,6 +1,6 @@
 package helpers;
 
-import entities.UserList;
+import usecasesControllers.UserList;
 
 public interface IUseCaseControllerBuilder {
     void build(UserList userList);

@@ -1,4 +1,6 @@
-package entities;
+package usecasesControllers;
+
+import entities.User;
 
 import java.io.Serializable;
 import java.util.HashMap;
