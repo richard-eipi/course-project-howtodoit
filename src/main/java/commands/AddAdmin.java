@@ -1,8 +1,11 @@
 package commands;
+
+import usecasesControllers.TeamController;
+
 /**
  * This class adds a new admin to a team.
  */
-public class AddAdmin implements Executable {
+public class AddAdmin implements Command {
     /**
      * This function executes the addAdmin command: promote the user called <username> to an admin of the team
      * called <teamname>.
@@ -14,6 +17,8 @@ public class AddAdmin implements Executable {
      */
     @Override
     public String execute(String username, String[] args) throws Exception {
-        return "";
+        if (args.length != 2) throw new Exception("Incorrect argument length!");
+        return TeamController.getInstance().addAdmin(username, args[0], args[1]);
     }
+
 }

@@ -1,7 +1,7 @@
 package commands;
 
-import driver.DataSaver;
+public interface Command {
 
-public interface Executable {
     String execute(String username, String[] args) throws Exception;
+
 }

@@ -1,11 +1,10 @@
 package commands;
-
-import entities.Task;
+import usecasesControllers.TaskController;
 
 /**
  * This class updates the description of a task.
  */
-public class Redesc implements Executable {
+public class Redesc implements Command {
 
     /**
      * This function executes the redesc command: change the description of a task
@@ -16,17 +15,19 @@ public class Redesc implements Executable {
      * @return a String indicating a task's description has been updated
      */
     @Override
-    public String execute(String username, String[] args) {
-        TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
-        // checkArgs(todoSystem, args); // Check whether arguments are valid
-
-        // Map user arguments to task name and new description
-        String name = args[0];
-        String newdesc = args[1];
-        // Get task and change its description
-        Task task = todoSystem.getTasks().get(name);
-        task.setDescription(newdesc);
-
-        return "The description of task <" + name + "> has been updated successfully.";
+    public String execute(String username, String[] args) throws Exception{
+//        TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
+//        // checkArgs(todoSystem, args); // Check whether arguments are valid
+//
+//        // Map user arguments to task name and new description
+//        String name = args[0];
+//        String newdesc = args[1];
+//        // Get task and change its description
+//        Task task = todoSystem.getTasks().get(name);
+//        task.setDescription(newdesc);
+//
+//        return "The description of task <" + name + "> has been updated successfully.";
+        if (args.length != 2) throw new Exception("Incorrect argument length!");
+        return TaskController.getInstance().redesc(username,args[0], args[1]);
     }
 }
