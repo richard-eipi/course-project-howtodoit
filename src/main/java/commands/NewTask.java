@@ -1,6 +1,6 @@
 package commands;
 
-import driver.DataAccessor;
+import driver.DataSaver;
 import entities.Task;
 
 import java.text.SimpleDateFormat;
@@ -21,8 +21,8 @@ public class NewTask implements Executable {
      * @return a String indicating a new task has been added successfully
      */
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) throws Exception {
-        TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
+    public String execute(DataSaver dataSaver, String[] args) throws Exception {
+        TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
         checkArgs(todoSystem, args); // Check whether arguments are valid
 
         // Map user arguments to name, dueDate, description

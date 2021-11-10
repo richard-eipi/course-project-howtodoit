@@ -1,6 +1,6 @@
 package commands;
 
-import driver.DataAccessor;
+import driver.DataSaver;
 
 public class ViewTasksInProj implements Executable{
 
@@ -11,7 +11,7 @@ public class ViewTasksInProj implements Executable{
      * @return a String indicating all tasks have been successfully displayed.
      */
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) {
+    public String execute(DataSaver dataSaver, String[] args) {
         return "";
     }
 }

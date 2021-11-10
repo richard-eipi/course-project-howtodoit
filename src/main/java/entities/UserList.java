@@ -8,12 +8,7 @@ import java.util.HashMap;
  * A UserList stores a collection of Users,
  */
 public class UserList implements Serializable {
-    private static final UserList instance = new UserList();
     private HashMap<String, User> users;
-
-    public static UserList getInstance() {
-        return instance;
-    }
 
     public User getUser(String name) {
         return this.users.getOrDefault(name, null);

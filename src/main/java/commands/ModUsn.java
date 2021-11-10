@@ -1,5 +1,5 @@
 package commands;
-import driver.DataAccessor;
+import driver.DataSaver;
 public class ModUsn implements Executable{
     /**
      * This function executes the modUsn command: modify the username from its current name to <name>.
@@ -8,7 +8,7 @@ public class ModUsn implements Executable{
      * @return a String indicating a username has been changed.
      */
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args){
+    public String execute(DataSaver dataSaver, String[] args){
         return "";
     }
 }

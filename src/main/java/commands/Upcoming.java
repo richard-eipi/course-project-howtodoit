@@ -1,6 +1,6 @@
 package commands;
 
-import driver.DataAccessor;
+import driver.DataSaver;
 import entities.Task;
 import helpers.ChronologicalSort;
 
@@ -20,8 +20,8 @@ public class Upcoming implements Executable {
      */
 
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) {
-        TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
+    public String execute(DataSaver dataSaver, String[] args) {
+        TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
 
         HashMap<String, Task> tasks = todoSystem.getTasks(); // Get all tasks
         List<Task> sortedTasks = ChronologicalSort.tasks_in_ch_order(tasks); // Sort them

@@ -1,6 +1,6 @@
 package commands;
 
-import driver.DataAccessor;
+import driver.DataSaver;
 /**
  * This class modifies a team
  */
@@ -13,7 +13,7 @@ public class ModTeam implements Executable {
      * @return a String indicating a new team has been renamed successfully
      */
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) throws Exception {
+    public String execute(DataSaver dataSaver, String[] args) throws Exception {
         return "";
     }
 

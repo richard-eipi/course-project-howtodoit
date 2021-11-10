@@ -1,6 +1,6 @@
 package commands;
 
-import driver.DataAccessor;
+import driver.DataSaver;
 
 import java.util.HashMap;
 
@@ -18,8 +18,8 @@ public class DelProj implements Executable {
      * @return a String indicating a  project has been deleted successfully
      */
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) {
-        TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
+    public String execute(DataSaver dataSaver, String[] args) {
+        TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
         // checkArgs(todoSystem, args); // Check whether arguments are valid
 
         // Map user arguments to project name

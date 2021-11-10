@@ -1,5 +1,5 @@
 package commands;
-import driver.DataAccessor;
+import driver.DataSaver;
 /**
  * This class adds a new admin to a team
  */
@@ -13,7 +13,7 @@ public class AddAdmin implements Executable {
      * @return a String indicating a new admin has been added successfully
      */
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) throws Exception {
+    public String execute(DataSaver dataSaver, String[] args) throws Exception {
         return "";
     }
 }

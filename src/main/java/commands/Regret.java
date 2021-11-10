@@ -1,6 +1,6 @@
 package commands;
 
-import driver.DataAccessor;
+import driver.DataSaver;
 import helpers.Memento;
 
 /**
@@ -12,14 +12,14 @@ public class Regret implements Executable {
     /**
      * This function executes the regret command: either undo an action or redo an action depending on user argument.
      *
-     * @param dataAccessor gives us TodoSystem
+     * @param dataSaver gives us TodoSystem
      * @param args a list of Strings with length 1, representing user arguments
      * @return a String indicating action has been undone/redone successfully
      * @throws Exception not allowed to undo/redo anymore
      */
     @Override
-    public String execute(DataAccessor dataAccessor, String[] args) throws Exception {
-        TodoSystem todoSystem = dataAccessor.getSystem(); // Get access to entities
+    public String execute(DataSaver dataSaver, String[] args) throws Exception {
+        TodoSystem todoSystem = dataSaver.getSystem(); // Get access to entities
         // checkArgs(args); // Check whether arguments are valid
 
         if (args[0].equals("undo")) {
