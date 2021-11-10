@@ -1,4 +1,4 @@
-package todoSystem;
+package entities;
 
 import java.util.HashMap;
 
@@ -9,8 +9,8 @@ import java.util.HashMap;
 public class Team {
 
     private String name;
-    private HashMap<String, User> members;
-    private HashMap<String, User> admin;
+    private final HashMap<String, User> members;
+    private final HashMap<String, User> admins;
 
     /**
      * @param name name of the team
@@ -18,7 +18,7 @@ public class Team {
     public Team(String name) {
         this.name = name;
         this.members = new HashMap<>();
-        this.admin = new HashMap<>();
+        this.admins = new HashMap<>();
     }
     public String getName() {
         return this.name;
@@ -29,14 +29,10 @@ public class Team {
     }
 
     public HashMap<String, User> getMembers() {
-        return members;
-    }
-
-    public HashMap<String, User> getAdmin() {
-        return admin;
+        return this.members;
     }
 
     public boolean isAdmin(String name) {
-        return this.admin.containsKey(name);
+        return this.admins.containsKey(name);
     }
 }

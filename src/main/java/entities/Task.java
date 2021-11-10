@@ -1,7 +1,6 @@
-package todoSystem;
+package entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * This class represents a task, which has name, due date, description, project, and labels.
@@ -11,14 +10,13 @@ public class Task implements Serializable {
     private String dueDate;
     private String description;
     private Project project;
-    private boolean isStarred = false;
+    private boolean isStarred;
 
-    public Task(String name, String dueDate, String description, Project project) {
+    public Task(String name, String dueDate, Project project) {
         this.name = name;
         this.dueDate = dueDate;
-        this.description = description;
         this.project = project;
-        this.isStarred = false;
+        this.description = "";
     }
 
     public String getName() {
@@ -27,6 +25,10 @@ public class Task implements Serializable {
 
     public String getDueDate() {
         return this.dueDate;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public Project getProject() {

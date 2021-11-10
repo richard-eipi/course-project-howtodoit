@@ -1,4 +1,4 @@
-package todoSystem;
+package entities;
 import java.util.HashMap;
 /**
  * This class represents a User.
@@ -6,9 +6,9 @@ import java.util.HashMap;
 public class User {
     protected String name;
     protected String password;
-    private HashMap<String, Task> task;
-    private HashMap<String, Project> project;
-    private HashMap<String, Team> team;
+    private final HashMap<String, Task> tasks;
+    private final HashMap<String, Project> projects;
+    private final HashMap<String, Team> teams;
 
     /**
      * Constructor for user with given name and password.
@@ -19,9 +19,9 @@ public class User {
     public User(String name, String password) {
         this.name = name;
         this.password = password;
-        this.task = new HashMap<>();
-        this.project = new HashMap<>();
-        this.team = new HashMap<>();
+        this.tasks = new HashMap<>();
+        this.projects = new HashMap<>();
+        this.teams = new HashMap<>();
     }
 
     public String getName() {
@@ -40,15 +40,15 @@ public class User {
         return this.password.equals(password);
     }
 
-    public HashMap<String, Project> getProject() {
-        return project;
+    public HashMap<String, Project> getProjects() {
+        return this.projects;
     }
 
-    public HashMap<String, Team> getTeam() {
-        return team;
+    public HashMap<String, Team> getTeams() {
+        return this.teams;
     }
 
-    public HashMap<String, Task> getTask() {
-        return task;
+    public HashMap<String, Task> getTasks() {
+        return this.tasks;
     }
 }
