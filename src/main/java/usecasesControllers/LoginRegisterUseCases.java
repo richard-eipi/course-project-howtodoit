@@ -2,6 +2,9 @@ package usecasesControllers;
 
 import entities.User;
 
+/**
+ * This class deals with login and register use cases.
+ */
 public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
     private final UserList userList;
     public enum LoginResult {SUCCESS, FAILURE, NO_SUCH_USER}
