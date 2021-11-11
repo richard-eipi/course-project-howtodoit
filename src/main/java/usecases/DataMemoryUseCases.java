@@ -2,6 +2,7 @@ package usecases;
 
 import database.DataSaver;
 import entities.Memento;
+import entities.User;
 
 public class DataMemoryUseCases implements DataMemoryInputBoundary {
     private final UserList userList;
@@ -14,6 +15,20 @@ public class DataMemoryUseCases implements DataMemoryInputBoundary {
 
     public void setDataSaver(DataSaver dataSaver) {
         this.dataSaver = dataSaver;
+    }
+
+    /**
+     * Sets the memento, liking taking a timestamp on current system.
+     */
+    public void setMemento(String username) {
+        User user = this.userList.getUser(username);
+        if (this.currentMemento == null) {
+            this.currentMemento = user.createMemento();
+        } else {
+            this.currentMemento.next = user.createMemento();
+            this.currentMemento.next.prev = this.currentMemento;
+            this.currentMemento = this.currentMemento.next;
+        }
     }
 
     /**
@@ -35,7 +50,7 @@ public class DataMemoryUseCases implements DataMemoryInputBoundary {
             return false;
         } else {
             this.currentMemento = prevMemento;
-            this.userList.restore(prevMemento);
+            this.userList.getUser(username).restore(prevMemento);
             return true;
         }
     }
@@ -51,21 +66,8 @@ public class DataMemoryUseCases implements DataMemoryInputBoundary {
             return false;
         } else {
             this.currentMemento = nextMemento;
-            this.userList.restore(nextMemento);
+            this.userList.getUser(username).restore(nextMemento);
             return true;
-        }
-    }
-
-    /**
-     * Sets the memento, liking taking a timestamp on current system.
-     */
-    private void setMemento() {
-        if (this.currentMemento == null) {
-            this.currentMemento = this.userList.createMemento();
-        } else {
-            this.currentMemento.next = this.userList.createMemento();
-            this.currentMemento.next.prev = this.currentMemento;
-            this.currentMemento = this.currentMemento.next;
         }
     }
 }
