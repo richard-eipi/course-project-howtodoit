@@ -2,6 +2,7 @@ package entities;
 
 import usecases.UserList;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,19 +14,15 @@ public class Memento {
     public Memento prev;
     public Memento next;
 
-    // The state of the current user.
-    private User userCopy;
+    // The current state of the system.
+    private ArrayList<User> userListCopy;
 
-    /**
-     * Saves the current state of the user.
-     * @param user current user
-     */
-    public void setState(User user) {
-        this.userCopy = user.copy();
+    public void setState(UserList userList) {
+        this.userListCopy = userList.copy();
     }
 
-    public User getState() {
-        return this.userCopy;
+    public ArrayList<User> getState() {
+        return this.userListCopy;
     }
 
 }

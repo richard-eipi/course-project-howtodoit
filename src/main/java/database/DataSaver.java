@@ -1,8 +1,12 @@
 package database;
 
 /**
- * This interface provides access to our main entity TodoSystem.
+ * This interface saves data into local system.
  */
 public interface DataSaver {
+    /**
+     * Saves data into local system.
+     * @return String indicating success or failure
+     */
     String writeData();
 }
