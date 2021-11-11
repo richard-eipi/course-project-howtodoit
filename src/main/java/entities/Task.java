@@ -36,7 +36,7 @@ public class Task implements Serializable, Comparable<Task> {
         return project;
     }
 
-    public boolean getStarred() {
+    public boolean getIsStarred() {
         return this.isStarred;
     }
 
