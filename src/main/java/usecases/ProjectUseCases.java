@@ -39,6 +39,8 @@ public class ProjectUseCases implements ProjectInputBoundary {
         User user = this.userList.getUser(username);
         if (projName.equals("General") || projName.equals("Assigned to me")) {
             return false; // you cannot delete them
+        } else if (!user.hasProject(projName)) {
+            return false; // project doesn't exist
         } else {
             Project project = user.getProject(projName);
             emptyTasks(user, project);
@@ -48,7 +50,6 @@ public class ProjectUseCases implements ProjectInputBoundary {
     }
 
     private void emptyTasks(User user, Project project) {
-        if (project == null) return;
         for (Task task : project) {
             user.delTask(task);
         }

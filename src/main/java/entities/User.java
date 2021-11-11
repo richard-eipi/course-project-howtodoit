@@ -1,14 +1,13 @@
 package entities;
-import helpers.SortTasksChronologically;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * This class represents a User.
  */
-public class User implements Serializable {
+public class User implements Serializable, Comparable<User> {
     protected String name;
     protected String password;
     private final HashMap<String, Task> tasks;
@@ -88,8 +87,10 @@ public class User implements Serializable {
     }
 
     public String getProjects() {
+        Project[] projects = this.projects.values().toArray(new Project[0]);
+        Arrays.sort(projects); // Sort them
         StringBuilder output = new StringBuilder("You have the following projects:\n");
-        for (Project project: this.projects.values()) {
+        for (Project project: projects) {
             output.append(project.getName()).append('\n'); // Each line will be a task
         }
 
@@ -97,8 +98,10 @@ public class User implements Serializable {
     }
 
     public String getTeams() {
+        Team[] teams = this.teams.values().toArray(new Team[0]);
+        Arrays.sort(teams); // Sort them
         StringBuilder output = new StringBuilder("You are in the following teams:\n");
-        for (Team team: this.teams.values()) {
+        for (Team team: teams) {
             output.append(team.getName()).append('\n'); // Each line will be a team
         }
 
@@ -106,12 +109,18 @@ public class User implements Serializable {
     }
 
     public String getTasks() {
-        List<Task> sortedTasks = SortTasksChronologically.sortTasks(this.tasks); // Sort them
+        Task[] tasks = this.tasks.values().toArray(new Task[0]);
+        Arrays.sort(tasks); // Sort them
         StringBuilder output = new StringBuilder("You have the following upcoming tasks:\n");
-        for (Task task: sortedTasks) {
+        for (Task task: tasks) {
             output.append(task.toString()).append('\n'); // Each line will be a project
         }
 
         return output.toString();
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return this.name.compareToIgnoreCase(o.getName());
     }
 }
