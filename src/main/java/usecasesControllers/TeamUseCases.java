@@ -9,6 +9,7 @@ public class TeamUseCases implements TeamInputBoundary {
 
     /**
      * Create a new team.
+     *
      * @param username current username
      * @param teamName name of the team you want to create
      * @return boolean indicating whether success or failure
@@ -20,6 +21,7 @@ public class TeamUseCases implements TeamInputBoundary {
 
     /**
      * Delete a team.
+     *
      * @param username current username
      * @param teamName name of the team you want to delete
      * @return boolean indicating whether success or failure
@@ -31,9 +33,10 @@ public class TeamUseCases implements TeamInputBoundary {
 
     /**
      * Change the name of a team.
+     *
      * @param username current username
-     * @param name1 name of the team you want to change
-     * @param name2 the new name
+     * @param name1    name of the team you want to change
+     * @param name2    the new name
      * @return boolean indicating whether success or failure
      */
     @Override
@@ -43,9 +46,10 @@ public class TeamUseCases implements TeamInputBoundary {
 
     /**
      * Add a member to a team.
+     *
      * @param username current username
      * @param teamName name of the team you want to add a member to
-     * @param memName name of the member you want to add to the team
+     * @param memName  name of the member you want to add to the team
      * @return boolean indicating whether success or failure
      */
     @Override
@@ -54,22 +58,23 @@ public class TeamUseCases implements TeamInputBoundary {
     }
 
     /**
-     * Delete a member from a team.
+     * Leave a team.
+     *
      * @param username current username
-     * @param teamName name of the team you want to delete a member from
-     * @param memName name of the member you want to delete from the team
+     * @param teamName name of the team you want to leave
      * @return boolean indicating whether success or failure
      */
     @Override
-    public boolean delMem(String username, String teamName, String memName) {
+    public boolean leaveTeam(String username, String teamName) {
         return false;
     }
 
     /**
      * Promote a member to admin.
+     *
      * @param username current username
      * @param teamName name of the team
-     * @param memName name of the member you want to promote
+     * @param memName  name of the member you want to promote
      * @return boolean indicating whether success or failure
      */
     @Override
