@@ -42,7 +42,6 @@ public class Commands {
         COMMANDS.put("retime", new Retime());
         COMMANDS.put("assignTask", new AssignTask());
 
-        COMMANDS.put("save", new Save());
         COMMANDS.put("undo", new Undo());
         COMMANDS.put("redo", new Redo());
     }
