@@ -1,4 +1,4 @@
-package commands;
+package driver.commands;
 
 import controllers.QueryController;
 

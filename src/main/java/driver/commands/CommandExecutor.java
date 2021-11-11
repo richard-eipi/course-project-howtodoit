@@ -1,11 +1,11 @@
-package commands;
+package driver.commands;
 
 import constants.Commands;
 
 import java.util.*;
 
 /**
- * This class executes commands after the user has logged in.
+ * This class executes driver.commands after the user has logged in.
  */
 public class CommandExecutor {
     /**

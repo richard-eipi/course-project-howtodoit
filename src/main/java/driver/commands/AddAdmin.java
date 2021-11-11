@@ -8,7 +8,7 @@ import controllers.TeamController;
 public class AddAdmin implements Command {
     /**
      * This function executes the addAdmin command: promote the user called <username> to an admin of the team
-A     * called <team name>.
+     * called <teamname>.
      * Only admins of the team can perform this action.
      *
      * @param username current username
