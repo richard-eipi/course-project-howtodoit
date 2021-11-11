@@ -11,10 +11,10 @@ import static constants.FilePaths.systemFilePath;
  */
 public class DataManager implements DataSaver {
     private UserList userlist;
-    private final IUseCaseControllerBuilder builder;
+    private final IUseCaseControllerBuilder useCaseControllerBuilder;
 
     public DataManager(IUseCaseControllerBuilder builder){
-        this.builder = builder;
+        this.useCaseControllerBuilder = builder;
     }
 
     /**
@@ -25,7 +25,8 @@ public class DataManager implements DataSaver {
             FileInputStream fileIn = new FileInputStream(systemFilePath);
             ObjectInputStream in = new ObjectInputStream(fileIn);
             this.userlist = (UserList) in.readObject();
-            this.builder.build(this.userlist); // Let the builder build use cases and controllers
+            // let the builder build use cases and controllers
+            this.useCaseControllerBuilder.buildUseCaseController(this.userlist, this);
             in.close();
             fileIn.close();
             return "Data has been loaded successfully.";
@@ -49,7 +50,7 @@ public class DataManager implements DataSaver {
             fileOut.close();
             return "Data has been saved successfully.";
         } catch (IOException i) {
-            i.printStackTrace();
+            return "Data has not been saved successfully. Sorry, your data is lost.";
         }
     }
 }

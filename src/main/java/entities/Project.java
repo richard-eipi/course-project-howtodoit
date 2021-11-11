@@ -1,17 +1,13 @@
 package entities;
 
-import helpers.SortTasksChronologically;
-
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * This class represents a project.
  * A project stores a collection of tasks, but those tasks must be in exactly one project.
  */
-public class Project implements Serializable, Iterable<Task> {
+public class Project implements Serializable, Iterable<Task>, Comparable<Project> {
 
     private String name;
     private final HashMap<String, Task> tasks = new HashMap<>();
@@ -48,9 +44,10 @@ public class Project implements Serializable, Iterable<Task> {
 
     @Override
     public String toString() {
-        List<Task> sortedTasks = SortTasksChronologically.sortTasks(this.tasks); // Sort them
+        Task[] tasks = this.tasks.values().toArray(new Task[0]);
+        Arrays.sort(tasks); // Sort them
         StringBuilder output = new StringBuilder("This project <" + this.name + "> contains the following tasks:\n");
-        for (Task task: sortedTasks) {
+        for (Task task: tasks) {
             output.append(task.toString()).append('\n'); // Each line will be a task
         }
 
@@ -60,5 +57,10 @@ public class Project implements Serializable, Iterable<Task> {
     @Override
     public Iterator<Task> iterator() {
         return this.tasks.values().iterator();
+    }
+
+    @Override
+    public int compareTo(Project o) {
+        return this.name.compareToIgnoreCase(o.getName());
     }
 }
