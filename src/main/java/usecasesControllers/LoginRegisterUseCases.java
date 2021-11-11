@@ -24,8 +24,12 @@ public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
     public LoginResult login(String username, String password) {
         User user = this.userList.getUser(username);
         if (user == null) return LoginResult.NO_SUCH_USER;
-        if (!user.passwordMatches(password)) return LoginResult.FAILURE;
-        return LoginResult.SUCCESS;
+        if (user.passwordMatches(password)) {
+            return LoginResult.SUCCESS;
+        } else {
+            return LoginResult.FAILURE;
+        }
+
     }
 
     /**
