@@ -36,12 +36,14 @@ public class Team implements Serializable {
         return this.admins.containsKey(name);
     }
 
-    public boolean addMem(User user) {
-        return this.members.putIfAbsent(user.getName(), user) == null;
+    public User getMem(String name) { return this.members.getOrDefault(name, null); }
+
+    public void addMem(User user) {
+        this.members.putIfAbsent(user.getName(), user);
     }
 
-    public boolean addAdmin(User user) {
-        return this.admins.putIfAbsent(user.getName(), user) == null;
+    public void addAdmin(User user) {
+        this.admins.putIfAbsent(user.getName(), user);
     }
 
     public void delMem(User user) {

@@ -10,19 +10,11 @@ public class Project implements Serializable {
 
     private String name;
     private final HashMap<String, Task> tasks = new HashMap<>();
-    private Team team;
 
     /**
-     * Create a team project with project name and team.
+     * Create a personal project with given name
+     * @param name project name
      */
-    public Project(String name, Team team) {
-        this.name = name;
-        this.team = team;
-    }
-
-    /**
-    * Create a personal project with name only
-    */
     public Project(String name) {
         this.name = name;
     }
@@ -35,19 +27,17 @@ public class Project implements Serializable {
         this.name = name;
     }
 
+    public boolean hasTask(String name) { return this.tasks.containsKey(name); }
+
     public Task getTask(String name) {
         return this.tasks.getOrDefault(name, null);
     }
 
-    public boolean addTask(Task task) {
-        return this.tasks.putIfAbsent(task.getName(), task) == null;
+    public void addTask(Task task) {
+        this.tasks.putIfAbsent(task.getName(), task);
     }
 
     public void delTask(Task task) {
         this.tasks.remove(task.getName());
-    }
-
-    public Team getTeam() {
-        return this.team;
     }
 }

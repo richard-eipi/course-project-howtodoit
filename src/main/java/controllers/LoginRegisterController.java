@@ -1,4 +1,7 @@
-package usecasesControllers;
+package controllers;
+
+import usecases.LoginRegisterInputBoundary;
+import usecases.LoginRegisterUseCases;
 
 public class LoginRegisterController {
     private static final LoginRegisterController instance = new LoginRegisterController();

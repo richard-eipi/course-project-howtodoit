@@ -1,6 +1,7 @@
 package helpers;
 
-import usecasesControllers.*;
+import controllers.*;
+import usecases.*;
 
 public class UseCaseControllerBuilder implements IUseCaseControllerBuilder {
     @Override

@@ -1,12 +1,21 @@
-package usecasesControllers;
+package usecases;
 
-public interface QueryInputBoundary {
+public class QueryUseCases implements QueryInputBoundary {
+    private final UserList userList;
+
+    public QueryUseCases(UserList userList) {
+        this.userList = userList;
+    }
+
     /**
      * Show all teams that the user is in.
      * @param username current username
      * @return String showing all teams that the user is in
      */
-    String viewTeams(String username);
+    @Override
+    public String viewTeams(String username) {
+        return null;
+    }
 
     /**
      * Show all members in a team.
@@ -14,21 +23,30 @@ public interface QueryInputBoundary {
      * @param teamName name of the team
      * @return String showing all members in a team
      */
-    String viewMemsIn(String username, String teamName);
+    @Override
+    public String viewMemsIn(String username, String teamName) {
+        return null;
+    }
 
     /**
      * Show all projects for the user.
      * @param username current username
      * @return String showing all projects for the user
      */
-    String viewProjs(String username);
+    @Override
+    public String viewProjs(String username) {
+        return null;
+    }
 
     /**
      * Show all tasks for the user.
      * @param username current username
      * @return String showing all tasks for the user
      */
-    String viewTasks(String username);
+    @Override
+    public String viewTasks(String username) {
+        return null;
+    }
 
     /**
      * Show all tasks in a project.
@@ -36,5 +54,8 @@ public interface QueryInputBoundary {
      * @param projName name of the project
      * @return String showing all tasks in a project
      */
-    String viewTasksInProj(String username, String projName);
+    @Override
+    public String viewTasksInProj(String username, String projName) {
+        return null;
+    }
 }

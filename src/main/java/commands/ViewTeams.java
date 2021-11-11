@@ -1,6 +1,6 @@
 package commands;
 
-import usecasesControllers.QueryController;
+import controllers.QueryController;
 
 /**
  * This class show all teams that the user is in

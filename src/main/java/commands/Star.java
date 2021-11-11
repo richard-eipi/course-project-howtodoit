@@ -1,6 +1,5 @@
 package commands;
-import entities.Task;
-import usecasesControllers.TaskController;
+import controllers.TaskController;
 
 /**
  * This class stars a task.

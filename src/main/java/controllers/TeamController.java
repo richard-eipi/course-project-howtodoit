@@ -1,4 +1,6 @@
-package usecasesControllers;
+package controllers;
+
+import usecases.TeamInputBoundary;
 
 public class TeamController {
     private static final TeamController instance = new TeamController();

@@ -1,10 +1,6 @@
 package commands;
-import entities.Task;
 
-import java.util.List;
-import java.util.HashMap;
-import helpers.ChronologicalSort;
-import usecasesControllers.QueryController;
+import controllers.QueryController;
 
 
 public class ViewProj implements Command {

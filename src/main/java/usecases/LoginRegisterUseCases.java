@@ -1,5 +1,6 @@
-package usecasesControllers;
+package usecases;
 
+import entities.Project;
 import entities.User;
 
 /**
@@ -36,15 +37,17 @@ public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
      * Lets the user register for a new account.
      * @param username user's username
      * @param password user's password
-     * @return RegisterResult indicating whether success, failure, or no such user
+     * @return RegisterResult indicating whether success or failure
      */
     @Override
     public RegisterResult register(String username, String password) {
-        User user = this.userList.getUser(username);
-        if (user != null) {
-            return RegisterResult.FAILURE;
+        if (this.userList.getUser(username) != null) {
+            return RegisterResult.FAILURE; // user already exists
         } else {
-            userList.addUser(new User(username, password));
+            User user = new User(username, password);
+            user.addProject(new Project("General"));
+            user.addProject(new Project("Assigned to me"));
+            userList.addUser(user);
             return RegisterResult.SUCCESS;
         }
     }

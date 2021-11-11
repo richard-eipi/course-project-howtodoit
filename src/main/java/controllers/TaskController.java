@@ -1,4 +1,6 @@
-package usecasesControllers;
+package controllers;
+
+import usecases.TaskInputBoundary;
 
 public class TaskController {
     private static final TaskController instance = new TaskController();
