@@ -1,5 +1,8 @@
 package usecasesControllers;
 
+import entities.Team;
+import entities.User;
+
 public class TeamUseCases implements TeamInputBoundary {
     private final UserList userList;
 
@@ -16,7 +19,11 @@ public class TeamUseCases implements TeamInputBoundary {
      */
     @Override
     public boolean newTeam(String username, String teamName) {
-        return false;
+        User user = this.userList.getUser(username);
+        Team team = new Team(teamName);
+        team.addMem(user);
+        team.addAdmin(user);
+        return user.addTeam(team);
     }
 
     /**
@@ -28,7 +35,14 @@ public class TeamUseCases implements TeamInputBoundary {
      */
     @Override
     public boolean delTeam(String username, String teamName) {
-        return false;
+        Team team = this.userList.getUser(username).getTeam(teamName);
+        
+        if (!team.isAdmin(username)) return false;
+
+        for (User member : team) {
+            member.delTeam(team);
+        }
+        return true;
     }
 
     /**
