@@ -1,6 +1,6 @@
 package commands;
 
-import usecasesControllers.UserAccountController;
+import controllers.UserAccountController;
 
 /**
  * This class modifies a password.

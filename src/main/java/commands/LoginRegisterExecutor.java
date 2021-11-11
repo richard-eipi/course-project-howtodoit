@@ -1,7 +1,6 @@
 package commands;
 
-import usecasesControllers.LoginRegisterController;
-import usecasesControllers.LoginRegisterUseCases;
+import controllers.LoginRegisterController;
 
 public class LoginRegisterExecutor {
     public String executeCommand(String userInput) throws Exception {

@@ -1,7 +1,7 @@
 package controllers;
 
-import constants.Enums;
 import usecases.LoginRegisterInputBoundary;
+import usecases.LoginRegisterUseCases;
 
 public class LoginRegisterController {
     private static final LoginRegisterController instance = new LoginRegisterController();
@@ -26,9 +26,9 @@ public class LoginRegisterController {
      * @throws Exception fail to log in because user doesn't exist or password is incorrect
      */
     public void login(String username, String password) throws Exception {
-        Enums.LoginResult loginResult = this.inputBoundary.login(username, password);
-        if (loginResult == Enums.LoginResult.NO_SUCH_USER) throw new Exception("No such user!");
-        if (loginResult == Enums.LoginResult.FAILURE) throw new Exception("Password incorrect!");
+        LoginRegisterUseCases.LoginResult loginResult = this.inputBoundary.login(username, password);
+        if (loginResult == LoginRegisterUseCases.LoginResult.NO_SUCH_USER) throw new Exception("No such user!");
+        if (loginResult == LoginRegisterUseCases.LoginResult.FAILURE) throw new Exception("Password incorrect!");
     }
 
     /**
@@ -38,7 +38,7 @@ public class LoginRegisterController {
      * @throws Exception fail to register because duplicate user exists
      */
     public void register(String username, String password) throws Exception {
-        Enums.RegisterResult registerResult = this.inputBoundary.register(username, password);
-        if (registerResult == Enums.RegisterResult.FAILURE) throw new Exception("User already exists!");
+        LoginRegisterUseCases.RegisterResult registerResult = this.inputBoundary.register(username, password);
+        if (registerResult == LoginRegisterUseCases.RegisterResult.FAILURE) throw new Exception("User already exists!");
     }
 }

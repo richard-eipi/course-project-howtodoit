@@ -33,8 +33,8 @@ public class QueryController {
      * @param teamName name of the team
      * @return String showing all members in a team
      */
-    public String viewMemsInTeam(String username, String teamName) {
-        return this.inputBoundary.viewMemsInTeam(username, teamName);
+    public String viewMemsIn(String username, String teamName) {
+        return this.inputBoundary.viewMemsIn(username, teamName);
     }
 
     /**

@@ -5,9 +5,6 @@ import entities.Task;
 import entities.Team;
 import entities.User;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-
 public class TaskUseCases implements TaskInputBoundary {
     private final UserList userList;
 
@@ -29,31 +26,14 @@ public class TaskUseCases implements TaskInputBoundary {
         User user = this.userList.getUser(username);
         if (user.hasTask(taskName)) {
             return false; // task already exists
-        } else if (!checkDueDateFormat(dueDate)) {
-            return false; // wrong due date format
-        } else if (LocalDate.parse(dueDate).isBefore(LocalDate.now())) {
-            return false; // overdue task
         } else {
             Project project = user.getProject(projName);
-            if (project == null) project = user.getProject("General"); // for non-existent project name
+            if (project == null) project = user.getProject("General"); // for wrong or non-existent project name
             Task task = new Task(taskName, dueDate, project);
             user.addTask(task);
             task.getProject().addTask(task);
             return true;
         }
-    }
-
-    private boolean checkDueDateFormat(String s) {
-        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            // If we want the format of string to be formal, use false. Otherwise, use true.
-            sd.setLenient(true);
-            sd.parse(s);
-        }
-        catch (Exception e) {
-            return false;
-        }
-        return true;
     }
 
 

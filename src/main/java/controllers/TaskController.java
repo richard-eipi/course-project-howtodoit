@@ -30,7 +30,6 @@ public class TaskController {
     public String newTask(String username, String taskName, String dueDate, String projName) throws Exception {
         boolean result = this.inputBoundary.newTask(username, taskName, dueDate, projName);
         if (result) {
-            DataMemoryController.getInstance().setTimeStamp();
             return "New task created successfully.";
         } else {
             throw new Exception("Failure to create a new task.");
@@ -47,7 +46,6 @@ public class TaskController {
     public String completeTask(String username, String taskName) throws Exception {
         boolean result = this.inputBoundary.completeTask(username, taskName);
         if (result) {
-            DataMemoryController.getInstance().setTimeStamp();
             return "Task deleted successfully.";
         } else {
             throw new Exception("Failure to delete task.");
@@ -64,7 +62,6 @@ public class TaskController {
     public String star(String username, String taskName) throws Exception {
         boolean result = this.inputBoundary.star(username, taskName);
         if (result) {
-            DataMemoryController.getInstance().setTimeStamp();
             return "Task starred successfully.";
         } else {
             throw new Exception("Failure to star task.");
@@ -81,7 +78,6 @@ public class TaskController {
     public String unstar(String username, String taskName) throws Exception {
         boolean result = this.inputBoundary.unstar(username, taskName);
         if (result) {
-            DataMemoryController.getInstance().setTimeStamp();
             return "Task unstarred successfully.";
         } else {
             throw new Exception("Failure to unstar task.");
@@ -99,7 +95,6 @@ public class TaskController {
     public String rename(String username, String name1, String name2) throws Exception {
         boolean result = this.inputBoundary.rename(username, name1, name2);
         if (result) {
-            DataMemoryController.getInstance().setTimeStamp();
             return "Task renamed successfully.";
         } else {
             throw new Exception("Failure to rename task.");
@@ -117,7 +112,6 @@ public class TaskController {
     public String retime(String username, String taskName, String dueDate) throws Exception {
         boolean result = this.inputBoundary.retime(username, taskName, dueDate);
         if (result) {
-            DataMemoryController.getInstance().setTimeStamp();
             return "Task due date changed successfully.";
         } else {
             throw new Exception("Failure to change the due date of this task.");
@@ -135,7 +129,6 @@ public class TaskController {
     public String redesc(String username, String taskName, String desc) throws Exception {
         boolean result = this.inputBoundary.redesc(username, taskName, desc);
         if (result) {
-            DataMemoryController.getInstance().setTimeStamp();
             return "Task description changed successfully.";
         } else {
             throw new Exception("Failure to change the description of this task.");
@@ -155,7 +148,6 @@ public class TaskController {
     public String assignTask(String username1, String teamName, String username2, String taskName, String dueDate) throws Exception {
         boolean result = this.inputBoundary.assignTask(username1, teamName, username2, taskName, dueDate);
         if (result) {
-            DataMemoryController.getInstance().setTimeStamp();
             return "New task assigned to teammate successfully.";
         } else {
             throw new Exception("Failure to assign task.");

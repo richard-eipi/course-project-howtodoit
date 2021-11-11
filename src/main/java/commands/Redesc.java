@@ -1,5 +1,5 @@
 package commands;
-import usecasesControllers.TaskController;
+import controllers.TaskController;
 
 /**
  * This class updates the description of a task.

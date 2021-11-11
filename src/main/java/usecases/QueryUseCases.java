@@ -1,9 +1,5 @@
 package usecases;
 
-import entities.Project;
-import entities.Team;
-import entities.User;
-
 public class QueryUseCases implements QueryInputBoundary {
     private final UserList userList;
 
@@ -18,8 +14,7 @@ public class QueryUseCases implements QueryInputBoundary {
      */
     @Override
     public String viewTeams(String username) {
-        User user = this.userList.getUser(username);
-        return user.getTeams();
+        return null;
     }
 
     /**
@@ -29,14 +24,8 @@ public class QueryUseCases implements QueryInputBoundary {
      * @return String showing all members in a team
      */
     @Override
-    public String viewMemsInTeam(String username, String teamName) {
-        User user = this.userList.getUser(username);
-        if (!user.hasTeam(teamName)) {
-            return "Team does not exist.";
-        } else {
-            Team team = user.getTeam(teamName);
-            return team.toString();
-        }
+    public String viewMemsIn(String username, String teamName) {
+        return null;
     }
 
     /**
@@ -46,8 +35,7 @@ public class QueryUseCases implements QueryInputBoundary {
      */
     @Override
     public String viewProjs(String username) {
-        User user = this.userList.getUser(username);
-        return user.getProjects();
+        return null;
     }
 
     /**
@@ -57,8 +45,7 @@ public class QueryUseCases implements QueryInputBoundary {
      */
     @Override
     public String viewTasks(String username) {
-        User user = this.userList.getUser(username);
-        return user.getTasks();
+        return null;
     }
 
     /**
@@ -69,12 +56,6 @@ public class QueryUseCases implements QueryInputBoundary {
      */
     @Override
     public String viewTasksInProj(String username, String projName) {
-        User user = this.userList.getUser(username);
-        if (!user.hasProject(projName)) {
-            return "Project does not exist.";
-        } else {
-            Project project = user.getProject(projName);
-            return project.toString();
-        }
+        return null;
     }
 }

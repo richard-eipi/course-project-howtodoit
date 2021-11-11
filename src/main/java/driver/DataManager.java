@@ -1,6 +1,6 @@
 package driver;
 
-import usecasesControllers.UserList;
+import usecases.UserList;
 import helpers.IUseCaseControllerBuilder;
 
 import java.io.*;
