@@ -8,11 +8,15 @@ public interface DataMemoryInputBoundary {
 
     /**
      * Undo the previous action.
+     * @param username current username
+     * @return boolean indicating whether success or failure
      */
-    void undo();
+    boolean undo(String username);
 
     /**
      * Redo the action that was just undone.
+     * @param username current username
+     * @return boolean indicating whether success or failure
      */
-    void redo();
+    boolean redo(String username);
 }

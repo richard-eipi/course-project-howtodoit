@@ -30,14 +30,24 @@ public class DataMemoryController {
     /**
      * Hands off the work to use case to perform the undo action.
      */
-    public void undo() {
-        this.inputBoundary.undo();
+    public String undo(String username) throws Exception {
+        boolean result = this.inputBoundary.undo(username);
+        if (!result) {
+            throw new Exception("No actions to undo.");
+        } else {
+            return "Action has been undone successfully.";
+        }
     }
 
     /**
      * Hands off the work to use case to perform the redo action.
      */
-    public void redo() {
-        this.inputBoundary.redo();
+    public String redo(String username) throws Exception {
+        boolean result = this.inputBoundary.redo(username);
+        if (!result) {
+            throw new Exception("No actions to redo.");
+        } else {
+            return "Action has been redone successfully.";
+        }
     }
 }
