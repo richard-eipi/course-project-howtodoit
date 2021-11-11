@@ -123,4 +123,8 @@ public class User implements Serializable, Comparable<User> {
     public int compareTo(User o) {
         return this.name.compareToIgnoreCase(o.getName());
     }
+
+    public User copy() {
+        return new User(this.name, this.password);
+    }
 }
