@@ -28,6 +28,15 @@ public class UserList implements Serializable {
     }
 
     public void restore(Memento memento) {
+        this.users = memento.getState();
+    }
 
+    public HashMap<String, User> copy() {
+        HashMap<String, User> userListCopy = new HashMap<>();
+        for (User user : this.users.values()) {
+            userListCopy.put(user.getName(), user.copy());
+        }
+
+        return userListCopy;
     }
 }
