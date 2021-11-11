@@ -132,4 +132,23 @@ public class TaskController {
             throw new Exception("Failure to change the description of this task.");
         }
     }
+
+    /**
+     * Assign a task to a teammate
+     * @param username1 current user
+     * @param teamName the name of the team
+     * @param username2 the name of the teammate
+     * @param taskName the name of the task
+     * @param dueDate due date of the task
+     * @return String indicating success
+     * @throws Exception failure to assign task to teammate
+     */
+    public String assignTask(String username1, String teamName, String username2, String taskName, String dueDate) throws Exception {
+        boolean result = this.inputBoundary.assignTask(username1, teamName, username2, taskName, dueDate);
+        if (result) {
+            return "New task assigned to teammate successfully.";
+        } else {
+            throw new Exception("Failure to assign task.");
+        }
+    }
 }

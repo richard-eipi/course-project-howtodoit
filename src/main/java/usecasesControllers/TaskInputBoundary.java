@@ -61,4 +61,15 @@ public interface TaskInputBoundary {
      * @return boolean indicating whether success or failure
      */
     boolean redesc(String username, String taskName, String desc);
+
+    /**
+     * Assign a task to a teammate
+     * @param username1 current user
+     * @param teamName the name of the team
+     * @param username2 the name of the teammate
+     * @param taskName the name of the task
+     * @param dueDate due date of the task
+     * @return boolean indicating whether success or failure
+     */
+    boolean assignTask(String username1, String teamName, String username2, String taskName, String dueDate);
 }
