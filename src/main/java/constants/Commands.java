@@ -1,9 +1,8 @@
 package constants;
 
-import commands.*;
+import driver.commands.*;
 
 import java.util.HashMap;
-import java.util.TreeSet;
 
 /**
  * This class stores and initializes all Command objects.
@@ -12,7 +11,7 @@ public class Commands {
     public static final HashMap<String, Command> COMMANDS = new HashMap<>();
 
     /**
-     * This class loads all commands.
+     * This class loads all driver.commands.
      */
     public static void loadCommands() {
         COMMANDS.put("regret", new Regret());
