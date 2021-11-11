@@ -1,8 +1,6 @@
 package controllers;
 
-import database.DataSaver;
 import usecases.DataMemoryInputBoundary;
-import usecases.LoginRegisterInputBoundary;
 
 public class DataMemoryController {
     private static final DataMemoryController instance = new DataMemoryController();
@@ -23,17 +21,17 @@ public class DataMemoryController {
     /**
      * Hands off the work to use case to save data.
      */
-    public void save() {
-        this.inputBoundary.save();
+    public String save() {
+        return this.inputBoundary.save();
     }
 
     /**
      * Hands off the work to use case to perform the undo action.
      */
-    public String undo(String username) throws Exception {
-        boolean result = this.inputBoundary.undo(username);
+    public String undo() {
+        boolean result = this.inputBoundary.undo();
         if (!result) {
-            throw new Exception("No actions to undo.");
+            return "No actions to undo.";
         } else {
             return "Action has been undone successfully.";
         }
@@ -42,12 +40,26 @@ public class DataMemoryController {
     /**
      * Hands off the work to use case to perform the redo action.
      */
-    public String redo(String username) throws Exception {
-        boolean result = this.inputBoundary.redo(username);
+    public String redo() {
+        boolean result = this.inputBoundary.redo();
         if (!result) {
-            throw new Exception("No actions to redo.");
+            return "No actions to redo.";
         } else {
             return "Action has been redone successfully.";
         }
+    }
+
+    /**
+     * Resets memory when user logs out.
+     */
+    public void cleanMemory() {
+        this.inputBoundary.cleanMemory();
+    }
+
+    /**
+     * Take a timestamp on current system so that we can return to it later on.
+     */
+    public void setTimeStamp() {
+        this.inputBoundary.setTimeStamp();
     }
 }

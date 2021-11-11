@@ -2,7 +2,6 @@ package usecases;
 
 import database.DataSaver;
 import entities.Memento;
-import entities.User;
 
 public class DataMemoryUseCases implements DataMemoryInputBoundary {
     private final UserList userList;
@@ -18,25 +17,12 @@ public class DataMemoryUseCases implements DataMemoryInputBoundary {
     }
 
     /**
-     * Sets the memento, liking taking a timestamp on current system.
-     */
-    public void setMemento(String username) {
-        User user = this.userList.getUser(username);
-        if (this.currentMemento == null) {
-            this.currentMemento = user.createMemento();
-        } else {
-            this.currentMemento.next = user.createMemento();
-            this.currentMemento.next.prev = this.currentMemento;
-            this.currentMemento = this.currentMemento.next;
-        }
-    }
-
-    /**
      * Save data.
+     * @return String indicating success or failure
      */
     @Override
-    public void save() {
-        this.dataSaver.writeData();
+    public String save() {
+        return this.dataSaver.writeData();
     }
 
     /**
@@ -44,13 +30,13 @@ public class DataMemoryUseCases implements DataMemoryInputBoundary {
      * @return boolean indicating whether success or failure
      */
     @Override
-    public boolean undo(String username) {
+    public boolean undo() {
         Memento prevMemento = this.currentMemento.prev;
         if (prevMemento == null) {
             return false;
         } else {
             this.currentMemento = prevMemento;
-            this.userList.getUser(username).restore(prevMemento);
+            this.userList.restore(prevMemento);
             return true;
         }
     }
@@ -60,14 +46,36 @@ public class DataMemoryUseCases implements DataMemoryInputBoundary {
      * @return boolean indicating whether success or failure
      */
     @Override
-    public boolean redo(String username) {
+    public boolean redo() {
         Memento nextMemento = this.currentMemento.next;
         if (nextMemento == null) {
             return false;
         } else {
             this.currentMemento = nextMemento;
-            this.userList.getUser(username).restore(nextMemento);
+            this.userList.restore(nextMemento);
             return true;
+        }
+    }
+
+    /**
+     * Resets memory when user logs out.
+     */
+    @Override
+    public void cleanMemory() {
+        this.currentMemento = null;
+    }
+
+    /**
+     * Sets the memento, liking taking a timestamp on current system.
+     */
+    @Override
+    public void setTimeStamp() {
+        if (this.currentMemento == null) {
+            this.currentMemento = this.userList.createMemento();
+        } else {
+            this.currentMemento.next = this.userList.createMemento();
+            this.currentMemento.next.prev = this.currentMemento;
+            this.currentMemento = this.currentMemento.next;
         }
     }
 }
