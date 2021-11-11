@@ -1,5 +1,7 @@
 package usecases;
 
+import constants.Enums;
+
 public interface LoginRegisterInputBoundary {
     /**
      * Lets the user log in.
@@ -7,7 +9,7 @@ public interface LoginRegisterInputBoundary {
      * @param password user's password
      * @return LoginResult indicating whether success, failure, or no such user
      */
-    LoginRegisterUseCases.LoginResult login(String username, String password);
+    Enums.LoginResult login(String username, String password);
 
     /**
      * Lets the user register for a new account.
@@ -15,5 +17,5 @@ public interface LoginRegisterInputBoundary {
      * @param password user's password
      * @return RegisterResult indicating whether success, failure, or no such user
      */
-    LoginRegisterUseCases.RegisterResult register(String username, String password);
+    Enums.RegisterResult register(String username, String password);
 }

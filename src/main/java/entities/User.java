@@ -1,6 +1,10 @@
 package entities;
+import helpers.SortTasksChronologically;
+
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
+
 /**
  * This class represents a User.
  */
@@ -81,5 +85,33 @@ public class User implements Serializable {
 
     public void delTask(Task task) {
         this.tasks.remove(task.getName());
+    }
+
+    public String getProjects() {
+        StringBuilder output = new StringBuilder("You have the following projects:\n");
+        for (Project project: this.projects.values()) {
+            output.append(project.getName()).append('\n'); // Each line will be a task
+        }
+
+        return output.toString();
+    }
+
+    public String getTeams() {
+        StringBuilder output = new StringBuilder("You are in the following teams:\n");
+        for (Team team: this.teams.values()) {
+            output.append(team.getName()).append('\n'); // Each line will be a team
+        }
+
+        return output.toString();
+    }
+
+    public String getTasks() {
+        List<Task> sortedTasks = SortTasksChronologically.sortTasks(this.tasks); // Sort them
+        StringBuilder output = new StringBuilder("You have the following upcoming tasks:\n");
+        for (Task task: sortedTasks) {
+            output.append(task.toString()).append('\n'); // Each line will be a project
+        }
+
+        return output.toString();
     }
 }
