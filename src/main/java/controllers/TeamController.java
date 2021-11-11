@@ -29,6 +29,7 @@ public class TeamController {
     public String newTeam(String username, String teamName) throws Exception {
         boolean result = this.inputBoundary.newTeam(username, teamName);
         if (result) {
+            DataMemoryController.getInstance().setTimeStamp();
             return "New team created successfully.";
         } else {
             throw new Exception("Failure to create new team.");
@@ -46,6 +47,7 @@ public class TeamController {
     public String delTeam(String username, String teamName) throws Exception {
         boolean result = this.inputBoundary.delTeam(username, teamName);
         if (result) {
+            DataMemoryController.getInstance().setTimeStamp();
             return "Team deleted successfully.";
         } else {
             throw new Exception("Failure to delete team.");
@@ -64,6 +66,7 @@ public class TeamController {
     public String modTeam(String username, String name1, String name2) throws Exception {
         boolean result = this.inputBoundary.modTeam(username, name1, name2);
         if (result) {
+            DataMemoryController.getInstance().setTimeStamp();
             return "Team renamed successfully.";
         } else {
             throw new Exception("Failure to rename team.");
@@ -82,6 +85,7 @@ public class TeamController {
     public String addMem(String username, String teamName, String memName) throws Exception {
         boolean result = this.inputBoundary.addMem(username, teamName, memName);
         if (result) {
+            DataMemoryController.getInstance().setTimeStamp();
             return "Member added successfully.";
         } else {
             throw new Exception("Failure to add member.");
@@ -99,6 +103,7 @@ public class TeamController {
     public String leaveTeam(String username, String teamName) throws Exception {
         boolean result = this.inputBoundary.leaveTeam(username, teamName);
         if (result) {
+            DataMemoryController.getInstance().setTimeStamp();
             return "Left team successfully.";
         } else {
             throw new Exception("Failure to leave team.");
@@ -116,6 +121,7 @@ public class TeamController {
     public String addAdmin(String username, String teamName, String memName) throws Exception {
         boolean result = this.inputBoundary.addAdmin(username, teamName, memName);
         if (result) {
+            DataMemoryController.getInstance().setTimeStamp();
             return "Admin added successfully.";
         } else {
             throw new Exception("Failure to add admin.");
