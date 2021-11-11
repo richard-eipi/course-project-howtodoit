@@ -32,13 +32,13 @@ public class Commands {
         COMMANDS.put("modProj", new ModProj());
 
         COMMANDS.put("newTeam", new NewTeam());
-        COMMANDS.put("delTeam", new DelTeam());
         COMMANDS.put("modTeam", new ModTeam());
         COMMANDS.put("addMem", new AddMem());
-        COMMANDS.put("delMem", new DelMem());
+        COMMANDS.put("leaveTeam", new LeaveTeam());
         COMMANDS.put("addAdmin", new AddAdmin());
 
         COMMANDS.put("newTask", new NewTask());
+        COMMANDS.put("assignTask", new AssignTask());
         COMMANDS.put("completeTask", new CompleteTask());
         COMMANDS.put("star", new Star());
         COMMANDS.put("unstar", new Unstar());
