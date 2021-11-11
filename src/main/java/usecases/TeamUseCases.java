@@ -1,6 +1,5 @@
 package usecases;
 
-import entities.Project;
 import entities.Team;
 import entities.User;
 
