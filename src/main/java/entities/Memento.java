@@ -15,13 +15,13 @@ public class Memento {
     public Memento next;
 
     // The current state of the system.
-    private ArrayList<User> userListCopy;
+    private HashMap<String, User> userListCopy;
 
     public void setState(UserList userList) {
         this.userListCopy = userList.copy();
     }
 
-    public ArrayList<User> getState() {
+    public HashMap<String, User> getState() {
         return this.userListCopy;
     }
 
