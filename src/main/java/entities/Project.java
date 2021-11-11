@@ -35,12 +35,16 @@ public class Project implements Serializable {
         this.name = name;
     }
 
-    public HashMap<String, Task> getTasks() {
-        return this.tasks;
+    public Task getTask(String name) {
+        return this.tasks.getOrDefault(name, null);
     }
 
-    public Task getTask(String name) {
-        return this.tasks.get(name);
+    public boolean addTask(Task task) {
+        return this.tasks.putIfAbsent(task.getName(), task) == null;
+    }
+
+    public void delTask(Task task) {
+        this.tasks.remove(task.getName());
     }
 
     public Team getTeam() {
