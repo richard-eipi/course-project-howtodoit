@@ -1,5 +1,6 @@
 package usecases;
 
+import entities.Memento;
 import entities.User;
 
 import java.io.Serializable;
@@ -18,5 +19,15 @@ public class UserList implements Serializable {
 
     public void addUser(User user) {
         this.users.put(user.getName(), user);
+    }
+
+    public Memento createMemento() {
+        Memento memento = new Memento();
+        memento.setState(this);
+        return memento;
+    }
+
+    public void restore(Memento memento) {
+        this.users = memento.getState();
     }
 }
