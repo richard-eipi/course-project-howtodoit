@@ -34,7 +34,7 @@ public class ProjectController {
     }
 
     /**
-     * Delete a project; if personal, move all its tasks to the "General" project, otherwise delete all tasks.
+     * Delete a project, move all its tasks to "General".
      * @param username current username
      * @param projName name of the project you want to delete
      * @return String indicating success
