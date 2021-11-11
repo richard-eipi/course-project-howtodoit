@@ -2,7 +2,6 @@ package entities;
 
 import usecases.UserList;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,15 +13,35 @@ public class Memento {
     public Memento prev;
     public Memento next;
 
-    // The current state of the system.
-    private HashMap<String, User> userListCopy;
+    // The state of the current system.
+    private HashMap<String, User> usersCopy;
 
+    public HashMap<String, Task> getTasks() {
+        return this.tasks;
+    }
+
+    public HashMap<String, Folder> getProjects() {
+        return this.projects;
+    }
+
+    public HashMap<String, Folder> getLabels() {
+        return this.labels;
+    }
+
+    /**
+     * Saves the current state of TodoSystem.
+     * @param todoSystem the current TodoSystem
+     */
     public void setState(UserList userList) {
-        this.userListCopy = userList.copy();
+        HashMap<String, Task> tasks = todoSystem.getTasks();
+        HashMap<String, Folder> projects = todoSystem.getProjects();
+        HashMap<String, Folder> labels = todoSystem.getLabels();
+
+        cloneProjects(projects);
+        cloneLabels(labels);
+        cloneTasks(tasks);
     }
 
     public HashMap<String, User> getState() {
-        return this.userListCopy;
     }
-
 }

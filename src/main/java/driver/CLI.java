@@ -1,6 +1,5 @@
 package driver;
 
-import controllers.DataMemoryController;
 import driver.commands.CommandExecutor;
 import driver.commands.LoginRegisterExecutor;
 import constants.Commands;
@@ -63,15 +62,19 @@ public class CLI {
             String userInput = in.nextLine();
             if (userInput.equals("exit")) return false;
             if (userInput.equals("logout")) {
-                DataMemoryController.getInstance().save(); // auto save data when logging out
+                executeCommand(commandExecutor, "save"); // auto save data when logging out
                 return true;
             }
-            try {
-                String output = commandExecutor.executeCommand(userInput);
-                System.out.println(output);
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
+            executeCommand(commandExecutor, userInput);
+        }
+    }
+
+    private static void executeCommand(CommandExecutor commandExecutor, String userInput) {
+        try {
+            String output = commandExecutor.executeCommand(userInput);
+            System.out.println(output);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }
