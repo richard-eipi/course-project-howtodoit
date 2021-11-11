@@ -59,13 +59,9 @@ public class Task implements Serializable {
         this.isStarred = starred;
     }
 
-    /* @Override
+    @Override
     public String toString() {
-        StringBuilder labelNames = new StringBuilder();
-        for (Label label : this.labels) {
-            labelNames.append(label.getName()).append(", ");
-        }
-        return this.name + ": due on " + this.dueDate + "; in project <" + this.project.getName() + "> with labels <"
-                + labelNames + ">; description: "  + this.description;
-    } */
+        String star = this.isStarred ? "*STARRED* " : "";
+        return star + this.name + ": due on " + this.dueDate + "; in project <" + this.project.getName() + ">; description: "  + this.description;
+    }
 }

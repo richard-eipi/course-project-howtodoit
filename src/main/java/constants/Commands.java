@@ -17,7 +17,7 @@ public class Commands {
         COMMANDS.put("regret", new Regret());
 
         COMMANDS.put("viewTeams", new ViewTeams());
-        COMMANDS.put("viewMemsIn", new ViewMemsIn());
+        COMMANDS.put("viewMemsIn", new ViewMemsInTeam());
         COMMANDS.put("viewAdminsIn", new ViewAdminsIn());
         COMMANDS.put("viewProj", new ViewProj());
         COMMANDS.put("modUsn", new ModUsn());

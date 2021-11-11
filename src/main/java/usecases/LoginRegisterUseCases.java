@@ -1,5 +1,6 @@
 package usecases;
 
+import constants.Enums;
 import entities.Project;
 import entities.User;
 
@@ -8,8 +9,6 @@ import entities.User;
  */
 public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
     private final UserList userList;
-    public enum LoginResult {SUCCESS, FAILURE, NO_SUCH_USER}
-    public enum RegisterResult {SUCCESS, FAILURE}
 
     public LoginRegisterUseCases(UserList userList) {
         this.userList = userList;
@@ -22,13 +21,14 @@ public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
      * @return LoginResult indicating whether success, failure, or no such user
      */
     @Override
-    public LoginResult login(String username, String password) {
+    public Enums.LoginResult login(String username, String password) {
         User user = this.userList.getUser(username);
-        if (user == null) return LoginResult.NO_SUCH_USER;
-        if (user.passwordMatches(password)) {
-            return LoginResult.SUCCESS;
+        if (user == null) {
+            return Enums.LoginResult.NO_SUCH_USER;
+        } else if (user.passwordMatches(password)) {
+            return Enums.LoginResult.SUCCESS;
         } else {
-            return LoginResult.FAILURE;
+            return Enums.LoginResult.FAILURE;
         }
 
     }
@@ -40,15 +40,15 @@ public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
      * @return RegisterResult indicating whether success or failure
      */
     @Override
-    public RegisterResult register(String username, String password) {
+    public Enums.RegisterResult register(String username, String password) {
         if (this.userList.getUser(username) != null) {
-            return RegisterResult.FAILURE; // user already exists
+            return Enums.RegisterResult.FAILURE; // user already exists
         } else {
             User user = new User(username, password);
             user.addProject(new Project("General"));
             user.addProject(new Project("Assigned to me"));
             userList.addUser(user);
-            return RegisterResult.SUCCESS;
+            return Enums.RegisterResult.SUCCESS;
         }
     }
 }
