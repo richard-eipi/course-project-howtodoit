@@ -11,7 +11,7 @@ public class User implements Serializable, Comparable<User> {
     private String name;
     private String password;
     private HashMap<String, Task> tasks;
-    private HashMap<String, Folder> projects;
+    private HashMap<String, Project> projects;
     private HashMap<String, Team> teams;
 
     /**
@@ -122,23 +122,5 @@ public class User implements Serializable, Comparable<User> {
     @Override
     public int compareTo(User o) {
         return this.name.compareToIgnoreCase(o.getName());
-    }
-
-    public Memento createMemento() {
-        Memento memento = new Memento();
-        memento.setState(this);
-        return memento;
-    }
-
-    public void restore(Memento memento) {
-        User userCopy = memento.getState();
-        this.name = userCopy.name;
-        this.password = userCopy.password;
-        this.tasks = userCopy.tasks;
-        this.projects = userCopy.projects;
-        this.teams = userCopy.teams;
-    }
-
-    public User copy() {
     }
 }

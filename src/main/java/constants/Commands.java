@@ -41,8 +41,5 @@ public class Commands {
         COMMANDS.put("redesc", new Redesc());
         COMMANDS.put("retime", new Retime());
         COMMANDS.put("assignTask", new AssignTask());
-
-        COMMANDS.put("undo", new Undo());
-        COMMANDS.put("redo", new Redo());
     }
 }
