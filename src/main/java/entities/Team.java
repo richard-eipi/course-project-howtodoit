@@ -2,12 +2,13 @@ package entities;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * This class represents a Team.
  * A team stores a collection of team members and team admins,
  */
-public class Team implements Serializable {
+public class Team implements Serializable, Iterable<User> {
 
     private String name;
     private final HashMap<String, User> members;
@@ -49,5 +50,20 @@ public class Team implements Serializable {
     public void delMem(User user) {
         this.members.remove(user.getName());
         this.admins.remove(user.getName());
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder output = new StringBuilder("This team <" + this.name + "> consists of the following members:\n");
+        for (User user: this.members.values()) {
+            String admin = this.isAdmin(user.getName()) ? "*ADMIN* " : "";
+            output.append(admin).append(user.getName()).append('\n'); // Each line will be a member
+        }
+        return output.toString();
+    }
+
+    @Override
+    public Iterator<User> iterator() {
+        return this.members.values().iterator();
     }
 }

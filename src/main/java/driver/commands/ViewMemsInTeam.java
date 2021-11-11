@@ -5,7 +5,7 @@ import controllers.QueryController;
 /**
  * This class shows all members in a team
  */
-public class ViewMemsIn implements Command {
+public class ViewMemsInTeam implements Command {
 
     /**
      * This function executes the viewMemsIn command: show all members in the team called <name>.
@@ -17,6 +17,6 @@ public class ViewMemsIn implements Command {
     @Override
     public String execute(String username, String[] args) throws Exception{
         if (args.length != 1) throw new Exception("Incorrect argument length!");
-        return QueryController.getInstance().viewMemsIn(username, args[0]);
+        return QueryController.getInstance().viewMemsInTeam(username, args[0]);
     }
 }

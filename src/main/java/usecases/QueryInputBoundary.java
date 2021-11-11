@@ -14,7 +14,7 @@ public interface QueryInputBoundary {
      * @param teamName name of the team
      * @return String showing all members in a team
      */
-    String viewMemsIn(String username, String teamName);
+    String viewMemsInTeam(String username, String teamName);
 
     /**
      * Show all projects for the user.
