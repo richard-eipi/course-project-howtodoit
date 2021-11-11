@@ -52,4 +52,16 @@ public class User implements Serializable {
     public HashMap<String, Task> getTasks() {
         return this.tasks;
     }
+
+    public Project getProject(String name) {
+        return this.projects.get(name);
+    }
+
+    public Team getTeam(String name) {
+        return this.teams.get(name);
+    }
+
+    public Task getTask(String name) {
+        return this.tasks.get(name);
+    }
 }
