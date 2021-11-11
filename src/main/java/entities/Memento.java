@@ -13,35 +13,19 @@ public class Memento {
     public Memento prev;
     public Memento next;
 
-    // The state of the current system.
-    private HashMap<String, User> usersCopy;
-
-    public HashMap<String, Task> getTasks() {
-        return this.tasks;
-    }
-
-    public HashMap<String, Folder> getProjects() {
-        return this.projects;
-    }
-
-    public HashMap<String, Folder> getLabels() {
-        return this.labels;
-    }
+    // The state of the current user.
+    private User userCopy;
 
     /**
-     * Saves the current state of TodoSystem.
-     * @param todoSystem the current TodoSystem
+     * Saves the current state of the user.
+     * @param user current user
      */
-    public void setState(UserList userList) {
-        HashMap<String, Task> tasks = todoSystem.getTasks();
-        HashMap<String, Folder> projects = todoSystem.getProjects();
-        HashMap<String, Folder> labels = todoSystem.getLabels();
-
-        cloneProjects(projects);
-        cloneLabels(labels);
-        cloneTasks(tasks);
+    public void setState(User user) {
+        this.userCopy = user.copy();
     }
 
-    public HashMap<String, User> getState() {
+    public User getState() {
+        return this.userCopy;
     }
+
 }
