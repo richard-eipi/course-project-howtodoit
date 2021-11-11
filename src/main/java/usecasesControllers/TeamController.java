@@ -87,20 +87,19 @@ public class TeamController {
     }
 
     /**
-     * Delete a member from a team.
+     * Leave a team.
      *
      * @param username current username
-     * @param teamName name of the team you want to delete a member from
-     * @param memName  name of the member you want to delete from the team
+     * @param teamName name of the team you want to leave
      * @return String indicating success
-     * @throws Exception Failure to delete member
+     * @throws Exception Failure to leave team
      */
-    public String delMem(String username, String teamName, String memName) throws Exception {
-        boolean result = this.inputBoundary.delMem(username, teamName, memName);
+    public String leaveTeam(String username, String teamName) throws Exception {
+        boolean result = this.inputBoundary.leaveTeam(username, teamName);
         if (result) {
-            return "Member deleted successfully.";
+            return "Left team successfully.";
         } else {
-            throw new Exception("Failure to delete member.");
+            throw new Exception("Failure to leave team.");
         }
     }
 

@@ -62,6 +62,7 @@ public class User implements Serializable {
     }
 
     public boolean addTask(Task task) {
+        task.getProject().addTask(task);
         return this.tasks.putIfAbsent(task.getName(), task) == null;
     }
 
@@ -74,6 +75,7 @@ public class User implements Serializable {
     }
 
     public void delTask(Task task) {
+        task.getProject().delTask(task);
         this.tasks.remove(task.getName());
     }
 }
