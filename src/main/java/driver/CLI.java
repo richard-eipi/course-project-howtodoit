@@ -1,7 +1,7 @@
 package driver;
 
-import commands.CommandExecutor;
-import commands.LoginRegisterExecutor;
+import driver.commands.CommandExecutor;
+import driver.commands.LoginRegisterExecutor;
 import constants.Commands;
 
 import java.util.Scanner;
@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class CLI {
     public static void run() {
         // Greetings
-        System.out.println("Welcome to HowTodoit: our virtual to-do-list system (version 0).");
+        System.out.println("Welcome to driver.HowTodoit: our virtual to-do-list system (version 0).");
 
         // Setup
         Scanner in = new Scanner(System.in);
@@ -31,7 +31,7 @@ public class CLI {
     /**
      *
      * @param in the scanner
-     * @param commandExecutor the class that's responsible for finding commands to execute
+     * @param commandExecutor the class that's responsible for finding driver.commands to execute
      * @return true if user logs in, false if exit
      */
     private static boolean dealWithLoginRegister(Scanner in, CommandExecutor commandExecutor) {
@@ -51,9 +51,9 @@ public class CLI {
     }
 
     /**
-     * Let user type their commands and execute them
+     * Let user type their driver.commands and execute them
      * @param in the scanner
-     * @param commandExecutor the class that's responsible for finding commands to execute
+     * @param commandExecutor the class that's responsible for finding driver.commands to execute
      * @return true if user just logs out but does not exit the program (may log in again), false if exit
      */
     private static boolean executeCommands(Scanner in, CommandExecutor commandExecutor) {
