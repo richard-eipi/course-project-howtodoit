@@ -21,6 +21,7 @@ public class Team implements Serializable {
         this.members = new HashMap<>();
         this.admins = new HashMap<>();
     }
+
     public String getName() {
         return this.name;
     }
@@ -29,11 +30,22 @@ public class Team implements Serializable {
         this.name = name;
     }
 
-    public HashMap<String, User> getMembers() {
-        return this.members;
-    }
+    public boolean isMem(String name) { return this.members.containsKey(name); }
 
     public boolean isAdmin(String name) {
         return this.admins.containsKey(name);
+    }
+
+    public boolean addMem(User user) {
+        return this.members.putIfAbsent(user.getName(), user) == null;
+    }
+
+    public boolean addAdmin(User user) {
+        return this.admins.putIfAbsent(user.getName(), user) == null;
+    }
+
+    public void delMem(User user) {
+        this.members.remove(user.getName());
+        this.admins.remove(user.getName());
     }
 }
