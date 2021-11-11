@@ -14,15 +14,12 @@ public class Commands {
      * This class loads all driver.commands.
      */
     public static void loadCommands() {
-        COMMANDS.put("regret", new Regret());
-
-        COMMANDS.put("viewTeams", new ViewTeams());
-        COMMANDS.put("viewMemsIn", new ViewMemsInTeam());
-        COMMANDS.put("viewAdminsIn", new ViewAdminsIn());
-        COMMANDS.put("viewProj", new ViewProj());
         COMMANDS.put("modUsn", new ModUsn());
         COMMANDS.put("modPwd", new ModPwd());
 
+        COMMANDS.put("viewTeams", new ViewTeams());
+        COMMANDS.put("viewMemsIn", new ViewMemsInTeam());
+        COMMANDS.put("viewProj", new ViewProj());
         COMMANDS.put("viewTasks", new ViewTasks());
         COMMANDS.put("viewTasksInProj", new ViewTasksInProj());
 
@@ -37,12 +34,16 @@ public class Commands {
         COMMANDS.put("addAdmin", new AddAdmin());
 
         COMMANDS.put("newTask", new NewTask());
-        COMMANDS.put("assignTask", new AssignTask());
         COMMANDS.put("completeTask", new CompleteTask());
         COMMANDS.put("star", new Star());
         COMMANDS.put("unstar", new Unstar());
         COMMANDS.put("rename", new Rename());
         COMMANDS.put("redesc", new Redesc());
         COMMANDS.put("retime", new Retime());
+        COMMANDS.put("assignTask", new AssignTask());
+
+        COMMANDS.put("save", new Save());
+        COMMANDS.put("undo", new Undo());
+        COMMANDS.put("redo", new Redo());
     }
 }

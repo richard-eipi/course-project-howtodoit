@@ -1,10 +1,12 @@
 package usecases;
 
 import database.DataSaver;
+import entities.Memento;
 
 public class DataMemoryUseCases implements DataMemoryInputBoundary {
     private final UserList userList;
     private DataSaver dataSaver;
+    private Memento currentMemento;
 
     public DataMemoryUseCases(UserList userList) {
         this.userList = userList;
@@ -24,17 +26,46 @@ public class DataMemoryUseCases implements DataMemoryInputBoundary {
 
     /**
      * Undo the previous action.
+     * @return boolean indicating whether success or failure
      */
     @Override
-    public void undo() {
-
+    public boolean undo(String username) {
+        Memento prevMemento = this.currentMemento.prev;
+        if (prevMemento == null) {
+            return false;
+        } else {
+            this.currentMemento = prevMemento;
+            this.userList.restore(prevMemento);
+            return true;
+        }
     }
 
     /**
      * Redo the action that was just undone.
+     * @return boolean indicating whether success or failure
      */
     @Override
-    public void redo() {
+    public boolean redo(String username) {
+        Memento nextMemento = this.currentMemento.next;
+        if (nextMemento == null) {
+            return false;
+        } else {
+            this.currentMemento = nextMemento;
+            this.userList.restore(nextMemento);
+            return true;
+        }
+    }
 
+    /**
+     * Sets the memento, liking taking a timestamp on current system.
+     */
+    private void setMemento() {
+        if (this.currentMemento == null) {
+            this.currentMemento = this.userList.createMemento();
+        } else {
+            this.currentMemento.next = this.userList.createMemento();
+            this.currentMemento.next.prev = this.currentMemento;
+            this.currentMemento = this.currentMemento.next;
+        }
     }
 }
