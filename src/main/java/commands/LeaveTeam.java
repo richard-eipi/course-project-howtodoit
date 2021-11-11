@@ -1,6 +1,6 @@
 package commands;
 
-import usecasesControllers.TeamController;
+import controllers.TeamController;
 
 /**
  * This class allows the current user to leave team.

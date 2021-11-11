@@ -1,4 +1,6 @@
-package usecasesControllers;
+package controllers;
+
+import usecases.ProjectInputBoundary;
 
 public class ProjectController {
     private static final ProjectController instance = new ProjectController();
@@ -20,12 +22,11 @@ public class ProjectController {
      * Create a new project.
      * @param username current username
      * @param projName name of the new project you want to create
-     * @param teamName name of the team this project belongs to, leave as "" if personal project
      * @return String indicating success
      * @throws Exception failure to create a new project
      */
-    public String newProj(String username, String projName, String teamName) throws Exception {
-        boolean result = this.inputBoundary.newProj(username, projName, teamName);
+    public String newProj(String username, String projName) throws Exception {
+        boolean result = this.inputBoundary.newProj(username, projName);
         if (result) {
             return "New project created successfully.";
         } else {

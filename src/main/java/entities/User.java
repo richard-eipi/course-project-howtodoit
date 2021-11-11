@@ -41,6 +41,12 @@ public class User implements Serializable {
         return this.password.equals(password);
     }
 
+    public boolean hasProject(String name) { return this.projects.containsKey(name); }
+
+    public boolean hasTeam(String name) { return this.teams.containsKey(name); }
+
+    public boolean hasTask(String name) { return this.tasks.containsKey(name); }
+
     public Project getProject(String name) {
         return this.projects.getOrDefault(name, null);
     }
@@ -53,17 +59,16 @@ public class User implements Serializable {
         return this.tasks.getOrDefault(name, null);
     }
 
-    public boolean addProject(Project project) {
-        return this.projects.putIfAbsent(project.getName(), project) == null;
+    public void addProject(Project project) {
+        this.projects.putIfAbsent(project.getName(), project);
     }
 
-    public boolean addTeam(Team team) {
-        return this.teams.putIfAbsent(team.getName(), team) == null;
+    public void addTeam(Team team) {
+        this.teams.putIfAbsent(team.getName(), team);
     }
 
-    public boolean addTask(Task task) {
-        task.getProject().addTask(task);
-        return this.tasks.putIfAbsent(task.getName(), task) == null;
+    public void addTask(Task task) {
+        this.tasks.putIfAbsent(task.getName(), task);
     }
 
     public void delProject(Project project) {
@@ -75,7 +80,6 @@ public class User implements Serializable {
     }
 
     public void delTask(Task task) {
-        task.getProject().delTask(task);
         this.tasks.remove(task.getName());
     }
 }

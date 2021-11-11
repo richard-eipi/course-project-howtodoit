@@ -1,4 +1,6 @@
-package usecasesControllers;
+package controllers;
+
+import usecases.QueryInputBoundary;
 
 public class QueryController {
     private static final QueryController instance = new QueryController();

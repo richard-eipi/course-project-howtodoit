@@ -1,6 +1,6 @@
 package commands;
 
-import usecasesControllers.QueryController;
+import controllers.QueryController;
 
 /**
  * This class shows all members in a team

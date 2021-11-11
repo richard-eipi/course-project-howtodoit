@@ -1,6 +1,6 @@
 package commands;
 
-import usecasesControllers.TaskController;
+import controllers.TaskController;
 
 /**
  * This class assigns a task to a user.

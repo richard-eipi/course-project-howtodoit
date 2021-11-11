@@ -1,6 +1,6 @@
 package commands;
 
-import usecasesControllers.ProjectController;
+import controllers.ProjectController;
 
 /**
  * This class renames a project.
