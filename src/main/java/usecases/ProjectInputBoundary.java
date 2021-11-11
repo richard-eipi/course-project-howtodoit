@@ -1,14 +1,13 @@
-package usecasesControllers;
+package usecases;
 
 public interface ProjectInputBoundary {
     /**
      * Create a new project.
      * @param username current username
      * @param projName name of the new project you want to create
-     * @param teamName name of the team this project belongs to, leave as "" if personal project
      * @return boolean indicating whether success or failure
      */
-    boolean newProj(String username, String projName, String teamName);
+    boolean newProj(String username, String projName);
 
     /**
      * Delete a project, move all its tasks to "General".

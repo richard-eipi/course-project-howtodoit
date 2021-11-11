@@ -1,6 +1,6 @@
 package commands;
 
-import usecasesControllers.QueryController;
+import controllers.QueryController;
 
 public class ViewTasksInProj implements Command {
 

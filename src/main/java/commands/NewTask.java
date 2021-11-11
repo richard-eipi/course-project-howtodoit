@@ -1,8 +1,6 @@
 package commands;
 
-import entities.Task;
-import usecasesControllers.TaskController;
-import usecasesControllers.UserAccountController;
+import controllers.TaskController;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -38,8 +36,9 @@ public class NewTask implements Command {
 //        inbox.getTasks().put(name, task); // Add new task to Inbox
 //
 //        return "Task <" + name + "> has been added successfully.";
-        if (args.length != 3) throw new Exception("Incorrect argument length!");
-        return TaskController.getInstance().newTask(username, args[0], args[1], args[2]);
+        if (!(args.length == 3) && !(args.length == 2)) throw new Exception("Incorrect argument length!");
+        String projName = args.length == 3 ? args[2] : "";
+        return TaskController.getInstance().newTask(username, args[0], args[1], projName);
     }
 
     private void checkArgs(TodoSystem todoSystem, String[] args) throws Exception {

@@ -1,4 +1,4 @@
-package usecasesControllers;
+package usecases;
 
 public interface UserAccountInputBoundary {
     /**

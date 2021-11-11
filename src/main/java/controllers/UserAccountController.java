@@ -1,4 +1,6 @@
-package usecasesControllers;
+package controllers;
+
+import usecases.UserAccountInputBoundary;
 
 public class UserAccountController {
     private static final UserAccountController instance = new UserAccountController();

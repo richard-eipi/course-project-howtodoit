@@ -1,6 +1,6 @@
 package commands;
 
-import usecasesControllers.TeamController;
+import controllers.TeamController;
 
 /**
  * This class adds a new admin to a team.
