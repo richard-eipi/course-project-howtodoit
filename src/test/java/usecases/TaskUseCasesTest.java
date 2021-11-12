@@ -4,7 +4,6 @@ import entities.Project;
 import entities.Task;
 import entities.Team;
 import entities.User;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -36,10 +35,6 @@ class TaskUseCasesTest {
         team.addMem(user);
         team.addAdmin(user);
         user.addTeam(team);
-    }
-
-    @AfterEach
-    void tearDown() {
     }
 
     // test if current user already has the task
