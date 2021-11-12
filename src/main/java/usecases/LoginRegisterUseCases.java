@@ -45,8 +45,6 @@ public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
             return Enums.RegisterResult.FAILURE; // user already exists
         } else {
             User user = new User(username, password);
-            user.addProject(new Project("General"));
-            user.addProject(new Project("Assigned to me"));
             userList.addUser(user);
             return Enums.RegisterResult.SUCCESS;
         }
