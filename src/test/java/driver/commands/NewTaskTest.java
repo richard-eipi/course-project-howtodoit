@@ -7,7 +7,7 @@ import usecases.UserList;
 
 class NewTaskTest {
     private final NewTask newtaskCommand = new NewTask();
-    private UserList userList = new UserList();
+    private UserList userList;
     private final String username = "Eipi";
 
     @BeforeEach

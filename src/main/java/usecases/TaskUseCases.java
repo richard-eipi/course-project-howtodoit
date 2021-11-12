@@ -189,7 +189,7 @@ public class TaskUseCases implements TaskInputBoundary {
     public boolean assignTask(String username1, String teamName, String username2, String taskName, String dueDate) {
         User user1 = this.userList.getUser(username1);
         Team team = user1.getTeam(teamName);
-        if (user1.hasTeam(teamName)) {
+        if (!user1.hasTeam(teamName)) {
             return false; // no team
         } else if (!team.isAdmin(username1)) {
             return false; // user 1 not admin
