@@ -11,7 +11,7 @@ public class User implements Serializable, Comparable<User> {
     private String name;
     private String password;
     private HashMap<String, Task> tasks;
-    private HashMap<String, Folder> projects;
+    private HashMap<String, Project> projects;
     private HashMap<String, Team> teams;
 
     /**
@@ -140,5 +140,10 @@ public class User implements Serializable, Comparable<User> {
     }
 
     public User copy() {
+//        User userCopy = new User(this.name, this.password);
+//        userCopy.tasks = this.tasks;
+//        userCopy.projects = this.projects;
+//        userCopy.teams = this.teams;
+//        return userCopy;
     }
 }
