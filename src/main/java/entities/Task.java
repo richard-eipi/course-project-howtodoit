@@ -10,7 +10,7 @@ public class Task implements Serializable, Comparable<Task> {
     private String name;
     private String dueDate;
     private String description;
-    private Project project;
+    private final Project project;
     private boolean isStarred;
 
     public Task(String name, String dueDate, Project project) {
@@ -46,10 +46,6 @@ public class Task implements Serializable, Comparable<Task> {
 
     public Project getProject() {
         return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
     }
 
     public boolean getIsStarred() {

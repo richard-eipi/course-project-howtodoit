@@ -36,10 +36,6 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
         return this.tasks.containsKey(name);
     }
 
-    public Task getTask(String name) {
-        return this.tasks.getOrDefault(name, null);
-    }
-
     public void addTask(Task task) {
         this.tasks.putIfAbsent(task.getName(), task);
     }
