@@ -1,10 +1,14 @@
 package driver.commands;
 
+import controllers.DataMemoryController;
+import controllers.TaskController;
 import entities.Project;
 import entities.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import usecases.DataMemoryUseCases;
+import usecases.TaskUseCases;
 import usecases.UserList;
 
 class NewTaskTest {
@@ -18,6 +22,8 @@ class NewTaskTest {
         User user = new User(username, "+1=0");
         userList.addUser(user);
         user.addProject(new Project("CSC207"));
+        TaskController.getInstance().setInputBoundary(new TaskUseCases(userList));
+        DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
     @Test
