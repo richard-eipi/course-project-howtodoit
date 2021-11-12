@@ -49,8 +49,7 @@ public class TaskUseCases implements TaskInputBoundary {
             // If we want the format of string to be formal, use false. Otherwise, use true.
             sd.setLenient(true);
             sd.parse(s);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return true;
         }
         return false;

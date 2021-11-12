@@ -24,36 +24,36 @@ public class Task implements Serializable, Comparable<Task> {
         return this.name;
     }
 
-    public String getDueDate() {
-        return this.dueDate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public boolean getIsStarred() {
-        return this.isStarred;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDueDate() {
+        return this.dueDate;
     }
 
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
+    public Project getProject() {
+        return project;
+    }
+
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public boolean getIsStarred() {
+        return this.isStarred;
     }
 
     public void setStarred(boolean starred) {
@@ -63,7 +63,7 @@ public class Task implements Serializable, Comparable<Task> {
     @Override
     public String toString() {
         String star = this.isStarred ? "*STARRED* " : "";
-        return star + this.name + ": due on " + this.dueDate + "; in project <" + this.project.getName() + ">; description: "  + this.description;
+        return star + this.name + ": due on " + this.dueDate + "; in project <" + this.project.getName() + ">; description: " + this.description;
     }
 
     @Override

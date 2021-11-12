@@ -18,6 +18,7 @@ public class DataMemoryUseCases implements DataMemoryInputBoundary {
 
     /**
      * Save data.
+     *
      * @return String indicating success or failure
      */
     @Override
@@ -27,6 +28,7 @@ public class DataMemoryUseCases implements DataMemoryInputBoundary {
 
     /**
      * Undo the previous action.
+     *
      * @return boolean indicating whether success or failure
      */
     @Override
@@ -43,6 +45,7 @@ public class DataMemoryUseCases implements DataMemoryInputBoundary {
 
     /**
      * Redo the action that was just undone.
+     *
      * @return boolean indicating whether success or failure
      */
     @Override

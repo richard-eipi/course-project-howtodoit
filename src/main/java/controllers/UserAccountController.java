@@ -10,7 +10,7 @@ public class UserAccountController {
 
     }
 
-    public static UserAccountController getInstance(){
+    public static UserAccountController getInstance() {
         return instance;
     }
 
@@ -20,8 +20,9 @@ public class UserAccountController {
 
     /**
      * Change username.
+     *
      * @param username current username
-     * @param newName new username
+     * @param newName  new username
      * @return String indicating success
      * @throws Exception failure to change username because new username already exists
      */
@@ -37,9 +38,10 @@ public class UserAccountController {
 
     /**
      * Change password.
+     *
      * @param username current username
-     * @param pw1 current password
-     * @param pw2 new password
+     * @param pw1      current password
+     * @param pw2      new password
      * @return String indicating success
      * @throws Exception failure to change password because current password is incorrect
      */

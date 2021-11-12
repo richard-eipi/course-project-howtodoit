@@ -1,7 +1,6 @@
 package usecases;
 
 import constants.Enums;
-import entities.Project;
 import entities.User;
 
 /**
@@ -16,6 +15,7 @@ public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
 
     /**
      * Lets the user log in.
+     *
      * @param username user's username
      * @param password user's password
      * @return LoginResult indicating whether success, failure, or no such user
@@ -35,6 +35,7 @@ public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
 
     /**
      * Lets the user register for a new account.
+     *
      * @param username user's username
      * @param password user's password
      * @return RegisterResult indicating whether success or failure

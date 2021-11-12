@@ -10,7 +10,7 @@ public class DataMemoryController {
 
     }
 
-    public static DataMemoryController getInstance(){
+    public static DataMemoryController getInstance() {
         return instance;
     }
 

@@ -4,14 +4,17 @@ import entities.Project;
 import entities.Task;
 import entities.Team;
 import entities.User;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TaskUseCasesTest {
+    private final String username = "Yixy";
     private UserList userList;
     private TaskUseCases taskUseCases;
-    private final String username = "Yixy";
 
     @BeforeEach
     void setUp() {
@@ -43,9 +46,9 @@ class TaskUseCasesTest {
     @Test
     public void testNewTaskHasTask() {
         assertFalse(this.taskUseCases.newTask(username,
-                "Phase 1",
-                "2021-11-15",
-                "General"),
+                        "Phase 1",
+                        "2021-11-15",
+                        "General"),
                 "Failure: Task already exists.");
     }
 
@@ -73,9 +76,9 @@ class TaskUseCasesTest {
     @Test
     public void testNewTaskSuccess() {
         assertTrue(this.taskUseCases.newTask(username,
-                "Phase 2",
-                "2021-11-15",
-                "CSC207"),
+                        "Phase 2",
+                        "2021-11-15",
+                        "CSC207"),
                 "Failure: task cannot be created.");
     }
 
@@ -167,10 +170,10 @@ class TaskUseCasesTest {
     @Test
     public void testAssignTaskInTeam() {
         assertFalse(this.taskUseCases.assignTask(username,
-                "236 project",
-                "Eipi",
-                "Phase 3",
-                "2021-11-17"),
+                        "236 project",
+                        "Eipi",
+                        "Phase 3",
+                        "2021-11-17"),
                 "Failure: User is already in the team.");
     }
 

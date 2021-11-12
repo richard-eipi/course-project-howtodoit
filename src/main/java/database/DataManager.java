@@ -24,11 +24,11 @@ public class DataManager implements DataSaver {
             this.userList = (UserList) in.readObject();
             in.close();
             fileIn.close();
-            output =  "Data has been loaded successfully.";
+            output = "Data has been loaded successfully.";
         } catch (IOException i) {
-            output =  "Data not found. We are starting with a new empty system.";
+            output = "Data not found. We are starting with a new empty system.";
         } catch (ClassNotFoundException c) {
-            output =  "UserList class not found. We are starting with a new empty system.";
+            output = "UserList class not found. We are starting with a new empty system.";
         }
 
         buildUseCaseController();

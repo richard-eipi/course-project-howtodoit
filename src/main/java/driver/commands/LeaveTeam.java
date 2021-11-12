@@ -10,7 +10,7 @@ public class LeaveTeam implements Command {
      * This function executes the leaveTeam command: remove the current user from the team <team name>.
      *
      * @param username current username
-     * @param args a list of Strings with length 1, representing user arguments
+     * @param args     a list of Strings with length 1, representing user arguments
      * @return a String indicating current user had been removed successfully
      */
     @Override

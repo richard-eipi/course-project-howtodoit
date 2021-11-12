@@ -11,7 +11,7 @@ public class LoginRegisterController {
 
     }
 
-    public static LoginRegisterController getInstance(){
+    public static LoginRegisterController getInstance() {
         return instance;
     }
 
@@ -21,6 +21,7 @@ public class LoginRegisterController {
 
     /**
      * Lets the user log in.
+     *
      * @param username user's username
      * @param password user's password
      * @throws Exception fail to log in because user doesn't exist or password is incorrect
@@ -33,6 +34,7 @@ public class LoginRegisterController {
 
     /**
      * Lets the user register for a new account.
+     *
      * @param username user's username
      * @param password user's password
      * @throws Exception fail to register because duplicate user exists

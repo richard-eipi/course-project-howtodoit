@@ -3,6 +3,7 @@ package usecases;
 public interface QueryInputBoundary {
     /**
      * Show all teams that the user is in.
+     *
      * @param username current username
      * @return String showing all teams that the user is in
      */
@@ -10,6 +11,7 @@ public interface QueryInputBoundary {
 
     /**
      * Show all members in a team.
+     *
      * @param username current username
      * @param teamName name of the team
      * @return String showing all members in a team
@@ -18,6 +20,7 @@ public interface QueryInputBoundary {
 
     /**
      * Show all projects for the user.
+     *
      * @param username current username
      * @return String showing all projects for the user
      */
@@ -25,6 +28,7 @@ public interface QueryInputBoundary {
 
     /**
      * Show all tasks for the user.
+     *
      * @param username current username
      * @return String showing all tasks for the user
      */
@@ -32,6 +36,7 @@ public interface QueryInputBoundary {
 
     /**
      * Show all tasks in a project.
+     *
      * @param username current username
      * @param projName name of the project
      * @return String showing all tasks in a project
