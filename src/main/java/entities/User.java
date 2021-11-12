@@ -10,9 +10,9 @@ import java.util.HashMap;
 public class User implements Serializable, Comparable<User> {
     private String name;
     private String password;
-    private HashMap<String, Task> tasks;
-    private HashMap<String, Project> projects;
-    private HashMap<String, Team> teams;
+    private final HashMap<String, Task> tasks;
+    private final HashMap<String, Project> projects;
+    private final HashMap<String, Team> teams;
 
     /**
      * Constructor for user with given name and password.
@@ -124,7 +124,21 @@ public class User implements Serializable, Comparable<User> {
         return this.name.compareToIgnoreCase(o.getName());
     }
 
+    /**
+     * Copy this user and their tasks and projects (but not teams)
+     * @return a copy of this user
+     */
     public User copy() {
-        return new User(this.name, this.password);
+        User userCopy = new User(this.name, this.password);
+        for (Project project : this.projects.values()) {
+            Project projectCopy = new Project(project.getName());
+            for (Task task : project) {
+                Task taskCopy = new Task(task.getName(), task.getDueDate(), projectCopy);
+                projectCopy.addTask(taskCopy);
+                userCopy.addTask(taskCopy);
+            }
+            userCopy.addProject(projectCopy);
+        }
+        return userCopy;
     }
 }
