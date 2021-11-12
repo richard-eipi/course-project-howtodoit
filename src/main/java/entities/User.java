@@ -132,13 +132,24 @@ public class User implements Serializable, Comparable<User> {
         User userCopy = new User(this.name, this.password);
         for (Project project : this.projects.values()) {
             Project projectCopy = new Project(project.getName());
-            for (Task task : project) {
-                Task taskCopy = new Task(task.getName(), task.getDueDate(), projectCopy);
-                projectCopy.addTask(taskCopy);
-                userCopy.addTask(taskCopy);
-            }
+            copyTasks(userCopy, project, projectCopy);
             userCopy.addProject(projectCopy);
         }
         return userCopy;
+    }
+
+    /**
+     * Helper method that copies tasks when copying this user.
+     * @param userCopy the clone of this user
+     * @param project this user's original project
+     * @param projectCopy the clone of that original project
+     */
+    private void copyTasks(User userCopy, Project project, Project projectCopy) {
+        for (Task task : project) {
+            Task taskCopy = new Task(task.getName(), task.getDueDate(), projectCopy);
+            taskCopy.setDescription(task.getDescription());
+            projectCopy.addTask(taskCopy);
+            userCopy.addTask(taskCopy);
+        }
     }
 }
