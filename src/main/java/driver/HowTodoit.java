@@ -1,7 +1,6 @@
 package driver;
 
 import database.DataManager;
-import database.UseCaseControllerBuilder;
 
 /**
  * This is where our program will be run.
@@ -9,8 +8,7 @@ import database.UseCaseControllerBuilder;
 public class HowTodoit {
     public static void main(String[] args) {
         // Initialize DataManager and read data
-        UseCaseControllerBuilder builder = new UseCaseControllerBuilder();
-        DataManager dataManager = new DataManager(builder);
+        DataManager dataManager = new DataManager();
         System.out.println(dataManager.readData());
 
         // Set up initial Memento
