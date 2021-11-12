@@ -10,7 +10,7 @@ import java.util.*;
 public class Project implements Serializable, Iterable<Task>, Comparable<Project> {
 
     private String name;
-    private final HashMap<String, Task> tasks = new HashMap<>();
+    private final HashMap<String, Task> tasks;
 
     /**
      * Create a personal project with given name
@@ -18,6 +18,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
      */
     public Project(String name) {
         this.name = name;
+        this.tasks = new HashMap<>();
     }
 
     public String getName() {
