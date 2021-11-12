@@ -17,7 +17,8 @@ public class User implements Serializable, Comparable<User> {
     /**
      * Constructor for user with given name and password.
      * Generate empty map.
-     * @param name the username
+     *
+     * @param name     the username
      * @param password password of the new user
      */
     public User(String name, String password) {
@@ -25,6 +26,8 @@ public class User implements Serializable, Comparable<User> {
         this.password = password;
         this.tasks = new HashMap<>();
         this.projects = new HashMap<>();
+        this.addProject(new Project("General"));
+        this.addProject(new Project("Assigned to me"));
         this.teams = new HashMap<>();
     }
 
@@ -44,11 +47,17 @@ public class User implements Serializable, Comparable<User> {
         return this.password.equals(password);
     }
 
-    public boolean hasProject(String name) { return this.projects.containsKey(name); }
+    public boolean hasProject(String name) {
+        return this.projects.containsKey(name);
+    }
 
-    public boolean hasTeam(String name) { return this.teams.containsKey(name); }
+    public boolean hasTeam(String name) {
+        return this.teams.containsKey(name);
+    }
 
-    public boolean hasTask(String name) { return this.tasks.containsKey(name); }
+    public boolean hasTask(String name) {
+        return this.tasks.containsKey(name);
+    }
 
     public Project getProject(String name) {
         return this.projects.getOrDefault(name, null);
@@ -90,7 +99,7 @@ public class User implements Serializable, Comparable<User> {
         Project[] projects = this.projects.values().toArray(new Project[0]);
         Arrays.sort(projects); // Sort them
         StringBuilder output = new StringBuilder("You have the following projects:\n");
-        for (Project project: projects) {
+        for (Project project : projects) {
             output.append(project.getName()).append('\n'); // Each line will be a task
         }
 
@@ -101,7 +110,7 @@ public class User implements Serializable, Comparable<User> {
         Team[] teams = this.teams.values().toArray(new Team[0]);
         Arrays.sort(teams); // Sort them
         StringBuilder output = new StringBuilder("You are in the following teams:\n");
-        for (Team team: teams) {
+        for (Team team : teams) {
             output.append(team.getName()).append('\n'); // Each line will be a team
         }
 
@@ -112,7 +121,7 @@ public class User implements Serializable, Comparable<User> {
         Task[] tasks = this.tasks.values().toArray(new Task[0]);
         Arrays.sort(tasks); // Sort them
         StringBuilder output = new StringBuilder("You have the following upcoming tasks:\n");
-        for (Task task: tasks) {
+        for (Task task : tasks) {
             output.append(task.toString()).append('\n'); // Each line will be a project
         }
 
@@ -126,12 +135,15 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Copy this user and their tasks and projects (but not teams)
+     *
      * @return a copy of this user
      */
     public User copy() {
         User userCopy = new User(this.name, this.password);
         for (Project project : this.projects.values()) {
-            Project projectCopy = new Project(project.getName());
+            String projName = project.getName();
+            Project projectCopy = userCopy.hasProject(projName) ?
+                    userCopy.getProject(projName) : new Project(project.getName());
             copyTasks(userCopy, project, projectCopy);
             userCopy.addProject(projectCopy);
         }
@@ -140,8 +152,9 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Helper method that copies tasks when copying this user.
-     * @param userCopy the clone of this user
-     * @param project this user's original project
+     *
+     * @param userCopy    the clone of this user
+     * @param project     this user's original project
      * @param projectCopy the clone of that original project
      */
     private void copyTasks(User userCopy, Project project, Project projectCopy) {
