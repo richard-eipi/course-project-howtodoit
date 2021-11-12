@@ -28,6 +28,7 @@ public class Commands {
         COMMANDS.put("modProj", new ModProj());
 
         COMMANDS.put("newTeam", new NewTeam());
+        COMMANDS.put("delTeam", new DelTeam());
         COMMANDS.put("modTeam", new ModTeam());
         COMMANDS.put("addMem", new AddMem());
         COMMANDS.put("leaveTeam", new LeaveTeam());
