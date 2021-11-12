@@ -10,7 +10,7 @@ public class ProjectController {
 
     }
 
-    public static ProjectController getInstance(){
+    public static ProjectController getInstance() {
         return instance;
     }
 
@@ -20,6 +20,7 @@ public class ProjectController {
 
     /**
      * Create a new project.
+     *
      * @param username current username
      * @param projName name of the new project you want to create
      * @return String indicating success
@@ -37,6 +38,7 @@ public class ProjectController {
 
     /**
      * Delete a project, move all its tasks to "General".
+     *
      * @param username current username
      * @param projName name of the project you want to delete
      * @return String indicating success
@@ -54,9 +56,10 @@ public class ProjectController {
 
     /**
      * Change the name of a project.
+     *
      * @param username current username
-     * @param name1 name of the project you want to change
-     * @param name2 the new name
+     * @param name1    name of the project you want to change
+     * @param name2    the new name
      * @return String indicating success
      * @throws Exception failure to rename project
      */

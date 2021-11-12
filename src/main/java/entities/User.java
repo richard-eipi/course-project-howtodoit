@@ -8,11 +8,11 @@ import java.util.HashMap;
  * This class represents a User.
  */
 public class User implements Serializable, Comparable<User> {
-    private String name;
-    private String password;
     private final HashMap<String, Task> tasks;
     private final HashMap<String, Project> projects;
     private final HashMap<String, Team> teams;
+    private String name;
+    private String password;
 
     /**
      * Constructor for user with given name and password.

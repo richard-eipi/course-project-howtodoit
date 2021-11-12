@@ -11,8 +11,9 @@ public class UserAccountUseCases implements UserAccountInputBoundary {
 
     /**
      * Change username.
+     *
      * @param username current username
-     * @param newName new username
+     * @param newName  new username
      * @return boolean indicating whether success or failure
      */
     @Override
@@ -28,9 +29,10 @@ public class UserAccountUseCases implements UserAccountInputBoundary {
 
     /**
      * Change password.
+     *
      * @param username current username
-     * @param pw1 current password
-     * @param pw2 new password
+     * @param pw1      current password
+     * @param pw2      new password
      * @return boolean indicating whether success or failure
      */
     @Override

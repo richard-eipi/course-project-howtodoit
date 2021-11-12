@@ -2,13 +2,15 @@ package driver.commands;
 
 import entities.Project;
 import entities.User;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import usecases.UserList;
 
 class NewTaskTest {
     private final NewTask newtaskCommand = new NewTask();
-    private UserList userList;
     private final String username = "Eipi";
+    private UserList userList;
 
     @BeforeEach
     void setUp() {

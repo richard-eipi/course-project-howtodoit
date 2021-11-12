@@ -11,9 +11,9 @@ import java.util.Iterator;
  */
 public class Team implements Serializable, Iterable<User>, Comparable<Team> {
 
-    private String name;
     private final HashMap<String, User> members;
     private final HashMap<String, User> admins;
+    private String name;
 
     /**
      * @param name name of the team
@@ -32,13 +32,17 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
         this.name = name;
     }
 
-    public boolean isMem(String name) { return this.members.containsKey(name); }
+    public boolean isMem(String name) {
+        return this.members.containsKey(name);
+    }
 
     public boolean isAdmin(String name) {
         return this.admins.containsKey(name);
     }
 
-    public User getMem(String name) { return this.members.getOrDefault(name, null); }
+    public User getMem(String name) {
+        return this.members.getOrDefault(name, null);
+    }
 
     public void addMem(User user) {
         this.members.putIfAbsent(user.getName(), user);
@@ -58,7 +62,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
         User[] members = this.members.values().toArray(new User[0]);
         Arrays.sort(members); // Sort them
         StringBuilder output = new StringBuilder("This team <" + this.name + "> consists of the following members:\n");
-        for (User user: members) {
+        for (User user : members) {
             String admin = this.isAdmin(user.getName()) ? "*ADMIN* " : "";
             output.append(admin).append(user.getName()).append('\n'); // Each line will be a member
         }

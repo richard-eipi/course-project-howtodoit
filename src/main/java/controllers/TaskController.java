@@ -10,7 +10,7 @@ public class TaskController {
 
     }
 
-    public static TaskController getInstance(){
+    public static TaskController getInstance() {
         return instance;
     }
 
@@ -20,9 +20,10 @@ public class TaskController {
 
     /**
      * Create a new task.
+     *
      * @param username current username
      * @param taskName name of the new task
-     * @param dueDate due date of the new task
+     * @param dueDate  due date of the new task
      * @param projName project the new task belongs to
      * @return String indicating success
      * @throws Exception failure to create a new task
@@ -39,6 +40,7 @@ public class TaskController {
 
     /**
      * Complete a task.
+     *
      * @param username current username
      * @param taskName name of the task to complete
      * @return String indicating success
@@ -56,6 +58,7 @@ public class TaskController {
 
     /**
      * Star a task.
+     *
      * @param username current username
      * @param taskName name of the task to star
      * @return String indicating success
@@ -73,6 +76,7 @@ public class TaskController {
 
     /**
      * Unstar a task.
+     *
      * @param username current username
      * @param taskName name of the task to unstar
      * @return String indicating success
@@ -90,9 +94,10 @@ public class TaskController {
 
     /**
      * Rename a task.
+     *
      * @param username current username
-     * @param name1 current name of the task
-     * @param name2 new name of the task
+     * @param name1    current name of the task
+     * @param name2    new name of the task
      * @return String indicating success
      * @throws Exception failure to rename task
      */
@@ -108,9 +113,10 @@ public class TaskController {
 
     /**
      * Reset the due date of a task.
+     *
      * @param username current username
      * @param taskName name of the task
-     * @param dueDate new due date of the task
+     * @param dueDate  new due date of the task
      * @return String indicating success
      * @throws Exception failure to reset task due date
      */
@@ -126,9 +132,10 @@ public class TaskController {
 
     /**
      * Reset the description of a task.
+     *
      * @param username current username
      * @param taskName name of the task
-     * @param desc new description of the task
+     * @param desc     new description of the task
      * @return String indicating success
      * @throws Exception failure to reset task description
      */
@@ -144,11 +151,12 @@ public class TaskController {
 
     /**
      * Assign a task to a teammate
+     *
      * @param username1 current user
-     * @param teamName the name of the team
+     * @param teamName  the name of the team
      * @param username2 the name of the teammate
-     * @param taskName the name of the task
-     * @param dueDate due date of the task
+     * @param taskName  the name of the task
+     * @param dueDate   due date of the task
      * @return String indicating success
      * @throws Exception failure to assign task to teammate
      */

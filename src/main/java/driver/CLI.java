@@ -1,9 +1,9 @@
 package driver;
 
+import constants.Commands;
 import controllers.DataMemoryController;
 import driver.commands.CommandExecutor;
 import driver.commands.LoginRegisterExecutor;
-import constants.Commands;
 
 import java.util.Scanner;
 
@@ -30,8 +30,7 @@ public class CLI {
     }
 
     /**
-     *
-     * @param in the scanner
+     * @param in              the scanner
      * @param commandExecutor the class that's responsible for finding driver.commands to execute
      * @return true if user logs in, false if exit
      */
@@ -54,7 +53,8 @@ public class CLI {
 
     /**
      * Let user type their driver.commands and execute them
-     * @param in the scanner
+     *
+     * @param in              the scanner
      * @param commandExecutor the class that's responsible for finding a command to execute
      * @return true if user just logs out but does not exit the program (may log in again), false if exit
      */
@@ -87,8 +87,9 @@ public class CLI {
 
     /**
      * Helper method for executing one command.
+     *
      * @param commandExecutor the class that's responsible for finding a command to execute
-     * @param userInput user input String
+     * @param userInput       user input String
      */
     private static void executeCommand(CommandExecutor commandExecutor, String userInput) {
         try {
