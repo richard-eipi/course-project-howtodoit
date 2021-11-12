@@ -28,6 +28,7 @@ public class UserAccountController {
     public String modUsn(String username, String newName) throws Exception {
         boolean result = this.inputBoundary.modUsn(username, newName);
         if (result) {
+            DataMemoryController.getInstance().setTimeStamp();
             return "Username changed successfully.";
         } else {
             throw new Exception("This new username already exists.");
@@ -45,6 +46,7 @@ public class UserAccountController {
     public String modPwd(String username, String pw1, String pw2) throws Exception {
         boolean result = this.inputBoundary.modPwd(username, pw1, pw2);
         if (result) {
+            DataMemoryController.getInstance().setTimeStamp();
             return "Password changed successfully.";
         } else {
             throw new Exception("Current password incorrect. Failure to change password.");
