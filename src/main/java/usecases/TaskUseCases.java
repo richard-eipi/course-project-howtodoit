@@ -29,7 +29,7 @@ public class TaskUseCases implements TaskInputBoundary {
         User user = this.userList.getUser(username);
         if (user.hasTask(taskName)) {
             return false; // task already exists
-        } else if (!checkDueDateFormat(dueDate)) {
+        } else if (wrongDueDateFormat(dueDate)) {
             return false; // wrong due date format
         } else if (LocalDate.parse(dueDate).isBefore(LocalDate.now())) {
             return false; // overdue task
@@ -43,7 +43,7 @@ public class TaskUseCases implements TaskInputBoundary {
         }
     }
 
-    private boolean checkDueDateFormat(String s) {
+    private boolean wrongDueDateFormat(String s) {
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
         try {
             // If we want the format of string to be formal, use false. Otherwise, use true.
@@ -51,9 +51,9 @@ public class TaskUseCases implements TaskInputBoundary {
             sd.parse(s);
         }
         catch (Exception e) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
 
@@ -195,6 +195,10 @@ public class TaskUseCases implements TaskInputBoundary {
             return false; // user 1 not admin
         } else if (!team.isMem(username2)) {
             return false; // user 2 not teammate
+        } else if (wrongDueDateFormat(dueDate)) {
+            return false; // wrong due date format
+        } else if (LocalDate.parse(dueDate).isBefore(LocalDate.now())) {
+            return false; // overdue task
         } else {
             User user2 = team.getMem(username2);
             Project assignedToMe = user2.getProject("Assigned to me");
