@@ -11,13 +11,6 @@ public class HowTodoit {
         DataManager dataManager = new DataManager();
         System.out.println(dataManager.readData());
 
-        // Set up initial Memento
-//        try {
-//            Commands.COMMANDS.get("regret").execute(dataManager, new String[]{"setMemento"});
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-
         // Run the program on CLI
         CLI.run();
 
