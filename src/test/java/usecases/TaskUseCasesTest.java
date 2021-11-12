@@ -196,6 +196,28 @@ class TaskUseCasesTest {
                 "Failure: User2 is a member.");
     }
 
+    // test if date format is correct
+    @Test
+    public void testAssignTaskDueDateFormat() {
+        assertFalse(this.taskUseCases.assignTask(username,
+                        "207 project",
+                        "Eipi",
+                        "Phase 3",
+                        "2021.11.17"),
+                "Failure: Wrong due date format");
+    }
+
+    // test if due date is valid
+    @Test
+    public void testAssignTaskOverdue() {
+        assertFalse(this.taskUseCases.assignTask(username,
+                        "207 project",
+                        "Eipi",
+                        "Phase 3",
+                        "2002-11-17"),
+                "Failure: Due date had passed");
+    }
+
     // test if user can assign a task to user2
     @Test
     public void testAssignTaskSuccess() {
