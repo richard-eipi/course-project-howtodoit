@@ -124,26 +124,7 @@ public class User implements Serializable, Comparable<User> {
         return this.name.compareToIgnoreCase(o.getName());
     }
 
-    public Memento createMemento() {
-        Memento memento = new Memento();
-        memento.setState(this);
-        return memento;
-    }
-
-    public void restore(Memento memento) {
-        User userCopy = memento.getState();
-        this.name = userCopy.name;
-        this.password = userCopy.password;
-        this.tasks = userCopy.tasks;
-        this.projects = userCopy.projects;
-        this.teams = userCopy.teams;
-    }
-
     public User copy() {
-//        User userCopy = new User(this.name, this.password);
-//        userCopy.tasks = this.tasks;
-//        userCopy.projects = this.projects;
-//        userCopy.teams = this.teams;
-//        return userCopy;
+        return new User(this.name, this.password);
     }
 }
