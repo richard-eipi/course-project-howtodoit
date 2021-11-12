@@ -1,7 +1,9 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * This class represents a project.
@@ -9,11 +11,12 @@ import java.util.*;
  */
 public class Project implements Serializable, Iterable<Task>, Comparable<Project> {
 
-    private String name;
     private final HashMap<String, Task> tasks;
+    private String name;
 
     /**
      * Create a personal project with given name
+     *
      * @param name project name
      */
     public Project(String name) {
@@ -29,7 +32,9 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
         this.name = name;
     }
 
-    public boolean hasTask(String name) { return this.tasks.containsKey(name); }
+    public boolean hasTask(String name) {
+        return this.tasks.containsKey(name);
+    }
 
     public Task getTask(String name) {
         return this.tasks.getOrDefault(name, null);
@@ -48,7 +53,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
         Task[] tasks = this.tasks.values().toArray(new Task[0]);
         Arrays.sort(tasks); // Sort them
         StringBuilder output = new StringBuilder("This project <" + this.name + "> contains the following tasks:\n");
-        for (Task task: tasks) {
+        for (Task task : tasks) {
             output.append(task.toString()).append('\n'); // Each line will be a task
         }
 

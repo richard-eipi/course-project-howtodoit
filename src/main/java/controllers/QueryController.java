@@ -10,7 +10,7 @@ public class QueryController {
 
     }
 
-    public static QueryController getInstance(){
+    public static QueryController getInstance() {
         return instance;
     }
 
@@ -20,6 +20,7 @@ public class QueryController {
 
     /**
      * Show all teams that the user is in.
+     *
      * @param username current username
      * @return String showing all teams that the user is in
      */
@@ -29,6 +30,7 @@ public class QueryController {
 
     /**
      * Show all members in a team.
+     *
      * @param username current username
      * @param teamName name of the team
      * @return String showing all members in a team
@@ -39,6 +41,7 @@ public class QueryController {
 
     /**
      * Show all projects for the user.
+     *
      * @param username current username
      * @return String showing all projects for the user
      */
@@ -48,6 +51,7 @@ public class QueryController {
 
     /**
      * Show all tasks for the user.
+     *
      * @param username current username
      * @return String showing all tasks for the user
      */
@@ -57,6 +61,7 @@ public class QueryController {
 
     /**
      * Show all tasks in a project.
+     *
      * @param username current username
      * @param projName name of the project
      * @return String showing all tasks in a project

@@ -13,6 +13,7 @@ public class ProjectUseCases implements ProjectInputBoundary {
 
     /**
      * Create a new project.
+     *
      * @param username current username
      * @param projName name of the new project you want to create
      * @return boolean indicating whether success or failure
@@ -30,6 +31,7 @@ public class ProjectUseCases implements ProjectInputBoundary {
 
     /**
      * Delete a project, move all its tasks to "General".
+     *
      * @param username current username
      * @param projName name of the project you want to delete
      * @return boolean indicating whether success or failure
@@ -57,9 +59,10 @@ public class ProjectUseCases implements ProjectInputBoundary {
 
     /**
      * Change the name of a project.
+     *
      * @param username current username
-     * @param name1 name of the project you want to change
-     * @param name2 the new name
+     * @param name1    name of the project you want to change
+     * @param name2    the new name
      * @return boolean indicating whether success or failure
      */
     @Override

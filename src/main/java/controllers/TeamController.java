@@ -112,9 +112,10 @@ public class TeamController {
 
     /**
      * Promote a member to admin.
+     *
      * @param username current username
      * @param teamName name of the team
-     * @param memName name of the member you want to promote
+     * @param memName  name of the member you want to promote
      * @return String indicating success
      * @throws Exception Failure to add admin
      */

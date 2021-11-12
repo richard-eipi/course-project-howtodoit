@@ -25,6 +25,7 @@ public class UserList implements Serializable {
 
     /**
      * Create a timestamp of the current system, so we can restore it later.
+     *
      * @return a memento object that stores the current state of the system
      */
     public Memento createMemento() {
@@ -35,6 +36,7 @@ public class UserList implements Serializable {
 
     /**
      * Restore the state of the system.
+     *
      * @param memento the object that stores the state of the system we want to return to
      */
     public void restore(Memento memento) {
@@ -43,6 +45,7 @@ public class UserList implements Serializable {
 
     /**
      * Copy the entire system of users.
+     *
      * @return a copy of users
      */
     public HashMap<String, User> copy() {
@@ -59,9 +62,10 @@ public class UserList implements Serializable {
 
     /**
      * Copy the teams each user is in.
+     *
      * @param visitedTeams Already visited teams, do not want to add them twice
-     * @param user the user
-     * @param userCopy the clone of the user
+     * @param user         the user
+     * @param userCopy     the clone of the user
      */
     private void copyTeams(HashMap<String, Team> visitedTeams, User user, User userCopy) {
         String[] teams = user.getTeams().split("\n");
@@ -75,8 +79,9 @@ public class UserList implements Serializable {
 
     /**
      * Get the clone of a team from visitedTeams or create a new one.
+     *
      * @param visitedTeams the collection of visited teams
-     * @param teamName name of the team
+     * @param teamName     name of the team
      * @return the cloned team
      */
     private Team getTeamCopy(HashMap<String, Team> visitedTeams, String teamName) {
