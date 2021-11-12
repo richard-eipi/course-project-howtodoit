@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class CLI {
     public static void run() {
         // Greetings
-        System.out.println("Welcome to driver.HowTodoit: our virtual to-do-list system (version 0).");
+        System.out.println("Welcome to HowTodoit: our virtual to-do-list system (version 1).");
 
         // Setup
         Scanner in = new Scanner(System.in);
