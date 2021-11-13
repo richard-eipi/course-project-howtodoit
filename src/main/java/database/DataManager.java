@@ -51,7 +51,9 @@ public class DataManager implements DataSaver {
             return "Data has not been saved successfully. Sorry, your data is lost.";
         }
     }
-
+/**
+  * This class assign the list of users to each use cases and assign each use case to the corresponding data controller.
+  */
     private void buildUseCaseController() {
         LoginRegisterUseCases loginRegisterUseCases = new LoginRegisterUseCases(userList);
         UserAccountUseCases userAccountUseCases = new UserAccountUseCases(userList);

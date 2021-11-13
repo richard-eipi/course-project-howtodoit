@@ -1,7 +1,9 @@
 package controllers;
 
 import usecases.QueryInputBoundary;
-
+/**
+ * This class allows user to view all projects and all tasks in projects, all teams and all members in a team.
+ */
 public class QueryController {
     private static final QueryController instance = new QueryController();
     private QueryInputBoundary inputBoundary;

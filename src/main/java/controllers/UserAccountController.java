@@ -1,7 +1,9 @@
 package controllers;
 
 import usecases.UserAccountInputBoundary;
-
+/**
+ * This class allows user to change their username and password.
+ */
 public class UserAccountController {
     private static final UserAccountController instance = new UserAccountController();
     private UserAccountInputBoundary inputBoundary;

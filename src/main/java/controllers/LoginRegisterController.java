@@ -2,7 +2,9 @@ package controllers;
 
 import constants.Enums;
 import usecases.LoginRegisterInputBoundary;
-
+/**
+ * This class allows user to log in or register for a new account.
+ */
 public class LoginRegisterController {
     private static final LoginRegisterController instance = new LoginRegisterController();
     private LoginRegisterInputBoundary inputBoundary;

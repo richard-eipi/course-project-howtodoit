@@ -1,7 +1,9 @@
 package controllers;
 
 import usecases.TaskInputBoundary;
-
+/**
+ * This class allows user to create and delete, star and unstar, reset and rename and assign a task to a teammate.
+ */
 public class TaskController {
     private static final TaskController instance = new TaskController();
     private TaskInputBoundary inputBoundary;

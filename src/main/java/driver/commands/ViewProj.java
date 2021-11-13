@@ -2,7 +2,9 @@ package driver.commands;
 
 import controllers.QueryController;
 
-
+/**
+ * This class shows all projects of the user.
+ */
 public class ViewProj implements Command {
     /**
      * This function executes the viewProj command: show all projects for the user.
