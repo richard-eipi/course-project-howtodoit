@@ -1,7 +1,9 @@
 package controllers;
 
 import usecases.ProjectInputBoundary;
-
+/**
+ * This class allows user to create, delete, or modify the name of the project.
+ */
 public class ProjectController {
     private static final ProjectController instance = new ProjectController();
     private ProjectInputBoundary inputBoundary;

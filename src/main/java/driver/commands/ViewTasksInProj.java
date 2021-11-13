@@ -1,7 +1,9 @@
 package driver.commands;
 
 import controllers.QueryController;
-
+/**
+ * This class shows all tasks of one particular project to the user.
+ */
 public class ViewTasksInProj implements Command {
 
     /**

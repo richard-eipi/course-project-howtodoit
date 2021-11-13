@@ -1,7 +1,9 @@
 package controllers;
 
 import usecases.DataMemoryInputBoundary;
-
+/**
+ * This class performs the undo and redo action, and decides to clean or save the data.
+ */
 public class DataMemoryController {
     private static final DataMemoryController instance = new DataMemoryController();
     private DataMemoryInputBoundary inputBoundary;

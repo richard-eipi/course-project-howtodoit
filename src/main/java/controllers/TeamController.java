@@ -1,7 +1,9 @@
 package controllers;
 
 import usecases.TeamInputBoundary;
-
+/**
+ * This class allows user to create and delete a team, add members and leave team and share admin with others.
+ */
 public class TeamController {
     private static final TeamController instance = new TeamController();
     private TeamInputBoundary inputBoundary;

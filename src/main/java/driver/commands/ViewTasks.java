@@ -1,7 +1,9 @@
 package driver.commands;
 
 import controllers.QueryController;
-
+/**
+ * This class shows all tasks of the user with specific order.
+ */
 public class ViewTasks implements Command {
 
     /**
