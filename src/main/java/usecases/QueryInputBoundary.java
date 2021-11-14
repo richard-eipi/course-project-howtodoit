@@ -1,5 +1,8 @@
 package usecases;
 
+/**
+ * The input boundary for query use cases.
+ */
 public interface QueryInputBoundary {
     /**
      * Show all teams that the user is in.

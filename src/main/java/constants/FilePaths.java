@@ -4,6 +4,8 @@ package constants;
  * This class stores pre-defined file paths.
  */
 public class FilePaths {
-    public static final String userDirectory = System.getProperty("user.dir");
-    public static final String systemFilePath = userDirectory + "/system.ser";
+    /**
+     * The file path for the .ser file.
+     */
+    public static final String systemFilePath = System.getProperty("user.dir") + "/system.ser";
 }

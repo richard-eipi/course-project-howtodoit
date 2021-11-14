@@ -4,9 +4,19 @@ import entities.Project;
 import entities.Task;
 import entities.User;
 
+/**
+ * This class deals with project use cases.
+ */
 public class ProjectUseCases implements ProjectInputBoundary {
+    /**
+     * The list of users.
+     */
     private final UserList userList;
 
+    /**
+     * Constructor.
+     * @param userList the list of users
+     */
     public ProjectUseCases(UserList userList) {
         this.userList = userList;
     }
@@ -51,6 +61,11 @@ public class ProjectUseCases implements ProjectInputBoundary {
         }
     }
 
+    /**
+     * Helper method that helps delete tasks stored in a project from the user.
+     * @param user the user
+     * @param project the project which stores tasks that we want to delete
+     */
     private void emptyTasks(User user, Project project) {
         for (Task task : project) {
             user.delTask(task);

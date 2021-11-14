@@ -6,17 +6,34 @@ import usecases.LoginRegisterInputBoundary;
  * This class allows user to log in or register for a new account.
  */
 public class LoginRegisterController {
+    /**
+     * The singleton instance.
+     */
     private static final LoginRegisterController instance = new LoginRegisterController();
+    /**
+     * The input boundary.
+     */
     private LoginRegisterInputBoundary inputBoundary;
 
-    public LoginRegisterController() {
+    /**
+     * Private to prevent anyone else from instantiating.
+     */
+    private LoginRegisterController() {
 
     }
 
+    /**
+     * Provides access to the singleton instance.
+     * @return the instance
+     */
     public static LoginRegisterController getInstance() {
         return instance;
     }
 
+    /**
+     * Sets input boundary.
+     * @param inputBoundary the use case interface
+     */
     public void setInputBoundary(LoginRegisterInputBoundary inputBoundary) {
         this.inputBoundary = inputBoundary;
     }

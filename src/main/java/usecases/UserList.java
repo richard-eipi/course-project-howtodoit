@@ -9,8 +9,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 /**
- * This class represents a UserList.
- * A UserList stores a collection of Users,
+ * This class stores a collection of Users.
  */
 public class UserList implements Serializable {
     private HashMap<String, User> users = new HashMap<>();

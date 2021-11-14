@@ -8,9 +8,19 @@ import entities.User;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
+/**
+ * This class deals with task use cases.
+ */
 public class TaskUseCases implements TaskInputBoundary {
+    /**
+     * The list of users.
+     */
     private final UserList userList;
 
+    /**
+     * Constructor.
+     * @param userList the list of users
+     */
     public TaskUseCases(UserList userList) {
         this.userList = userList;
     }
@@ -43,12 +53,17 @@ public class TaskUseCases implements TaskInputBoundary {
         }
     }
 
-    private boolean wrongDueDateFormat(String s) {
+    /**
+     * Private method that checks if due date format is wrong.
+     * @param dueDate the due date String
+     * @return false if correct format, true if wrong format
+     */
+    private boolean wrongDueDateFormat(String dueDate) {
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
         try {
             // If we want the format of string to be formal, use false. Otherwise, use true.
             sd.setLenient(true);
-            sd.parse(s);
+            sd.parse(dueDate);
         } catch (Exception e) {
             return true;
         }
