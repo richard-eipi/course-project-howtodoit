@@ -1,6 +1,7 @@
 package controllers;
 
 import usecases.QueryInputBoundary;
+
 /**
  * This class allows user to view all projects and all tasks in projects, all teams and all members in a team.
  */
@@ -23,6 +24,7 @@ public class QueryController {
 
     /**
      * Provides access to the singleton instance.
+     *
      * @return the instance
      */
     public static QueryController getInstance() {
@@ -31,6 +33,7 @@ public class QueryController {
 
     /**
      * Sets input boundary.
+     *
      * @param inputBoundary the use case interface
      */
     public void setInputBoundary(QueryInputBoundary inputBoundary) {

@@ -1,6 +1,7 @@
 package controllers;
 
 import usecases.UserAccountInputBoundary;
+
 /**
  * This class allows user to change their username and password.
  */
@@ -23,6 +24,7 @@ public class UserAccountController {
 
     /**
      * Provides access to the singleton instance.
+     *
      * @return the instance
      */
     public static UserAccountController getInstance() {
@@ -31,6 +33,7 @@ public class UserAccountController {
 
     /**
      * Sets input boundary.
+     *
      * @param inputBoundary the use case interface
      */
     public void setInputBoundary(UserAccountInputBoundary inputBoundary) {

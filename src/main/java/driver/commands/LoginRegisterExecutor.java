@@ -1,10 +1,18 @@
 package driver.commands;
 
 import controllers.LoginRegisterController;
+
 /**
  * This class allows the current user to login or register.
  */
 public class LoginRegisterExecutor {
+    /**
+     * Executes either login or register based on user input.
+     *
+     * @param userInput exactly what the user typed
+     * @return whatever String is returned by LoginRegisterController
+     * @throws Exception when command is not found or when arguments are invalid
+     */
     public String executeCommand(String userInput) throws Exception {
         String[] inputArray = userInput.split(";"); // Use ";" to split user input String
 

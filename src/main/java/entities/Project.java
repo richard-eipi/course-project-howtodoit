@@ -31,6 +31,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
 
     /**
      * Return the name of the project.
+     *
      * @return project name
      */
     public String getName() {
@@ -39,6 +40,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
 
     /**
      * Sets the name of the project
+     *
      * @param name project name
      */
     public void setName(String name) {
@@ -47,6 +49,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
 
     /**
      * Checks if this project has the given task.
+     *
      * @param name task name
      * @return true if has task
      */
@@ -56,6 +59,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
 
     /**
      * Adds a task to this project.
+     *
      * @param task the task object
      */
     public void addTask(Task task) {
@@ -64,6 +68,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
 
     /**
      * Delete a task from this project.
+     *
      * @param task the task object
      */
     public void delTask(Task task) {
@@ -72,6 +77,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
 
     /**
      * Return a String representation of this project.
+     *
      * @return project name and all its tasks
      */
     @Override
@@ -88,6 +94,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
 
     /**
      * Return an Iterator object required by the Iterator Design Pattern.
+     *
      * @return an Iterator object
      */
     @Override
@@ -97,6 +104,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
 
     /**
      * Let this project be compared to another project based on project name.
+     *
      * @param o another project
      * @return negative number for <, positive number for >, 0 for =
      */

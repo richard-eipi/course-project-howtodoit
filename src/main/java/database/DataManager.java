@@ -11,6 +11,9 @@ import static constants.FilePaths.systemFilePath;
  * This class reads data from and writes data into local files.
  */
 public class DataManager implements DataSaver {
+    /**
+     * The list of users.
+     */
     private UserList userList = new UserList();
 
     /**
@@ -51,9 +54,10 @@ public class DataManager implements DataSaver {
             return "Data has not been saved successfully. Sorry, your data is lost.";
         }
     }
-/**
-  * This class assign the list of users to each use cases and assign each use case to the corresponding data controller.
-  */
+
+    /**
+     * This class assign the list of users to each use cases and assign each use case to the corresponding data controller.
+     */
     private void buildUseCaseController() {
         LoginRegisterUseCases loginRegisterUseCases = new LoginRegisterUseCases(userList);
         UserAccountUseCases userAccountUseCases = new UserAccountUseCases(userList);

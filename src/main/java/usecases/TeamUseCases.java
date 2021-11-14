@@ -14,6 +14,7 @@ public class TeamUseCases implements TeamInputBoundary {
 
     /**
      * Constructor.
+     *
      * @param userList the list of users
      */
     public TeamUseCases(UserList userList) {
