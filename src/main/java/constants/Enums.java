@@ -1,6 +1,7 @@
 package constants;
+
 /**
- * This class stores the result of login and register.
+ * This class stores all the Enum results of use cases.
  */
 public class Enums {
     /**

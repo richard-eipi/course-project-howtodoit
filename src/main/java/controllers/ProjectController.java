@@ -1,6 +1,7 @@
 package controllers;
 
 import usecases.ProjectInputBoundary;
+
 /**
  * This class allows user to create, delete, or modify the name of the project.
  */
@@ -23,6 +24,7 @@ public class ProjectController {
 
     /**
      * Provides access to the singleton instance.
+     *
      * @return the instance
      */
     public static ProjectController getInstance() {
@@ -31,6 +33,7 @@ public class ProjectController {
 
     /**
      * Sets input boundary.
+     *
      * @param inputBoundary the use case interface
      */
     public void setInputBoundary(ProjectInputBoundary inputBoundary) {

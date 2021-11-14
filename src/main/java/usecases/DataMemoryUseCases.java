@@ -22,6 +22,7 @@ public class DataMemoryUseCases implements DataMemoryInputBoundary {
 
     /**
      * Constructor.
+     *
      * @param userList the list of users
      */
     public DataMemoryUseCases(UserList userList) {
@@ -30,6 +31,7 @@ public class DataMemoryUseCases implements DataMemoryInputBoundary {
 
     /**
      * Sets the data saver interface.
+     *
      * @param dataSaver the data saver interface
      */
     public void setDataSaver(DataSaver dataSaver) {

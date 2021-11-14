@@ -19,6 +19,7 @@ public class TaskUseCases implements TaskInputBoundary {
 
     /**
      * Constructor.
+     *
      * @param userList the list of users
      */
     public TaskUseCases(UserList userList) {
@@ -55,6 +56,7 @@ public class TaskUseCases implements TaskInputBoundary {
 
     /**
      * Private method that checks if due date format is wrong.
+     *
      * @param dueDate the due date String
      * @return false if correct format, true if wrong format
      */

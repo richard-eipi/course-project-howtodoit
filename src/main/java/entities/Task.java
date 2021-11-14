@@ -31,7 +31,7 @@ public class Task implements Serializable, Comparable<Task> {
     /**
      * Create a task with given name, due date, and project.
      *
-     * @param name task name
+     * @param name    task name
      * @param dueDate task due date
      * @param project project that stores this task
      */
@@ -44,6 +44,7 @@ public class Task implements Serializable, Comparable<Task> {
 
     /**
      * Return the name of the task.
+     *
      * @return task name
      */
     public String getName() {
@@ -52,6 +53,7 @@ public class Task implements Serializable, Comparable<Task> {
 
     /**
      * Sets the name of the task
+     *
      * @param name task name
      */
     public void setName(String name) {
@@ -60,6 +62,7 @@ public class Task implements Serializable, Comparable<Task> {
 
     /**
      * Return the due date of the task.
+     *
      * @return task due date
      */
     public String getDueDate() {
@@ -68,6 +71,7 @@ public class Task implements Serializable, Comparable<Task> {
 
     /**
      * Sets the due date of the task
+     *
      * @param dueDate task due date
      */
     public void setDueDate(String dueDate) {
@@ -76,6 +80,7 @@ public class Task implements Serializable, Comparable<Task> {
 
     /**
      * Return the description of the task.
+     *
      * @return task description
      */
     public String getDescription() {
@@ -84,6 +89,7 @@ public class Task implements Serializable, Comparable<Task> {
 
     /**
      * Sets the description of the task
+     *
      * @param description task description
      */
     public void setDescription(String description) {
@@ -92,6 +98,7 @@ public class Task implements Serializable, Comparable<Task> {
 
     /**
      * Return the project that stores this task.
+     *
      * @return the project that stores this task
      */
     public Project getProject() {
@@ -100,6 +107,7 @@ public class Task implements Serializable, Comparable<Task> {
 
     /**
      * Return whether this task is starred.
+     *
      * @return true if starred
      */
     public boolean getIsStarred() {
@@ -108,6 +116,7 @@ public class Task implements Serializable, Comparable<Task> {
 
     /**
      * Sets whether this task is starred.
+     *
      * @param starred true if we want to star it, false otherwise
      */
     public void setStarred(boolean starred) {
@@ -116,6 +125,7 @@ public class Task implements Serializable, Comparable<Task> {
 
     /**
      * Return a String representation of this task.
+     *
      * @return task information
      */
     @Override
@@ -126,6 +136,7 @@ public class Task implements Serializable, Comparable<Task> {
 
     /**
      * Lets this task be compared to another task based on due date.
+     *
      * @param o another task
      * @return negative number for <, positive number for >, 0 for =
      */

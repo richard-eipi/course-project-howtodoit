@@ -12,12 +12,26 @@ import java.util.HashMap;
  * This class stores a collection of Users.
  */
 public class UserList implements Serializable {
+    /**
+     * A collection of users.
+     */
     private HashMap<String, User> users = new HashMap<>();
 
+    /**
+     * Return a user by username.
+     *
+     * @param name username
+     * @return the user
+     */
     public User getUser(String name) {
         return this.users.getOrDefault(name, null);
     }
 
+    /**
+     * Add a user to the list.
+     *
+     * @param user the user object
+     */
     public void addUser(User user) {
         this.users.put(user.getName(), user);
     }

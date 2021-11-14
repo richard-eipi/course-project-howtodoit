@@ -23,6 +23,7 @@ public class Memento {
 
     /**
      * Returns the state of the system stored.
+     *
      * @return copy of the state of user list
      */
     public HashMap<String, User> getState() {
@@ -31,6 +32,7 @@ public class Memento {
 
     /**
      * Timestamps the state of the current system.
+     *
      * @param userList the list of users
      */
     public void setState(UserList userList) {

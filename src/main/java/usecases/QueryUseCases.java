@@ -15,6 +15,7 @@ public class QueryUseCases implements QueryInputBoundary {
 
     /**
      * Constructor.
+     *
      * @param userList the list of users
      */
     public QueryUseCases(UserList userList) {
