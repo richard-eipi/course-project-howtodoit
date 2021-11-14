@@ -48,6 +48,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Return the name of the user.
+     *
      * @return username
      */
     public String getName() {
@@ -56,6 +57,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Sets the name of the user.
+     *
      * @param name username
      */
     public void setName(String name) {
@@ -64,6 +66,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Sets the password of the user.
+     *
      * @param password new password
      */
     public void setPassword(String password) {
@@ -72,6 +75,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Checks if entered password matches this user's password
+     *
      * @param password the password entered by the user
      * @return true if matches
      */
@@ -81,6 +85,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Checks whether this user has the given project.
+     *
      * @param name project name
      * @return true if has project
      */
@@ -90,6 +95,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Checks whether this user is in the given team.
+     *
      * @param name team name
      * @return true if has team
      */
@@ -99,6 +105,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Checks whether this user has the given task.
+     *
      * @param name task name
      * @return true if has task
      */
@@ -108,6 +115,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Return a project by name.
+     *
      * @param name project name
      * @return the project
      */
@@ -117,6 +125,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Return a team by name.
+     *
      * @param name team name
      * @return the team
      */
@@ -126,6 +135,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Return a task by name.
+     *
      * @param name task name
      * @return the task
      */
@@ -135,6 +145,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Let the user have this project.
+     *
      * @param project the project object
      */
     public void addProject(Project project) {
@@ -143,6 +154,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Let the user join this team.
+     *
      * @param team the team object
      */
     public void addTeam(Team team) {
@@ -151,6 +163,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Let the user have this task.
+     *
      * @param task the task object
      */
     public void addTask(Task task) {
@@ -159,6 +172,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Remove a project.
+     *
      * @param project the project object
      */
     public void delProject(Project project) {
@@ -167,6 +181,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Leave a team.
+     *
      * @param team the team object
      */
     public void delTeam(Team team) {
@@ -175,6 +190,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Remove a task.
+     *
      * @param task the task object
      */
     public void delTask(Task task) {
@@ -183,6 +199,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Return a String showing all project names.
+     *
      * @return a String showing all project names
      */
     public String getProjects() {
@@ -198,6 +215,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Return a String showing all team names.
+     *
      * @return a String showing all team names
      */
     public String getTeams() {
@@ -213,6 +231,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Return a String showing all task info.
+     *
      * @return a String showing all team names
      */
     public String getTasks() {
@@ -228,6 +247,7 @@ public class User implements Serializable, Comparable<User> {
 
     /**
      * Let this user be compared to another user based on username.
+     *
      * @param o another user
      * @return negative number for <, positive number for >, 0 for =
      */

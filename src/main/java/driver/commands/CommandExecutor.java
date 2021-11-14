@@ -14,6 +14,8 @@ public class CommandExecutor {
     private String username;
 
     /**
+     * Executes a command based on user input.
+     *
      * @param userInput exactly what the user typed
      * @return whatever String is returned by the specific command executed
      * @throws Exception when command is not found or when arguments are invalid
@@ -31,6 +33,11 @@ public class CommandExecutor {
         }
     }
 
+    /**
+     * Sets the username after logging in
+     *
+     * @param username the username
+     */
     public void setUsername(String username) {
         this.username = username;
     }

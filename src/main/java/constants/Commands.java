@@ -8,10 +8,13 @@ import java.util.HashMap;
  * This class stores and initializes all Command objects.
  */
 public class Commands {
+    /**
+     * All Command objects.
+     */
     public static final HashMap<String, Command> COMMANDS = new HashMap<>();
 
     /**
-     * This class loads all driver.commands.
+     * Load all commands.
      */
     public static void loadCommands() {
         COMMANDS.put("modUsn", new ModUsn());

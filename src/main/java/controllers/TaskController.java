@@ -1,6 +1,7 @@
 package controllers;
 
 import usecases.TaskInputBoundary;
+
 /**
  * This class allows user to create and delete, star and unstar, reset and rename and assign a task to a teammate.
  */
@@ -23,6 +24,7 @@ public class TaskController {
 
     /**
      * Provides access to the singleton instance.
+     *
      * @return the instance
      */
     public static TaskController getInstance() {
@@ -31,6 +33,7 @@ public class TaskController {
 
     /**
      * Sets input boundary.
+     *
      * @param inputBoundary the use case interface
      */
     public void setInputBoundary(TaskInputBoundary inputBoundary) {

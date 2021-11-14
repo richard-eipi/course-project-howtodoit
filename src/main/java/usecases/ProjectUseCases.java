@@ -15,6 +15,7 @@ public class ProjectUseCases implements ProjectInputBoundary {
 
     /**
      * Constructor.
+     *
      * @param userList the list of users
      */
     public ProjectUseCases(UserList userList) {
@@ -63,7 +64,8 @@ public class ProjectUseCases implements ProjectInputBoundary {
 
     /**
      * Helper method that helps delete tasks stored in a project from the user.
-     * @param user the user
+     *
+     * @param user    the user
      * @param project the project which stores tasks that we want to delete
      */
     private void emptyTasks(User user, Project project) {

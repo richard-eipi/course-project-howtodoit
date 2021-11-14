@@ -36,6 +36,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
 
     /**
      * Return the name of the team.
+     *
      * @return team name
      */
     public String getName() {
@@ -44,6 +45,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
 
     /**
      * Sets the name of the team.
+     *
      * @param name team name
      */
     public void setName(String name) {
@@ -52,6 +54,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
 
     /**
      * Return whether the given user is a member.
+     *
      * @param name username
      * @return whether the given user is a member
      */
@@ -61,6 +64,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
 
     /**
      * Return whether the given user is an admin.
+     *
      * @param name username
      * @return whether the given user is an admin
      */
@@ -70,6 +74,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
 
     /**
      * Return a member by name.
+     *
      * @param name username
      * @return the member
      */
@@ -79,6 +84,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
 
     /**
      * Let the given user become a member.
+     *
      * @param user the user object
      */
     public void addMem(User user) {
@@ -88,6 +94,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
     /**
      * Let the given user become an admin.
      * They must already be a member.
+     *
      * @param user the user object
      */
     public void addAdmin(User user) {
@@ -96,6 +103,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
 
     /**
      * Remove a user from the collection of members.
+     *
      * @param user the user object
      */
     public void delMem(User user) {
@@ -105,6 +113,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
 
     /**
      * Return a String representation of this team.
+     *
      * @return team name and all its members
      */
     @Override
@@ -121,6 +130,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
 
     /**
      * Return an Iterator object required by the Iterator Design Pattern.
+     *
      * @return an Iterator object
      */
     @Override
@@ -130,6 +140,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
 
     /**
      * Let this team be compared to another team based on team name.
+     *
      * @param o another team
      * @return negative number for <, positive number for >, 0 for =
      */

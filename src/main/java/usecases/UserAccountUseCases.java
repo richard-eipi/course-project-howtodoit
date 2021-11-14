@@ -13,6 +13,7 @@ public class UserAccountUseCases implements UserAccountInputBoundary {
 
     /**
      * Constructor.
+     *
      * @param userList the list of users
      */
     public UserAccountUseCases(UserList userList) {

@@ -14,6 +14,7 @@ public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
 
     /**
      * Constructor.
+     *
      * @param userList the list of users
      */
     public LoginRegisterUseCases(UserList userList) {
