@@ -7,8 +7,15 @@ import entities.User;
  * This class deals with login and register use cases.
  */
 public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
+    /**
+     * The list of users.
+     */
     private final UserList userList;
 
+    /**
+     * Constructor.
+     * @param userList the list of users
+     */
     public LoginRegisterUseCases(UserList userList) {
         this.userList = userList;
     }

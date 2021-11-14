@@ -5,17 +5,34 @@ import usecases.TeamInputBoundary;
  * This class allows user to create and delete a team, add members and leave team and share admin with others.
  */
 public class TeamController {
+    /**
+     * The singleton instance.
+     */
     private static final TeamController instance = new TeamController();
+    /**
+     * The input boundary.
+     */
     private TeamInputBoundary inputBoundary;
 
-    public TeamController() {
+    /**
+     * Private to prevent anyone else from instantiating.
+     */
+    private TeamController() {
 
     }
 
+    /**
+     * Provides access to the singleton instance.
+     * @return the instance
+     */
     public static TeamController getInstance() {
         return instance;
     }
 
+    /**
+     * Sets input boundary.
+     * @param inputBoundary the use case interface
+     */
     public void setInputBoundary(TeamInputBoundary inputBoundary) {
         this.inputBoundary = inputBoundary;
     }

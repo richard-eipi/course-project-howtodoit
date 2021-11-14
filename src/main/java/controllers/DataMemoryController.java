@@ -5,17 +5,34 @@ import usecases.DataMemoryInputBoundary;
  * This class performs the undo and redo action, and decides to clean or save the data.
  */
 public class DataMemoryController {
+    /**
+     * The singleton instance.
+     */
     private static final DataMemoryController instance = new DataMemoryController();
+    /**
+     * The input boundary.
+     */
     private DataMemoryInputBoundary inputBoundary;
 
-    public DataMemoryController() {
+    /**
+     * Private to prevent anyone else from instantiating.
+     */
+    private DataMemoryController() {
 
     }
 
+    /**
+     * Provides access to the singleton instance.
+     * @return the instance
+     */
     public static DataMemoryController getInstance() {
         return instance;
     }
 
+    /**
+     * Sets input boundary.
+     * @param inputBoundary the use case interface
+     */
     public void setInputBoundary(DataMemoryInputBoundary inputBoundary) {
         this.inputBoundary = inputBoundary;
     }

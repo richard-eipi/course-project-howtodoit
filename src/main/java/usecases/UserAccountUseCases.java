@@ -2,9 +2,19 @@ package usecases;
 
 import entities.User;
 
+/**
+ * This class deals with user account use cases.
+ */
 public class UserAccountUseCases implements UserAccountInputBoundary {
+    /**
+     * The list of users.
+     */
     private final UserList userList;
 
+    /**
+     * Constructor.
+     * @param userList the list of users
+     */
     public UserAccountUseCases(UserList userList) {
         this.userList = userList;
     }

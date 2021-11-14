@@ -5,17 +5,34 @@ import usecases.UserAccountInputBoundary;
  * This class allows user to change their username and password.
  */
 public class UserAccountController {
+    /**
+     * The singleton instance.
+     */
     private static final UserAccountController instance = new UserAccountController();
+    /**
+     * The input boundary.
+     */
     private UserAccountInputBoundary inputBoundary;
 
-    public UserAccountController() {
+    /**
+     * Private to prevent anyone else from instantiating.
+     */
+    private UserAccountController() {
 
     }
 
+    /**
+     * Provides access to the singleton instance.
+     * @return the instance
+     */
     public static UserAccountController getInstance() {
         return instance;
     }
 
+    /**
+     * Sets input boundary.
+     * @param inputBoundary the use case interface
+     */
     public void setInputBoundary(UserAccountInputBoundary inputBoundary) {
         this.inputBoundary = inputBoundary;
     }

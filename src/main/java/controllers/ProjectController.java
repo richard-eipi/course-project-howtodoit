@@ -5,17 +5,34 @@ import usecases.ProjectInputBoundary;
  * This class allows user to create, delete, or modify the name of the project.
  */
 public class ProjectController {
+    /**
+     * The singleton instance.
+     */
     private static final ProjectController instance = new ProjectController();
+    /**
+     * The input boundary.
+     */
     private ProjectInputBoundary inputBoundary;
 
-    public ProjectController() {
+    /**
+     * Private to prevent anyone else from instantiating.
+     */
+    private ProjectController() {
 
     }
 
+    /**
+     * Provides access to the singleton instance.
+     * @return the instance
+     */
     public static ProjectController getInstance() {
         return instance;
     }
 
+    /**
+     * Sets input boundary.
+     * @param inputBoundary the use case interface
+     */
     public void setInputBoundary(ProjectInputBoundary inputBoundary) {
         this.inputBoundary = inputBoundary;
     }

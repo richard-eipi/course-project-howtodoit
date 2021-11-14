@@ -4,9 +4,19 @@ import entities.Project;
 import entities.Team;
 import entities.User;
 
+/**
+ * This class deals with query use cases.
+ */
 public class QueryUseCases implements QueryInputBoundary {
+    /**
+     * The list of users.
+     */
     private final UserList userList;
 
+    /**
+     * Constructor.
+     * @param userList the list of users
+     */
     public QueryUseCases(UserList userList) {
         this.userList = userList;
     }

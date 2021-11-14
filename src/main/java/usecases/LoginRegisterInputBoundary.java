@@ -2,6 +2,9 @@ package usecases;
 
 import constants.Enums;
 
+/**
+ * The input boundary for login register use cases.
+ */
 public interface LoginRegisterInputBoundary {
     /**
      * Lets the user log in.

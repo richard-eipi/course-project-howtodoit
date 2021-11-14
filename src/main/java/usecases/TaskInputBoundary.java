@@ -1,5 +1,8 @@
 package usecases;
 
+/**
+ * The input boundary for task use cases.
+ */
 public interface TaskInputBoundary {
     /**
      * Create a new task.
