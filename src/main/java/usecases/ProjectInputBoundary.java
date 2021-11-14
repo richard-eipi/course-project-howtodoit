@@ -1,5 +1,8 @@
 package usecases;
 
+/**
+ * The input boundary for project use cases.
+ */
 public interface ProjectInputBoundary {
     /**
      * Create a new project.

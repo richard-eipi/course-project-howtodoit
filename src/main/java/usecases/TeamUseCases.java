@@ -3,9 +3,19 @@ package usecases;
 import entities.Team;
 import entities.User;
 
+/**
+ * This class deals with team use cases.
+ */
 public class TeamUseCases implements TeamInputBoundary {
+    /**
+     * The list of users.
+     */
     private final UserList userList;
 
+    /**
+     * Constructor.
+     * @param userList the list of users
+     */
     public TeamUseCases(UserList userList) {
         this.userList = userList;
     }

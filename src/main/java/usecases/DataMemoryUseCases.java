@@ -3,15 +3,35 @@ package usecases;
 import database.DataSaver;
 import entities.Memento;
 
+/**
+ * This class deals with data memory use cases.
+ */
 public class DataMemoryUseCases implements DataMemoryInputBoundary {
+    /**
+     * The list of users.
+     */
     private final UserList userList;
+    /**
+     * The data saver interface.
+     */
     private DataSaver dataSaver;
+    /**
+     * The current memento object, storing a copy of the system.
+     */
     private Memento currentMemento;
 
+    /**
+     * Constructor.
+     * @param userList the list of users
+     */
     public DataMemoryUseCases(UserList userList) {
         this.userList = userList;
     }
 
+    /**
+     * Sets the data saver interface.
+     * @param dataSaver the data saver interface
+     */
     public void setDataSaver(DataSaver dataSaver) {
         this.dataSaver = dataSaver;
     }

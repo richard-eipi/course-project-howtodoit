@@ -5,17 +5,34 @@ import usecases.TaskInputBoundary;
  * This class allows user to create and delete, star and unstar, reset and rename and assign a task to a teammate.
  */
 public class TaskController {
+    /**
+     * The singleton instance.
+     */
     private static final TaskController instance = new TaskController();
+    /**
+     * The input boundary.
+     */
     private TaskInputBoundary inputBoundary;
 
-    public TaskController() {
+    /**
+     * Private to prevent anyone else from instantiating.
+     */
+    private TaskController() {
 
     }
 
+    /**
+     * Provides access to the singleton instance.
+     * @return the instance
+     */
     public static TaskController getInstance() {
         return instance;
     }
 
+    /**
+     * Sets input boundary.
+     * @param inputBoundary the use case interface
+     */
     public void setInputBoundary(TaskInputBoundary inputBoundary) {
         this.inputBoundary = inputBoundary;
     }

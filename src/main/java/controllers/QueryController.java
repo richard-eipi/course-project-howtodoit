@@ -5,17 +5,34 @@ import usecases.QueryInputBoundary;
  * This class allows user to view all projects and all tasks in projects, all teams and all members in a team.
  */
 public class QueryController {
+    /**
+     * The singleton instance.
+     */
     private static final QueryController instance = new QueryController();
+    /**
+     * The input boundary.
+     */
     private QueryInputBoundary inputBoundary;
 
-    public QueryController() {
+    /**
+     * Private to prevent anyone else from instantiating.
+     */
+    private QueryController() {
 
     }
 
+    /**
+     * Provides access to the singleton instance.
+     * @return the instance
+     */
     public static QueryController getInstance() {
         return instance;
     }
 
+    /**
+     * Sets input boundary.
+     * @param inputBoundary the use case interface
+     */
     public void setInputBoundary(QueryInputBoundary inputBoundary) {
         this.inputBoundary = inputBoundary;
     }

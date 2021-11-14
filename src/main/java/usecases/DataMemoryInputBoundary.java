@@ -1,5 +1,8 @@
 package usecases;
 
+/**
+ * The input boundary for data memory use cases.
+ */
 public interface DataMemoryInputBoundary {
     /**
      * Save data.

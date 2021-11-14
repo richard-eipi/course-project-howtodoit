@@ -1,5 +1,8 @@
 package usecases;
 
+/**
+ * The input boundary for team use cases.
+ */
 public interface TeamInputBoundary {
     /**
      * Create a new team.

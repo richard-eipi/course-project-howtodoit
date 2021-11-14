@@ -1,5 +1,8 @@
 package usecases;
 
+/**
+ * The input boundary for user account use cases.
+ */
 public interface UserAccountInputBoundary {
     /**
      * Change username.
