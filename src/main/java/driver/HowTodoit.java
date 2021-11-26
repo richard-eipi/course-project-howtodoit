@@ -1,6 +1,6 @@
 package driver;
 
-import database.DataManager;
+import gateway.DataManager;
 
 /**
  * This is where our program will be run.

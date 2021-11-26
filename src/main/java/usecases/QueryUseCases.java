@@ -3,6 +3,9 @@ package usecases;
 import entities.Project;
 import entities.Team;
 import entities.User;
+import usecases.managers.ProjectList;
+import usecases.managers.TeamList;
+import usecases.managers.UserList;
 
 /**
  * This class deals with query use cases.
@@ -31,7 +34,7 @@ public class QueryUseCases implements QueryInputBoundary {
     @Override
     public String viewTeams(String username) {
         User user = this.userList.getUser(username);
-        return user.getTeams();
+        return user.getTeamList().toString();
     }
 
     /**
@@ -44,10 +47,11 @@ public class QueryUseCases implements QueryInputBoundary {
     @Override
     public String viewMemsInTeam(String username, String teamName) {
         User user = this.userList.getUser(username);
-        if (!user.hasTeam(teamName)) {
+        TeamList teamList = user.getTeamList();
+        if (!teamList.hasTeam(teamName)) {
             return "Team does not exist.";
         } else {
-            Team team = user.getTeam(teamName);
+            Team team = teamList.getTeam(teamName);
             return team.toString();
         }
     }
@@ -61,7 +65,7 @@ public class QueryUseCases implements QueryInputBoundary {
     @Override
     public String viewProjs(String username) {
         User user = this.userList.getUser(username);
-        return user.getProjects();
+        return user.getProjectList().toString();
     }
 
     /**
@@ -73,7 +77,7 @@ public class QueryUseCases implements QueryInputBoundary {
     @Override
     public String viewTasks(String username) {
         User user = this.userList.getUser(username);
-        return user.getTasks();
+        return user.getTaskList().toString();
     }
 
     /**
@@ -86,10 +90,11 @@ public class QueryUseCases implements QueryInputBoundary {
     @Override
     public String viewTasksInProj(String username, String projName) {
         User user = this.userList.getUser(username);
-        if (!user.hasProject(projName)) {
+        ProjectList projectList = user.getProjectList();
+        if (!projectList.hasProject(projName)) {
             return "Project does not exist.";
         } else {
-            Project project = user.getProject(projName);
+            Project project = projectList.getProject(projName);
             return project.toString();
         }
     }

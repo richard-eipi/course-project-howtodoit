@@ -1,6 +1,7 @@
 package usecases;
 
 import entities.User;
+import usecases.managers.UserList;
 
 /**
  * This class deals with user account use cases.

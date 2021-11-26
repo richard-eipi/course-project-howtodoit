@@ -1,7 +1,8 @@
 package usecases;
 
-import database.DataSaver;
 import entities.Memento;
+import gateway.DataSaver;
+import usecases.managers.UserList;
 
 /**
  * This class deals with data memory use cases.

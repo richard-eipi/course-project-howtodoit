@@ -1,4 +1,4 @@
-package database;
+package gateway;
 
 /**
  * This interface saves data into local system.

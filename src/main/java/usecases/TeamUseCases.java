@@ -2,6 +2,8 @@ package usecases;
 
 import entities.Team;
 import entities.User;
+import usecases.managers.TeamList;
+import usecases.managers.UserList;
 
 /**
  * This class deals with team use cases.
@@ -31,12 +33,13 @@ public class TeamUseCases implements TeamInputBoundary {
     @Override
     public boolean newTeam(String username, String teamName) {
         User user = this.userList.getUser(username);
+        TeamList teamList = user.getTeamList();
 
-        if (user.hasTeam(teamName)) {
+        if (teamList.hasTeam(teamName)) {
             return false; // team already exists
         } else {
             Team team = new Team(teamName);
-            user.addTeam(team);
+            teamList.addTeam(team);
             team.addMem(user);
             team.addAdmin(user);
             return true;
@@ -53,14 +56,16 @@ public class TeamUseCases implements TeamInputBoundary {
     @Override
     public boolean delTeam(String username, String teamName) {
         User user = this.userList.getUser(username);
-        Team team = user.getTeam(teamName);
-        if (!user.hasTeam(teamName)) {
+        TeamList teamList = user.getTeamList();
+        Team team = teamList.getTeam(teamName);
+
+        if (!teamList.hasTeam(teamName)) {
             return false; // teamName must exist
         } else if (!team.isAdmin(username)) {
             return false; // user must be an admin
         } else {
             for (User member : team) {
-                member.delTeam(team);
+                member.getTeamList().delTeam(team);
             }
         }
         return true;
@@ -77,8 +82,10 @@ public class TeamUseCases implements TeamInputBoundary {
     @Override
     public boolean modTeam(String username, String name1, String name2) {
         User user = this.userList.getUser(username);
-        Team team = user.getTeam(name1);
-        if (!user.hasTeam(name1)) {
+        TeamList teamList = user.getTeamList();
+        Team team = teamList.getTeam(name1);
+
+        if (!teamList.hasTeam(name1)) {
             return false; // user must have name1
         } else if (!team.isAdmin(username)) {
             return false; // user must be an admin
@@ -100,7 +107,7 @@ public class TeamUseCases implements TeamInputBoundary {
      */
     private boolean checkRepetitiveTeam(Team team, String name2) {
         for (User member : team) {
-            if (member.hasTeam(name2)) return true;
+            if (member.getTeamList().hasTeam(name2)) return true;
         }
         return false;
     }
@@ -117,17 +124,17 @@ public class TeamUseCases implements TeamInputBoundary {
     public boolean addMem(String username, String teamName, String memName) {
         User user = this.userList.getUser(username);
         User member = this.userList.getUser(memName);
-        Team team = user.getTeam(teamName);
+        Team team = user.getTeamList().getTeam(teamName);
 
-        if (!user.hasTeam(teamName)) {
+        if (!user.getTeamList().hasTeam(teamName)) {
             return false; // user must have teamName
         } else if (!team.isAdmin(username)) {
             return false; // user must be an admin
-        } else if (member.hasTeam(teamName)) {
+        } else if (member.getTeamList().hasTeam(teamName)) {
             return false; // member must not already have teamName
         } else {
             team.addMem(member);
-            member.addTeam(team);
+            member.getTeamList().addTeam(team);
             return true;
         }
     }
@@ -142,12 +149,14 @@ public class TeamUseCases implements TeamInputBoundary {
     @Override
     public boolean leaveTeam(String username, String teamName) {
         User user = this.userList.getUser(username);
-        Team team = user.getTeam(teamName);
-        if (!user.hasTeam(teamName)) {
+        TeamList teamList = user.getTeamList();
+        Team team = teamList.getTeam(teamName);
+
+        if (!teamList.hasTeam(teamName)) {
             return false; // user must have teamName in order to leave
         } else {
             team.delMem(user);
-            user.delTeam(team);
+            teamList.delTeam(team);
             return true;
         }
     }
@@ -164,13 +173,13 @@ public class TeamUseCases implements TeamInputBoundary {
     public boolean addAdmin(String username, String teamName, String memName) {
         User user = this.userList.getUser(username);
         User member = this.userList.getUser(memName);
-        Team team = user.getTeam(teamName);
+        Team team = user.getTeamList().getTeam(teamName);
 
-        if (!user.hasTeam(teamName)) {
+        if (!user.getTeamList().hasTeam(teamName)) {
             return false; // user must have teamName
         } else if (!team.isAdmin(username)) {
             return false; // user must be an admin
-        } else if (!member.hasTeam(teamName)) {
+        } else if (!member.getTeamList().hasTeam(teamName)) {
             return false; // member must have teamName
         } else {
             team.addAdmin(member);

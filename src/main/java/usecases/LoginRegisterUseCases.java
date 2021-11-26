@@ -2,6 +2,10 @@ package usecases;
 
 import constants.Enums;
 import entities.User;
+import usecases.managers.ProjectManager;
+import usecases.managers.TaskManager;
+import usecases.managers.TeamManager;
+import usecases.managers.UserList;
 
 /**
  * This class deals with login and register use cases.
@@ -53,7 +57,7 @@ public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
         if (this.userList.getUser(username) != null) {
             return Enums.RegisterResult.FAILURE; // user already exists
         } else {
-            User user = new User(username, password);
+            User user = new User(username, password, new TaskManager(), new ProjectManager(), new TeamManager());
             userList.addUser(user);
             return Enums.RegisterResult.SUCCESS;
         }

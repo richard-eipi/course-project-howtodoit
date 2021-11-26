@@ -1,7 +1,8 @@
-package database;
+package gateway;
 
 import controllers.*;
 import usecases.*;
+import usecases.managers.UserList;
 
 import java.io.*;
 

@@ -6,6 +6,10 @@ import entities.Team;
 import entities.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import usecases.managers.ProjectManager;
+import usecases.managers.TaskManager;
+import usecases.managers.TeamManager;
+import usecases.managers.UserList;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -20,21 +24,21 @@ class TaskUseCasesTest {
         userList = new UserList();
         taskUseCases = new TaskUseCases(userList);
 
-        User user = new User(username, "+1=0");
+        User user = new User(username, "+1=0", new TaskManager(), new ProjectManager(), new TeamManager());
         userList.addUser(user);
-        User user2 = new User("Eipi", "0000");
+        User user2 = new User("Eipi", "0000", new TaskManager(), new ProjectManager(), new TeamManager());
         userList.addUser(user2);
 
         Project project = new Project("CSC207");
-        user.addProject(project);
+        user.getProjectList().addProject(project);
 
         Task task = new Task("Phase 1", "2021-11-15", project);
-        user.addTask(task);
+        user.getTaskList().addTask(task);
 
         Team team = new Team("207 project");
         team.addMem(user);
         team.addAdmin(user);
-        user.addTeam(team);
+        user.getTeamList().addTeam(team);
     }
 
     // test if current user already has the task
@@ -72,7 +76,7 @@ class TaskUseCasesTest {
     public void testNewTaskSuccess() {
         assertTrue(this.taskUseCases.newTask(username,
                         "Phase 2",
-                        "2021-11-15",
+                        "2021-12-15",
                         "CSC207"),
                 "Failure: task cannot be created.");
     }
@@ -143,7 +147,7 @@ class TaskUseCasesTest {
     // test if user has the task and retimed it.
     @Test
     public void testRetimeTaskSuccess() {
-        assertTrue(this.taskUseCases.rename(username, "Phase 1", "2021-11-17"),
+        assertTrue(this.taskUseCases.rename(username, "Phase 1", "2021-12-17"),
                 "Failure: Task cannot be retimed.");
     }
 
@@ -168,7 +172,7 @@ class TaskUseCasesTest {
                         "236 project",
                         "Eipi",
                         "Phase 3",
-                        "2021-11-17"),
+                        "2021-12-17"),
                 "Failure: User is already in the team.");
     }
 
@@ -179,7 +183,7 @@ class TaskUseCasesTest {
                         "207 project",
                         username,
                         "Phase 3",
-                        "2021-11-17"),
+                        "2021-12-17"),
                 "Failure: User is an admin.");
     }
 
@@ -190,7 +194,7 @@ class TaskUseCasesTest {
                         "207 project",
                         "Eipi",
                         "Phase 3",
-                        "2021-11-17"),
+                        "2021-12-17"),
                 "Failure: User2 is a member.");
     }
 
@@ -219,16 +223,16 @@ class TaskUseCasesTest {
     // test if user can assign a task to user2
     @Test
     public void testAssignTaskSuccess() {
-        Team team = userList.getUser(username).getTeam("207 project");
+        Team team = userList.getUser(username).getTeamList().getTeam("207 project");
         User user2 = userList.getUser("Eipi");
         team.addMem(user2);
-        user2.addTeam(team);
+        user2.getTeamList().addTeam(team);
 
         assertTrue(this.taskUseCases.assignTask(username,
                         "207 project",
                         "Eipi",
                         "Phase 3",
-                        "2021-11-17"),
+                        "2021-12-17"),
                 "Failure: User cannot assign a task to user2.");
     }
 }
