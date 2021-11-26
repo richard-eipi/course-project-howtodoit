@@ -1,6 +1,6 @@
 package entities;
 
-import usecases.UserList;
+import usecases.managers.UserList;
 
 import java.util.HashMap;
 

@@ -1,26 +1,16 @@
 package entities;
 
+import usecases.managers.ProjectList;
+import usecases.managers.TaskList;
+import usecases.managers.TeamList;
+
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.HashMap;
 
 /**
  * This class represents a User.
  * A user has a username, a password, collection of tasks, a collection of projects, and a collection of teams.
  */
 public class User implements Serializable, Comparable<User> {
-    /**
-     * A collection of tasks.
-     */
-    private final HashMap<String, Task> tasks;
-    /**
-     * A collection of projects.
-     */
-    private final HashMap<String, Project> projects;
-    /**
-     * A collection of teams this user is in.
-     */
-    private final HashMap<String, Team> teams;
     /**
      * Username.
      */
@@ -29,21 +19,36 @@ public class User implements Serializable, Comparable<User> {
      * Password.
      */
     private String password;
+    /**
+     * A collection of tasks.
+     */
+    private final TaskList taskList;
+    /**
+     * A collection of projects.
+     */
+    private final ProjectList projectList;
+    /**
+     * A collection of teams this user is in.
+     */
+    private final TeamList teamList;
 
     /**
      * Constructor for user with given username and password.
      *
-     * @param name     the username
-     * @param password password of the new user
+     * @param name        the username
+     * @param password    password of the new user
+     * @param taskList    the list of tasks
+     * @param projectList the list of projects
+     * @param teamList    the list of teams this user is in
      */
-    public User(String name, String password) {
+    public User(String name, String password, TaskList taskList, ProjectList projectList, TeamList teamList) {
         this.name = name;
         this.password = password;
-        this.tasks = new HashMap<>();
-        this.projects = new HashMap<>();
-        this.addProject(new Project("General"));
-        this.addProject(new Project("Assigned to me"));
-        this.teams = new HashMap<>();
+        this.taskList = taskList;
+        this.projectList = projectList;
+        this.teamList = teamList;
+        this.projectList.addProject(new Project("General"));
+        this.projectList.addProject(new Project("Assigned to me"));
     }
 
     /**
@@ -84,165 +89,30 @@ public class User implements Serializable, Comparable<User> {
     }
 
     /**
-     * Checks whether this user has the given project.
+     * Return the task list.
      *
-     * @param name project name
-     * @return true if has project
+     * @return task list
      */
-    public boolean hasProject(String name) {
-        return this.projects.containsKey(name);
+    public TaskList getTaskList() {
+        return this.taskList;
     }
 
     /**
-     * Checks whether this user is in the given team.
+     * Return the project list
      *
-     * @param name team name
-     * @return true if has team
+     * @return project list
      */
-    public boolean hasTeam(String name) {
-        return this.teams.containsKey(name);
+    public ProjectList getProjectList() {
+        return this.projectList;
     }
 
     /**
-     * Checks whether this user has the given task.
+     * Return the team list
      *
-     * @param name task name
-     * @return true if has task
+     * @return team list
      */
-    public boolean hasTask(String name) {
-        return this.tasks.containsKey(name);
-    }
-
-    /**
-     * Return a project by name.
-     *
-     * @param name project name
-     * @return the project
-     */
-    public Project getProject(String name) {
-        return this.projects.getOrDefault(name, null);
-    }
-
-    /**
-     * Return a team by name.
-     *
-     * @param name team name
-     * @return the team
-     */
-    public Team getTeam(String name) {
-        return this.teams.getOrDefault(name, null);
-    }
-
-    /**
-     * Return a task by name.
-     *
-     * @param name task name
-     * @return the task
-     */
-    public Task getTask(String name) {
-        return this.tasks.getOrDefault(name, null);
-    }
-
-    /**
-     * Let the user have this project.
-     *
-     * @param project the project object
-     */
-    public void addProject(Project project) {
-        this.projects.putIfAbsent(project.getName(), project);
-    }
-
-    /**
-     * Let the user join this team.
-     *
-     * @param team the team object
-     */
-    public void addTeam(Team team) {
-        this.teams.putIfAbsent(team.getName(), team);
-    }
-
-    /**
-     * Let the user have this task.
-     *
-     * @param task the task object
-     */
-    public void addTask(Task task) {
-        this.tasks.putIfAbsent(task.getName(), task);
-    }
-
-    /**
-     * Remove a project.
-     *
-     * @param project the project object
-     */
-    public void delProject(Project project) {
-        this.projects.remove(project.getName());
-    }
-
-    /**
-     * Leave a team.
-     *
-     * @param team the team object
-     */
-    public void delTeam(Team team) {
-        this.teams.remove(team.getName());
-    }
-
-    /**
-     * Remove a task.
-     *
-     * @param task the task object
-     */
-    public void delTask(Task task) {
-        this.tasks.remove(task.getName());
-    }
-
-    /**
-     * Return a String showing all project names.
-     *
-     * @return a String showing all project names
-     */
-    public String getProjects() {
-        Project[] projects = this.projects.values().toArray(new Project[0]);
-        Arrays.sort(projects); // Sort them
-        StringBuilder output = new StringBuilder("You have the following projects:\n");
-        for (Project project : projects) {
-            output.append(project.getName()).append('\n'); // Each line will be a task
-        }
-
-        return output.toString();
-    }
-
-    /**
-     * Return a String showing all team names.
-     *
-     * @return a String showing all team names
-     */
-    public String getTeams() {
-        Team[] teams = this.teams.values().toArray(new Team[0]);
-        Arrays.sort(teams); // Sort them
-        StringBuilder output = new StringBuilder("You are in the following teams:\n");
-        for (Team team : teams) {
-            output.append(team.getName()).append('\n'); // Each line will be a team
-        }
-
-        return output.toString();
-    }
-
-    /**
-     * Return a String showing all task info.
-     *
-     * @return a String showing all team names
-     */
-    public String getTasks() {
-        Task[] tasks = this.tasks.values().toArray(new Task[0]);
-        Arrays.sort(tasks); // Sort them
-        StringBuilder output = new StringBuilder("You have the following upcoming tasks:\n");
-        for (Task task : tasks) {
-            output.append(task.toString()).append('\n'); // Each line will be a project
-        }
-
-        return output.toString();
+    public TeamList getTeamList() {
+        return this.teamList;
     }
 
     /**
@@ -262,13 +132,14 @@ public class User implements Serializable, Comparable<User> {
      * @return a copy of this user
      */
     public User copy() {
-        User userCopy = new User(this.name, this.password);
-        for (Project project : this.projects.values()) {
+        User userCopy = new User(this.name, this.password, taskList, projectList, teamList);
+        for (Project project : this.projectList) {
             String projName = project.getName();
-            Project projectCopy = userCopy.hasProject(projName) ?
-                    userCopy.getProject(projName) : new Project(project.getName());
+            ProjectList userCopyProjectList = userCopy.getProjectList();
+            Project projectCopy = userCopyProjectList.hasProject(projName) ?
+                    userCopyProjectList.getProject(projName) : new Project(project.getName());
             copyTasks(userCopy, project, projectCopy);
-            userCopy.addProject(projectCopy);
+            userCopyProjectList.addProject(projectCopy);
         }
         return userCopy;
     }
@@ -286,7 +157,7 @@ public class User implements Serializable, Comparable<User> {
             taskCopy.setDescription(task.getDescription());
             taskCopy.setStarred(task.getIsStarred());
             projectCopy.addTask(taskCopy);
-            userCopy.addTask(taskCopy);
+            userCopy.getTaskList().addTask(taskCopy);
         }
     }
 }

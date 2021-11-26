@@ -1,4 +1,4 @@
-package usecases;
+package usecases.managers;
 
 import entities.Memento;
 import entities.Team;
@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 /**
- * This class stores a collection of Users.
+ * This class represents a list of users.
  */
 public class UserList implements Serializable {
     /**
@@ -81,12 +81,12 @@ public class UserList implements Serializable {
      * @param userCopy     the clone of the user
      */
     private void copyTeams(HashMap<String, Team> visitedTeams, User user, User userCopy) {
-        String[] teams = user.getTeams().split("\n");
+        String[] teams = user.getTeamList().toString().split("\n");
         for (String teamName : Arrays.copyOfRange(teams, 1, teams.length)) {
             Team teamCopy = getTeamCopy(visitedTeams, teamName);
-            userCopy.addTeam(teamCopy);
+            userCopy.getTeamList().addTeam(teamCopy);
             teamCopy.addMem(userCopy);
-            if (user.getTeam(teamName).isAdmin(user.getName())) teamCopy.addAdmin(userCopy);
+            if (user.getTeamList().getTeam(teamName).isAdmin(user.getName())) teamCopy.addAdmin(userCopy);
         }
     }
 

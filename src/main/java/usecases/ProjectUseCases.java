@@ -3,6 +3,8 @@ package usecases;
 import entities.Project;
 import entities.Task;
 import entities.User;
+import usecases.managers.ProjectList;
+import usecases.managers.UserList;
 
 /**
  * This class deals with project use cases.
@@ -32,10 +34,11 @@ public class ProjectUseCases implements ProjectInputBoundary {
     @Override
     public boolean newProj(String username, String projName) {
         User user = this.userList.getUser(username);
-        if (user.hasProject(projName)) {
+        ProjectList projectList = user.getProjectList();
+        if (projectList.hasProject(projName)) {
             return false; // project already exists
         } else {
-            user.addProject(new Project(projName));
+            projectList.addProject(new Project(projName));
             return true;
         }
     }
@@ -50,14 +53,15 @@ public class ProjectUseCases implements ProjectInputBoundary {
     @Override
     public boolean delProj(String username, String projName) {
         User user = this.userList.getUser(username);
+        ProjectList projectList = user.getProjectList();
         if (projName.equals("General") || projName.equals("Assigned to me")) {
             return false; // you cannot delete them
-        } else if (!user.hasProject(projName)) {
+        } else if (!projectList.hasProject(projName)) {
             return false; // project doesn't exist
         } else {
-            Project project = user.getProject(projName);
+            Project project = projectList.getProject(projName);
             emptyTasks(user, project);
-            user.delProject(project);
+            projectList.delProject(project);
             return true;
         }
     }
@@ -70,7 +74,7 @@ public class ProjectUseCases implements ProjectInputBoundary {
      */
     private void emptyTasks(User user, Project project) {
         for (Task task : project) {
-            user.delTask(task);
+            user.getTaskList().delTask(task);
         }
     }
 
@@ -85,12 +89,13 @@ public class ProjectUseCases implements ProjectInputBoundary {
     @Override
     public boolean modProj(String username, String name1, String name2) {
         User user = this.userList.getUser(username);
+        ProjectList projectList = user.getProjectList();
         if (name1.equals("General") || name1.equals("Assigned to me")) {
             return false; // you cannot rename them
-        } else if (!user.hasProject(name1) || user.hasProject(name2)) {
+        } else if (!projectList.hasProject(name1) || projectList.hasProject(name2)) {
             return false; // project doesn't exist or new name already used
         } else {
-            Project project = user.getProject(name1);
+            Project project = projectList.getProject(name1);
             project.setName(name2);
             return true;
         }
