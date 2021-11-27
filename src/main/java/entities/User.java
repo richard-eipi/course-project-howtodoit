@@ -155,7 +155,7 @@ public class User implements Serializable, Comparable<User> {
         for (Task task : project) {
             Task taskCopy = new Task(task.getName(), task.getDueDate(), projectCopy);
             taskCopy.setDescription(task.getDescription());
-            taskCopy.setStarred(task.getIsStarred());
+            taskCopy.setStarred(task.isStarred());
             projectCopy.addTask(taskCopy);
             userCopy.getTaskList().addTask(taskCopy);
         }

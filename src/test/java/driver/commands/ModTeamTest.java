@@ -2,7 +2,6 @@ package driver.commands;
 
 import controllers.DataMemoryController;
 import controllers.TeamController;
-import entities.Team;
 import entities.User;
 import helpers.TestingSystemSetUp;
 import org.junit.jupiter.api.Assertions;
@@ -12,8 +11,9 @@ import usecases.DataMemoryUseCases;
 import usecases.TeamUseCases;
 import usecases.managers.UserList;
 
-class NewTeamTest {
-    private final NewTeam newTeamCommand = new NewTeam();
+
+class ModTeamTest {
+    private final ModTeam modTeamCommand = new ModTeam();
     private UserList userList;
 
     @BeforeEach
@@ -24,17 +24,17 @@ class NewTeamTest {
     }
 
     @Test
-    public void testSuccessfullyAddedTeam() {
+    public void testSuccessfullyRenamedTeam() {
         try {
-            String[] args = {"Baseline Gang"};
-            newTeamCommand.execute("Rafa", args);
-            // Check that the system has the team
-            User user = userList.getUser("Rafa");
-            Team team = user.getTeamList().getTeam("Baseline Gang");
-            Assertions.assertTrue(user.getTeamList().hasTeam("Baseline Gang") && team.isAdmin("Rafa"),
-                    "Failure: Team has not been added successfully");
+            String[] args = {"Goats Club", "The Holy Trinity"};
+            modTeamCommand.execute("Roge", args);
+            // Check that the team has been renamed
+            User user = userList.getUser("Roge");
+            Assertions.assertTrue(user.getTeamList().hasTeam("The Holy Trinity"),
+                    "Failure: Team has not been renamed successfully");
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
     }
+
 }

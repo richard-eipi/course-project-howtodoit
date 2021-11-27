@@ -12,8 +12,8 @@ import usecases.ProjectUseCases;
 import usecases.managers.UserList;
 
 
-class NewProjTest {
-    private final NewProj newProjCommand = new NewProj();
+class ModProjTest {
+    private final ModProj modProjCommand = new ModProj();
     private UserList userList = new UserList();
 
     @BeforeEach
@@ -24,14 +24,14 @@ class NewProjTest {
     }
 
     @Test
-    public void testSuccessfullyAddedProj() {
+    public void testSuccessfullyRenamedProj() {
         try {
-            String[] args = {"Recover"};
-            newProjCommand.execute("Rafa", args);
-            // Check that the system has this project
-            User user = userList.getUser("Rafa");
-            Assertions.assertTrue(user.getProjectList().hasProject("Recover"),
-                    "Failure: Project has not been added successfully");
+            String[] args = {"Take Over", "Join Goats Club"};
+            modProjCommand.execute("Nole", args);
+            // Check that the project has been renamed
+            User user = userList.getUser("Nole");
+            Assertions.assertTrue(user.getProjectList().hasProject("Join Goats Club"),
+                    "Failure: Project has not been renamed successfully");
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }

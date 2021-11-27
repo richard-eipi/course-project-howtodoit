@@ -68,7 +68,7 @@ public class TaskManager implements TaskList, Serializable {
         Arrays.sort(tasks); // Sort them
         StringBuilder output = new StringBuilder("You have the following upcoming tasks:\n");
         for (Task task : tasks) {
-            output.append(task.toString()).append('\n'); // Each line will be a project
+            output.append(task.toString()).append('\n'); // Each line will be a task
         }
 
         return output.toString();

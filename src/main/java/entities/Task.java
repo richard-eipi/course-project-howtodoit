@@ -110,7 +110,7 @@ public class Task implements Serializable, Comparable<Task> {
      *
      * @return true if starred
      */
-    public boolean getIsStarred() {
+    public boolean isStarred() {
         return this.isStarred;
     }
 

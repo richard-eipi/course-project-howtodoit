@@ -13,7 +13,7 @@ import usecases.TeamUseCases;
 import usecases.managers.UserList;
 
 class AddAdminTest {
-    private final AddAdmin addadminCommand = new AddAdmin();
+    private final AddAdmin addAdminCommand = new AddAdmin();
     private UserList userList = new UserList();
 
     @BeforeEach
@@ -27,7 +27,7 @@ class AddAdminTest {
     public void testSuccessfullyAddedAdmin() {
         try {
             String[] args = {"Goats Club", "Rafa"};
-            addadminCommand.execute("Roge", args);
+            addAdminCommand.execute("Roge", args);
             // Check that the user is a new administrator
             User user2 = userList.getUser("Rafa");
             Team team = user2.getTeamList().getTeam("Goats Club");

@@ -12,7 +12,7 @@ import usecases.TaskUseCases;
 import usecases.managers.UserList;
 
 class NewTaskTest {
-    private final NewTask newtaskCommand = new NewTask();
+    private final NewTask newTaskCommand = new NewTask();
     private UserList userList;
 
     @BeforeEach
@@ -26,7 +26,7 @@ class NewTaskTest {
     public void testSuccessfullyAddedTask() {
         try {
             String[] args = {"Practice", "2021-12-15"};
-            newtaskCommand.execute("Roge", args);
+            newTaskCommand.execute("Roge", args);
             // Check that the system has this task
             User user = userList.getUser("Roge");
             Assertions.assertTrue(user.getTaskList().hasTask("Practice") &&
@@ -42,7 +42,7 @@ class NewTaskTest {
     public void testSuccessfullyAddedTaskOptionalArgument() {
         try {
             String[] args = {"Practice", "2021-12-15", "Take Over"};
-            newtaskCommand.execute("Nole", args);
+            newTaskCommand.execute("Nole", args);
             // Check that the system has this task
             User user = userList.getUser("Nole");
             Assertions.assertTrue(user.getTaskList().hasTask("Practice") &&
