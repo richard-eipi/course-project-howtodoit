@@ -1,40 +1,40 @@
 package driver.commands;
 
 import controllers.DataMemoryController;
-import controllers.TeamController;
-import entities.Team;
+import controllers.TaskController;
 import entities.User;
 import helpers.TestingSystemSetUp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import usecases.DataMemoryUseCases;
-import usecases.TeamUseCases;
+import usecases.TaskUseCases;
 import usecases.managers.UserList;
 
-class NewTeamTest {
-    private final NewTeam newTeamCommand = new NewTeam();
+
+class RetimeTest {
+    private final Retime retimeCommand = new Retime();
     private UserList userList;
 
     @BeforeEach
     void setUp() {
         userList = TestingSystemSetUp.SetUp();
-        TeamController.getInstance().setInputBoundary(new TeamUseCases(userList));
+        TaskController.getInstance().setInputBoundary(new TaskUseCases(userList));
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
     @Test
-    public void testSuccessfullyAddedTeam() {
+    public void testSuccessfullyChangedDueDate() {
         try {
-            String[] args = {"Baseline Gang"};
-            newTeamCommand.execute("Rafa", args);
-            // Check that the system has the team
+            String[] args = {"Practice", "2021-12-20"};
+            retimeCommand.execute("Rafa", args);
+            // Check that the due date has been changed
             User user = userList.getUser("Rafa");
-            Team team = user.getTeamList().getTeam("Baseline Gang");
-            Assertions.assertTrue(user.getTeamList().hasTeam("Baseline Gang") && team.isAdmin("Rafa"),
-                    "Failure: Team has not been added successfully");
+            Assertions.assertEquals("2021-12-20", user.getTaskList().getTask("Practice").getDueDate(),
+                    "Failure: Due date has not been changed successfully");
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
     }
+
 }

@@ -13,7 +13,7 @@ import usecases.TeamUseCases;
 import usecases.managers.UserList;
 
 class AddMemTest {
-    private final AddMem addmemCommand = new AddMem();
+    private final AddMem addMemCommand = new AddMem();
     private UserList userList = new UserList();
 
     @BeforeEach
@@ -27,7 +27,7 @@ class AddMemTest {
     public void testSuccessfullyAddedMem() {
         try {
             String[] args = {"Goats Club", "Nole"};
-            addmemCommand.execute("Roge", args);
+            addMemCommand.execute("Roge", args);
             // Check that user2 is added to the team
             User user2 = userList.getUser("Nole");
             Team team = user2.getTeamList().getTeam("Goats Club");

@@ -1,13 +1,9 @@
 package helpers;
 
-import controllers.DataMemoryController;
-import controllers.TeamController;
 import entities.Project;
 import entities.Task;
 import entities.Team;
 import entities.User;
-import usecases.DataMemoryUseCases;
-import usecases.TeamUseCases;
 import usecases.managers.ProjectManager;
 import usecases.managers.TaskManager;
 import usecases.managers.TeamManager;
@@ -36,8 +32,12 @@ public class TestingSystemSetUp {
         team.addMem(rafa);
         team.addAdmin(roge);
 
-        // Create a project "Take Over" for Nole
+        // Create a project "Take Over" for Nole and a task "Practice" for Rafa
         nole.getProjectList().addProject(new Project("Take Over"));
+        Project rafaGeneral = rafa.getProjectList().getProject("General");
+        Task rafaTask = new Task("Practice", "2021-12-15", rafaGeneral);
+        rafa.getTaskList().addTask(rafaTask);
+        rafaGeneral.addTask(rafaTask);
 
         userList.addUser(roge);
         userList.addUser(rafa);

@@ -1,40 +1,40 @@
 package driver.commands;
 
 import controllers.DataMemoryController;
-import controllers.TeamController;
-import entities.Team;
+import controllers.TaskController;
 import entities.User;
 import helpers.TestingSystemSetUp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import usecases.DataMemoryUseCases;
-import usecases.TeamUseCases;
+import usecases.TaskUseCases;
 import usecases.managers.UserList;
 
-class NewTeamTest {
-    private final NewTeam newTeamCommand = new NewTeam();
+
+class StarTest {
+    private final Star starCommand = new Star();
     private UserList userList;
 
     @BeforeEach
     void setUp() {
         userList = TestingSystemSetUp.SetUp();
-        TeamController.getInstance().setInputBoundary(new TeamUseCases(userList));
+        TaskController.getInstance().setInputBoundary(new TaskUseCases(userList));
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
     @Test
-    public void testSuccessfullyAddedTeam() {
+    public void testSuccessfullyStarredTask() {
         try {
-            String[] args = {"Baseline Gang"};
-            newTeamCommand.execute("Rafa", args);
-            // Check that the system has the team
+            String[] args = {"Practice"};
+            starCommand.execute("Rafa", args);
+            // Check that the task has been starred
             User user = userList.getUser("Rafa");
-            Team team = user.getTeamList().getTeam("Baseline Gang");
-            Assertions.assertTrue(user.getTeamList().hasTeam("Baseline Gang") && team.isAdmin("Rafa"),
-                    "Failure: Team has not been added successfully");
+            Assertions.assertTrue(user.getTaskList().getTask("Practice").isStarred(),
+                    "Failure: Task has not been starred successfully");
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
     }
+
 }

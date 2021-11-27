@@ -12,8 +12,9 @@ import usecases.DataMemoryUseCases;
 import usecases.TeamUseCases;
 import usecases.managers.UserList;
 
-class NewTeamTest {
-    private final NewTeam newTeamCommand = new NewTeam();
+
+class DelTeamTest {
+    private final DelTeam delTeamCommand = new DelTeam();
     private UserList userList;
 
     @BeforeEach
@@ -24,14 +25,13 @@ class NewTeamTest {
     }
 
     @Test
-    public void testSuccessfullyAddedTeam() {
+    public void testSuccessfullyDeletedTeam() {
         try {
-            String[] args = {"Baseline Gang"};
-            newTeamCommand.execute("Rafa", args);
-            // Check that the system has the team
-            User user = userList.getUser("Rafa");
-            Team team = user.getTeamList().getTeam("Baseline Gang");
-            Assertions.assertTrue(user.getTeamList().hasTeam("Baseline Gang") && team.isAdmin("Rafa"),
+            String[] args = {"Goats Club"};
+            delTeamCommand.execute("Roge", args);
+            // Check that the system no longer has the team
+            User user = userList.getUser("Roge");
+            Assertions.assertFalse(user.getTeamList().hasTeam("Goats Club"),
                     "Failure: Team has not been added successfully");
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
