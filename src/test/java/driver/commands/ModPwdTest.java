@@ -37,4 +37,13 @@ class ModPwdTest {
         }
     }
 
+    @Test
+    public void testCurrentPwdIncorrect() {
+        try {
+            String[] args = {"kingofclay", "1986"};
+            modPwdCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }

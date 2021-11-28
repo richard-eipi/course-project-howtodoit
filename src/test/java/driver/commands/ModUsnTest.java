@@ -37,4 +37,13 @@ class ModUsnTest {
         }
     }
 
+    @Test
+    public void testNewNameAlreadyExists() {
+        try {
+            String[] args = {"Roge"};
+            modUsnCommand.execute("Nole", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }
