@@ -23,6 +23,7 @@ class RetimeTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    // test if user has the task and retimed it.
     @Test
     public void testSuccessfullyChangedDueDate() {
         try {
@@ -34,6 +35,17 @@ class RetimeTest {
                     "Failure: Due date has not been changed successfully");
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
+        }
+    }
+
+    // test if user does not have the task.
+    @Test
+    public void testTaskExist() {
+        try {
+            String[] args = {"Exercise", "2021-12-20"};
+            retimeCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
         }
     }
 

@@ -23,6 +23,7 @@ class UnstarTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    // test if user has the task and unstars it.
     @Test
     public void testSuccessfullyUnstarredTask() {
         try {
@@ -38,4 +39,14 @@ class UnstarTest {
         }
     }
 
+    // test if user does not have the task.
+    @Test
+    public void testTaskExist() {
+        try {
+            String[] args = {"Exercise"};
+            unstarCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }

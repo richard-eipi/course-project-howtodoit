@@ -39,4 +39,59 @@ class AssignTaskTest {
             Assertions.fail(e.getMessage());
         }
     }
+
+    // test if the current user is not in this team.
+    @Test
+    public void testCurrentUserNotExist() {
+        try {
+            String[] args = {"Goats Club", "Rafa", "Practice", "2021-12-15"};
+            assignTaskCommand.execute("Nole", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    // test if the user is not an admin.
+    @Test
+    public void testUserNotAdmin() {
+        try {
+            String[] args = {"Goats Club", "Roge", "Practice", "2021-12-15"};
+            assignTaskCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    // test if the user is not in this team.
+    @Test
+    public void testUserNotExist() {
+        try {
+            String[] args = {"Goats Club", "Nole", "Practice", "2021-12-15"};
+            assignTaskCommand.execute("Roge", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    // test if date format is not correct
+    @Test
+    public void testDateFormatIncorrect() {
+        try {
+            String[] args = {"Goats Club", "Rafa", "Practice", "2021.12.15"};
+            assignTaskCommand.execute("Roge", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    // test if due date is valid
+    @Test
+    public void testDateInvalid() {
+        try {
+            String[] args = {"Goats Club", "Rafa", "Practice", "2012-12-15"};
+            assignTaskCommand.execute("Roge", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }

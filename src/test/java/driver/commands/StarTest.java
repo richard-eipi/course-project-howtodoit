@@ -23,6 +23,7 @@ class StarTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    // test if user has the task and stars it.
     @Test
     public void testSuccessfullyStarredTask() {
         try {
@@ -37,4 +38,14 @@ class StarTest {
         }
     }
 
+    // test if user does not have the task.
+    @Test
+    public void testTaskExist() {
+        try {
+            String[] args = {"Exercise"};
+            starCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }

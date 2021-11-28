@@ -23,6 +23,7 @@ class CompleteTaskTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    // test if user has the task and completes it.
     @Test
     public void testSuccessfullyCompletedTask() {
         try {
@@ -38,4 +39,14 @@ class CompleteTaskTest {
         }
     }
 
+    // test if user does not have the task.
+    @Test
+    public void testTaskExist() {
+        try {
+            String[] args = {"Exercise"};
+            completeTaskCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }
