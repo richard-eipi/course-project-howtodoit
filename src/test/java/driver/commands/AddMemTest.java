@@ -39,7 +39,7 @@ class AddMemTest {
     }
 
     @Test
-    public void testTeamDoesNotExist() {
+    public void testTeamNotExist() {
         try {
             String[] args = {"Serve & Volley Gang", "Nole"};
             addMemCommand.execute("Roge", args);

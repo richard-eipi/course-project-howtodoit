@@ -64,7 +64,7 @@ class AssignTaskTest {
 
     // test if the user is not in this team.
     @Test
-    public void testUserNotExist() {
+    public void testUserNotMem() {
         try {
             String[] args = {"Goats Club", "Nole", "Practice", "2021-12-15"};
             assignTaskCommand.execute("Roge", args);
@@ -75,7 +75,7 @@ class AssignTaskTest {
 
     // test if date format is not correct
     @Test
-    public void testDateFormatIncorrect() {
+    public void testWrongDueDateFormat() {
         try {
             String[] args = {"Goats Club", "Rafa", "Practice", "2021.12.15"};
             assignTaskCommand.execute("Roge", args);
@@ -86,7 +86,7 @@ class AssignTaskTest {
 
     // test if due date is valid
     @Test
-    public void testDateInvalid() {
+    public void testOverdueTask() {
         try {
             String[] args = {"Goats Club", "Rafa", "Practice", "2012-12-15"};
             assignTaskCommand.execute("Roge", args);

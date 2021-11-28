@@ -57,7 +57,7 @@ class NewTaskTest {
 
     // test if current user already has the task
     @Test
-    public void testUserHasTask() {
+    public void testTaskAlreadyExists() {
         try {
             String[] args = {"Practice", "2021-12-15", "General"};
             newTaskCommand.execute("Rafa", args);
@@ -68,7 +68,7 @@ class NewTaskTest {
 
     // test if due date format is incorrect
     @Test
-    public void testDueDateFormat() {
+    public void testWrongDueDateFormat() {
         try {
             String[] args = {"Practice", "2021.12.15", "General"};
             newTaskCommand.execute("Rafa", args);
@@ -79,7 +79,7 @@ class NewTaskTest {
 
     // test if due date is an invalid date
     @Test
-    public void testDueDateValidity() {
+    public void testOverdueTask() {
         try {
             String[] args = {"Practice", "2012-12-15", "General"};
             newTaskCommand.execute("Rafa", args);

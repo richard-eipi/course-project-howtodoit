@@ -41,7 +41,7 @@ class LeaveTeamTest {
     }
 
     @Test
-    public void testTeamDoesNotExist() {
+    public void testTeamNotExist() {
         try {
             String[] args = {"The Holy Trinity"};
             leaveTeamCommand.execute("Roge", args);

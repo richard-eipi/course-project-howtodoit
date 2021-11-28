@@ -41,9 +41,20 @@ class RenameTest {
 
     // test if user does not have the task.
     @Test
-    public void testTaskExist() {
+    public void testTaskNotExist() {
         try {
             String[] args = {"Exercise", "TaskDNE"};
+            renameCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    // test if new task name already exists.
+    @Test
+    public void testNewNameAlreadyExists() {
+        try {
+            String[] args = {"Practice", "Practice"};
             renameCommand.execute("Rafa", args);
             Assertions.fail("Failure: Expected Exception has not been thrown.");
         } catch (Exception ignored) {

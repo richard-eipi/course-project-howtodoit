@@ -39,7 +39,7 @@ class DelTeamTest {
     }
 
     @Test
-    public void testTeamDoesNotExist() {
+    public void testTeamNotExist() {
         try {
             String[] args = {"Baseline Gang"};
             delTeamCommand.execute("Rafa", args);

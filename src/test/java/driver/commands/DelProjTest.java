@@ -40,18 +40,18 @@ class DelProjTest {
     @Test
     public void testRemoveGeneralProj() {
         try {
-            String[] args = {"New"};
-            delProjCommand.execute("General", args);
+            String[] args = {"General"};
+            delProjCommand.execute("Nole", args);
             Assertions.fail("Failure: Expected Exception has not been thrown.");
         } catch (Exception ignored) {
         }
     }
 
     @Test
-    public void testProjNotExists() {
+    public void testProjNotExist() {
         try {
-            String[] args = {"Something"};
-            delProjCommand.execute("Else", args);
+            String[] args = {"Take Over"};
+            delProjCommand.execute("Rafa", args);
             Assertions.fail("Failure: Expected Exception has not been thrown.");
         } catch (Exception ignored) {
         }
