@@ -37,4 +37,34 @@ class AddAdminTest {
             Assertions.fail(e.getMessage());
         }
     }
+
+    @Test
+    public void testTeamDoesNotExist() {
+        try {
+            String[] args = {"Serve & Volley Gang", "Nole"};
+            addAdminCommand.execute("Roge", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    @Test
+    public void testMemNotAdmin() {
+        try {
+            String[] args = {"Goats Club", "Roge"};
+            addAdminCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    @Test
+    public void testMemNotInTeam() {
+        try {
+            String[] args = {"Goats Club", "Nole"};
+            addAdminCommand.execute("Roge", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }
