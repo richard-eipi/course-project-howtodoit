@@ -37,4 +37,34 @@ class AddMemTest {
             Assertions.fail(e.getMessage());
         }
     }
+
+    @Test
+    public void testTeamDoesNotExist() {
+        try {
+            String[] args = {"Serve & Volley Gang", "Nole"};
+            addMemCommand.execute("Roge", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    @Test
+    public void testMemNotAdmin() {
+        try {
+            String[] args = {"Goats Club", "Nole"};
+            addMemCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    @Test
+    public void testMemHasSameTeam() {
+        try {
+            String[] args = {"Goats Club", "Rafa"};
+            addMemCommand.execute("Roge", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }

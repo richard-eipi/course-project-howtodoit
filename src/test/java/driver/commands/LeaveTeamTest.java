@@ -39,4 +39,14 @@ class LeaveTeamTest {
             Assertions.fail(e.getMessage());
         }
     }
+
+    @Test
+    public void testTeamDoesNotExist() {
+        try {
+            String[] args = {"The Holy Trinity"};
+            leaveTeamCommand.execute("Roge", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }

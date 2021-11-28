@@ -37,4 +37,24 @@ class DelTeamTest {
             Assertions.fail(e.getMessage());
         }
     }
+
+    @Test
+    public void testTeamDoesNotExist() {
+        try {
+            String[] args = {"Baseline Gang"};
+            delTeamCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    @Test
+    public void testMemNotAdmin() {
+        try {
+            String[] args = {"Goats Club"};
+            delTeamCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }

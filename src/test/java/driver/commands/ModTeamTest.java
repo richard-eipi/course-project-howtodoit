@@ -37,4 +37,33 @@ class ModTeamTest {
         }
     }
 
+    @Test
+    public void testTeamDoesNotExist() {
+        try {
+            String[] args = {"The Holy Trinity", "The Big 3"};
+            modTeamCommand.execute("Roge", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    @Test
+    public void testMemNotAdmin() {
+        try {
+            String[] args = {"Goats Club", "The Holy Trinity"};
+            modTeamCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    @Test
+    public void testRepetitiveTeam() {
+        try {
+            String[] args = {"Goats Club", "Goats Club"};
+            modTeamCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }

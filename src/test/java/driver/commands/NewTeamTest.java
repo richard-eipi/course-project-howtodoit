@@ -37,4 +37,14 @@ class NewTeamTest {
             Assertions.fail(e.getMessage());
         }
     }
+
+    @Test
+    public void testTeamAlreadyExists() {
+        try {
+            String[] args = {"Goats Club"};
+            newTeamCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }
