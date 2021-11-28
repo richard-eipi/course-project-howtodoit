@@ -19,7 +19,6 @@ class ViewTeamsTest {
     void setUp() {
         UserList userList = TestingSystemSetUp.SetUp();
         QueryController.getInstance().setInputBoundary(new QueryUseCases(userList));
-        DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
     @Test
