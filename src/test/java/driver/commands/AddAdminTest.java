@@ -39,7 +39,7 @@ class AddAdminTest {
     }
 
     @Test
-    public void testTeamDoesNotExist() {
+    public void testTeamNotExist() {
         try {
             String[] args = {"Serve & Volley Gang", "Nole"};
             addAdminCommand.execute("Roge", args);

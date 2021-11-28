@@ -44,7 +44,7 @@ class RedescTest {
     @Test
     public void testTaskExist() {
         try {
-            String[] args = {"Exercise", "This task should not exist"};
+            String[] args = {"Exercise", "This task should not exist."};
             redescCommand.execute("Rafa", args);
             Assertions.fail("Failure: Expected Exception has not been thrown.");
         } catch (Exception ignored) {

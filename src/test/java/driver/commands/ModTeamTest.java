@@ -38,7 +38,7 @@ class ModTeamTest {
     }
 
     @Test
-    public void testTeamDoesNotExist() {
+    public void testTeamNotExist() {
         try {
             String[] args = {"The Holy Trinity", "The Big 3"};
             modTeamCommand.execute("Roge", args);

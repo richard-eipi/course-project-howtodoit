@@ -156,8 +156,8 @@ public class TaskUseCases implements TaskInputBoundary {
         User user = this.userList.getUser(username);
         TaskList taskList = user.getTaskList();
 
-        if (!taskList.hasTask(name1)) {
-            return false; // non-existent task
+        if (!taskList.hasTask(name1) || taskList.hasTask(name2)) {
+            return false; // non-existent task or new name already exists
         } else {
             Task task = taskList.getTask(name1);
             task.setName(name2);
@@ -180,6 +180,10 @@ public class TaskUseCases implements TaskInputBoundary {
 
         if (!taskList.hasTask(taskName)) {
             return false; // non-existent task
+        }  else if (wrongDueDateFormat(dueDate)) {
+            return false; // wrong due date format
+        } else if (LocalDate.parse(dueDate).isBefore(LocalDate.now())) {
+            return false; // overdue task
         } else {
             Task task = taskList.getTask(taskName);
             task.setDueDate(dueDate);
