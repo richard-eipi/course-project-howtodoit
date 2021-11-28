@@ -24,6 +24,7 @@ class RenameTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    // test if user has the task and renames it.
     @Test
     public void testSuccessfullyRenamedTask() {
         try {
@@ -35,6 +36,17 @@ class RenameTest {
                     "Failure: Task name has not been changed successfully");
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
+        }
+    }
+
+    // test if user does not have the task.
+    @Test
+    public void testTaskExist() {
+        try {
+            String[] args = {"Exercise", "TaskDNE"};
+            renameCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
         }
     }
 

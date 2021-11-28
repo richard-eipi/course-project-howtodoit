@@ -10,7 +10,7 @@ public class NewTask implements Command {
     /**
      * This function executes the newTask command: create a new task called <task name> with due date <time> and add it
      * to a project called <proj name>
-     * A valid example of <time> would be “2021-1015”
+     * A valid example of <time> would be "2021-10-15"
      * the user can leave the <proj name> field blank to put the task in "General"
      *
      * @param username current username

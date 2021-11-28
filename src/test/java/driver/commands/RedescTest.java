@@ -24,6 +24,7 @@ class RedescTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    // test if user has the task and changes the description.
     @Test
     public void testSuccessfullyChangedDesc() {
         try {
@@ -36,6 +37,17 @@ class RedescTest {
                     "Failure: Description has not been changed successfully");
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
+        }
+    }
+
+    // test if user does not have the task.
+    @Test
+    public void testTaskExist() {
+        try {
+            String[] args = {"Exercise", "This task should not exist"};
+            redescCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
         }
     }
 

@@ -21,7 +21,7 @@ class NewTaskTest {
         TaskController.getInstance().setInputBoundary(new TaskUseCases(userList));
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
-
+    // test if task added successfully
     @Test
     public void testSuccessfullyAddedTask() {
         try {
@@ -38,6 +38,7 @@ class NewTaskTest {
         }
     }
 
+    // test if task with optional argument added successfully
     @Test
     public void testSuccessfullyAddedTaskOptionalArgument() {
         try {
@@ -51,6 +52,39 @@ class NewTaskTest {
                     "Failure: Task has not been added successfully");
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
+        }
+    }
+
+    // test if current user already has the task
+    @Test
+    public void testUserHasTask() {
+        try {
+            String[] args = {"Practice", "2021-12-15", "General"};
+            newTaskCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    // test if due date format is incorrect
+    @Test
+    public void testDueDateFormat() {
+        try {
+            String[] args = {"Practice", "2021.12.15", "General"};
+            newTaskCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    // test if due date is an invalid date
+    @Test
+    public void testDueDateValidity() {
+        try {
+            String[] args = {"Practice", "2012-12-15", "General"};
+            newTaskCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
         }
     }
 }
