@@ -68,7 +68,7 @@ class ModProjTest {
     }
 
     @Test
-    public void testNameALreadyExist() {
+    public void testNameAlreadyExist() {
         try {
             String[] args = {"Take Over", "General"};
             modProjCommand.execute("Nole", args);

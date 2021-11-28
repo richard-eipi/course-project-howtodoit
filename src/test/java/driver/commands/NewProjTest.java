@@ -38,7 +38,7 @@ class NewProjTest {
     }
 
     @Test
-    public void testProjAlreadyExists() {
+    public void testProjAlreadyExist() {
         try {
             String[] args = {"General"};
             newProjCommand.execute("Rafa", args);

@@ -48,7 +48,7 @@ class DelProjTest {
     }
 
     @Test
-    public void testProjANotExists() {
+    public void testProjNotExists() {
         try {
             String[] args = {"Something"};
             delProjCommand.execute("Else", args);
