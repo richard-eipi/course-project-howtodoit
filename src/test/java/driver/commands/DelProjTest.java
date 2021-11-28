@@ -36,4 +36,24 @@ class DelProjTest {
             Assertions.fail(e.getMessage());
         }
     }
+
+    @Test
+    public void testRemoveGeneralProj() {
+        try {
+            String[] args = {"New"};
+            delProjCommand.execute("General", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    @Test
+    public void testProjANotExists() {
+        try {
+            String[] args = {"Something"};
+            delProjCommand.execute("Else", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }

@@ -36,4 +36,44 @@ class ModProjTest {
             Assertions.fail(e.getMessage());
         }
     }
+
+    @Test
+    public void testRenameGeneral() {
+        try {
+            String[] args = {"General", "Else"};
+            modProjCommand.execute("Nole", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    @Test
+    public void testRenameAssignedtome() {
+        try {
+            String[] args = {"Assigned to me", "Else"};
+            modProjCommand.execute("Nole", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    @Test
+    public void testProjNotExist() {
+        try {
+            String[] args = {"NotExist", "Else"};
+            modProjCommand.execute("Nole", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    @Test
+    public void testNameALreadyExist() {
+        try {
+            String[] args = {"Take Over", "General"};
+            modProjCommand.execute("Nole", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
 }

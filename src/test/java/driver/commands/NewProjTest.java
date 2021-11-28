@@ -36,4 +36,15 @@ class NewProjTest {
             Assertions.fail(e.getMessage());
         }
     }
+
+    @Test
+    public void testProjAlreadyExists() {
+        try {
+            String[] args = {"General"};
+            newProjCommand.execute("Rafa", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
 }
