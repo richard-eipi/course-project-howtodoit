@@ -59,7 +59,7 @@ class NewTaskTest {
     @Test
     public void testTaskAlreadyExists() {
         try {
-            String[] args = {"A", "2021-12-15", "General"};
+            String[] args = {"Practice", "2021-12-15", "General"};
             newTaskCommand.execute("Rafa", args);
             Assertions.fail("Failure: Expected Exception has not been thrown.");
         } catch (Exception ignored) {
