@@ -1,6 +1,7 @@
 package driver;
 
 import driver.cli.CLI;
+import driver.gui.GUI;
 import gateway.DataManager;
 
 /**
@@ -13,7 +14,10 @@ public class HowTodoit {
         System.out.println(dataManager.readData());
 
         // Run the program on CLI
-        CLI.run();
+        // CLI.run();
+
+        // Run the program on GUI
+        GUI.run();
 
         // Write data into local files and exit the system
         System.out.println(dataManager.writeData());
