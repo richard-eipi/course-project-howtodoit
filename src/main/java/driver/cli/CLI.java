@@ -11,9 +11,9 @@ import java.util.Scanner;
 public class CLI {
     public static void run() {
         // Greetings
-        System.out.println("Welcome to HowTodoit: our virtual to-do-list system (version 1).");
+        System.out.println("Welcome to HowTodoit: a virtual to-do-list app!");
 
-        // Setup
+        // Set up
         Scanner in = new Scanner(System.in);
         Commands.loadCommands();
         CommandExecutor commandExecutor = new CommandExecutor();
