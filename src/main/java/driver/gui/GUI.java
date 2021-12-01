@@ -3,10 +3,7 @@ package driver.gui;
 import constants.Fonts;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -37,7 +34,7 @@ public class GUI extends Application {
 
         // Create usn and pwd text areas, split into 2 methods to be more flexible (yeah duplicate code)
         TextArea usnTextArea = getUsnTextArea(loginRegisterRoot);
-        TextArea pwdTextArea = getPswTextArea(loginRegisterRoot);
+        PasswordField pwdTextArea = getPswTextArea(loginRegisterRoot);
 
         // Create login and register buttons, split into 2 methods to be more flexible (yeah duplicate code)
         createLoginButton(loginRegisterRoot, usnTextArea, pwdTextArea);
@@ -85,9 +82,10 @@ public class GUI extends Application {
      */
     private TextArea getUsnTextArea(Pane loginRegisterRoot) {
         TextArea usnTextArea = new TextArea();
-        usnTextArea.setPrefSize(300, 50);
+        usnTextArea.setPrefSize(300, 40);
         usnTextArea.setLayoutX(xForCenter(loginRegisterRoot, usnTextArea));
         usnTextArea.setLayoutY(200);
+        usnTextArea.setFont(Fonts.buttonFont);
         loginRegisterRoot.getChildren().add(usnTextArea);
         setUpUsnText(loginRegisterRoot, usnTextArea);
         return usnTextArea;
@@ -112,11 +110,12 @@ public class GUI extends Application {
      * @param loginRegisterRoot the view root
      * @return the password text area
      */
-    private TextArea getPswTextArea(Pane loginRegisterRoot) {
-        TextArea pwdTextArea = new TextArea();
-        pwdTextArea.setPrefSize(300, 50);
+    private PasswordField getPswTextArea(Pane loginRegisterRoot) {
+        PasswordField pwdTextArea = new PasswordField();
+        pwdTextArea.setPrefSize(300, 40);
         pwdTextArea.setLayoutX(xForCenter(loginRegisterRoot, pwdTextArea));
         pwdTextArea.setLayoutY(275);
+        pwdTextArea.setFont(Fonts.buttonFont);
         loginRegisterRoot.getChildren().add(pwdTextArea);
         setUpPswText(loginRegisterRoot, pwdTextArea);
         return pwdTextArea;
@@ -127,7 +126,7 @@ public class GUI extends Application {
      * @param loginRegisterRoot the view root
      * @param pwdTextArea the text area where user enters username
      */
-    private void setUpPswText(Pane loginRegisterRoot, TextArea pwdTextArea) {
+    private void setUpPswText(Pane loginRegisterRoot, PasswordField pwdTextArea) {
         Label usnText = new Label("Password:");
         usnText.setFont(Fonts.buttonFont);
         usnText.setPrefWidth(100);
@@ -142,7 +141,7 @@ public class GUI extends Application {
      * @param usnTextArea the text area where user enters username
      * @param pwdTextArea the text area where user enters password
      */
-    private void createLoginButton(Pane loginRegisterRoot, TextArea usnTextArea, TextArea pwdTextArea) {
+    private void createLoginButton(Pane loginRegisterRoot, TextArea usnTextArea, PasswordField pwdTextArea) {
         Button loginButton = new Button("Log In");
         loginButton.setFont(Fonts.buttonFont);
         loginButton.setPrefSize(200, 30);
@@ -162,7 +161,7 @@ public class GUI extends Application {
      * @param usnTextArea the text area where user enters username
      * @param pwdTextArea the text area where user enters password
      */
-    private void createRegisterButton(Pane loginRegisterRoot, TextArea usnTextArea, TextArea pwdTextArea) {
+    private void createRegisterButton(Pane loginRegisterRoot, TextArea usnTextArea, PasswordField pwdTextArea) {
         Button registerButton = new Button("Register & Log In");
         registerButton.setFont(Fonts.buttonFont);
         registerButton.setPrefSize(200, 30);
