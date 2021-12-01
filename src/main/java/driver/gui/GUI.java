@@ -40,23 +40,23 @@ public class GUI extends Application {
         createLoginButton(loginRegisterRoot, usnTextArea, pwdTextArea);
         createRegisterButton(loginRegisterRoot, usnTextArea, pwdTextArea);
 
-        // Deal with events exmaple
-        primaryStage.addEventHandler(KeyEvent.KEY_PRESSED,  (event) -> {
-            System.out.println("Key pressed: " + event.toString());
-
-            switch(event.getCode().getCode()) {
-                case 27 : { // ESC key
-                    primaryStage.close();
-                    break;
-                }
-                case 10 : { // Return
-                    System.out.println("pressed return");
-                }
-                default:  {
-                    System.out.println("Unrecognized key");
-                }
-            }
-        });
+        // Deal with events example
+//        primaryStage.addEventHandler(KeyEvent.KEY_PRESSED,  (event) -> {
+//            System.out.println("Key pressed: " + event.toString());
+//
+//            switch(event.getCode().getCode()) {
+//                case 27 : { // ESC key
+//                    primaryStage.close();
+//                    break;
+//                }
+//                case 10 : { // Return
+//                    System.out.println("pressed return");
+//                }
+//                default:  {
+//                    System.out.println("Unrecognized key");
+//                }
+//            }
+//        });
 
         // Display the stage window and here we go
         primaryStage.show();
