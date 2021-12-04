@@ -1,9 +1,16 @@
 package driver.gui;
 
 import constants.Fonts;
+import controllers.DataMemoryController;
+import driver.cli.LoginRegisterExecutor;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import driver.cli.CommandExecutor;
 
 public class LoginRegisterScene {
     private static Scene loginRegisterScene;
@@ -126,9 +133,16 @@ public class LoginRegisterScene {
         loginButton.setLayoutX(xForCenter(loginRegisterRoot, loginButton));
         loginButton.setLayoutY(400);
         loginRegisterRoot.getChildren().add(loginButton);
-
+        String username = usnTextArea.getText();
+        String pw = pwdTextArea.getText();
         loginButton.setOnAction(value -> {
-            loginButton.setText(usnTextArea.getText());
+            LoginExecutor loginExecutor = new LoginExecutor();
+            try {
+                DataMemoryController.getInstance().setTimeStamp();
+                loginExecutor.executeCommand(username, pw);
+            } catch (Exception e) {
+                // TODO: show the exception message.
+            }
             // GUI.switchToNewScene(UserActivityScene.getScene());
         });
         // loginButton.setId("login"); not the most useful here, but other command buttons will use setId
@@ -148,6 +162,19 @@ public class LoginRegisterScene {
         registerButton.setLayoutX(xForCenter(loginRegisterRoot, registerButton));
         registerButton.setLayoutY(450);
         loginRegisterRoot.getChildren().add(registerButton);
+        registerButton.setOnAction(value -> {
+            RegisterExecutor registerExecutor = new RegisterExecutor();
+            try {
+                String username = usnTextArea.getText();
+                String pw = pwdTextArea.getText();
+                DataMemoryController.getInstance().setTimeStamp();
+                registerExecutor.executeCommand(username, pw);
+            } catch (Exception e) {
+                // TODO:
+
+            }
+        });
+
     }
 
     /**
