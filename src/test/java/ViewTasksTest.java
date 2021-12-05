@@ -11,6 +11,9 @@ import usecases.managers.UserList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * This class is a test for class ViewTasks
+ */
 class ViewTasksTest {
     private final ViewTasks viewTasksCommand = new ViewTasks();
 
@@ -20,6 +23,14 @@ class ViewTasksTest {
         QueryController.getInstance().setInputBoundary(new QueryUseCases(userList));
     }
 
+    /**
+     * This test case tests if ViewTasks shows all upcoming tasks in all projects in chronological order
+     * This test case executes the viewTasks command: show all upcoming tasks in all projects in chronological order
+     * for the user; starred tasks will have stars in front of them
+     * @result The returned string will be
+     * "You have the following upcoming tasks:\nPractice: due on 2021-12-15; in project <General>; description: \n",
+     * assertion will be true
+     */
     @Test
     public void testSuccessfullyShowedProjects() {
         try {

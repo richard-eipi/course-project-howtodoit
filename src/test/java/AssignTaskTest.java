@@ -11,7 +11,9 @@ import usecases.DataMemoryUseCases;
 import usecases.TaskUseCases;
 import usecases.managers.UserList;
 
-
+/**
+ * This class is a test for class AssignTask
+ */
 class AssignTaskTest {
     private final AssignTask assignTaskCommand = new AssignTask();
     private UserList userList;
@@ -23,6 +25,12 @@ class AssignTaskTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    /**
+     * This test case tests if an admin of the team can assign task to a team member
+     * This test case executes the assignTask command: create a new task called <task name> for a teammate called
+     * <username> in a team called <team name> with <due date>
+     * @result The user "Rafa" will be assigned a task called "Practice" with due date on "2021-12-15"
+     */
     @Test
     public void testSuccessfullyAssignedTask() {
         try {
@@ -40,6 +48,14 @@ class AssignTaskTest {
     }
 
     // test if the current user is not in this team.
+
+    /**
+     * This test case tests if a non-existing team member can assign task to another team member
+     * This test case executes the assignTask command: create a new task called <task name> for a teammate called
+     * <username> in a team called <team name> with <due date>
+     * @result The action will not be performed since the user "Nole" is not either a member or an admin
+     * of the team "Goats Club", only admins of the team can perform this action
+     */
     @Test
     public void testCurrentUserNotExist() {
         try {
@@ -51,6 +67,13 @@ class AssignTaskTest {
     }
 
     // test if the user is not an admin.
+    /**
+     * This test case tests if a non-admin member of the team can assign task to another team member
+     * This test case executes the assignTask command: create a new task called <task name> for a teammate called
+     * <username> in a team called <team name> with <due date>
+     * @result The action will not be performed since the user "Rafa" is not an admin of the team "Goats Club",
+     * only admins of the team can perform this action
+     */
     @Test
     public void testUserNotAdmin() {
         try {
@@ -62,6 +85,12 @@ class AssignTaskTest {
     }
 
     // test if the user is not in this team.
+    /**
+     * This test case tests if an admin of the team can assign task to a non-existing team member
+     * This test case executes the assignTask command: create a new task called <task name> for a teammate called
+     * <username> in a team called <team name> with <due date>
+     * @result The action will not be performed since the user "Nole" is not a member of the team "Goats Club"
+     */
     @Test
     public void testUserNotMem() {
         try {
@@ -73,6 +102,12 @@ class AssignTaskTest {
     }
 
     // test if date format is not correct
+    /**
+     * This test case tests if an admin of the team can assign task with a different due date format to a team member
+     * This test case executes the assignTask command: create a new task called <task name> for a teammate called
+     * <username> in a team called <team name> with <due date>
+     * @result The action will not be performed since the format of the task due date is incorrect
+     */
     @Test
     public void testWrongDueDateFormat() {
         try {
@@ -84,6 +119,12 @@ class AssignTaskTest {
     }
 
     // test if due date is valid
+    /**
+     * This test case tests if an admin of the team can assign task that is already overdue to a team member
+     * This test case executes the assignTask command: create a new task called <task name> for a teammate called
+     * <username> in a team called <team name> with <due date>
+     * @result The action will not be performed since the task is already overdue
+     */
     @Test
     public void testOverdueTask() {
         try {

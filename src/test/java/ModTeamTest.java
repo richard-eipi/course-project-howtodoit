@@ -10,7 +10,9 @@ import usecases.DataMemoryUseCases;
 import usecases.TeamUseCases;
 import usecases.managers.UserList;
 
-
+/**
+ * This class is a test for class ModTeam
+ */
 class ModTeamTest {
     private final ModTeam modTeamCommand = new ModTeam();
     private UserList userList;
@@ -22,6 +24,11 @@ class ModTeamTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    /**
+     * This test case tests if a team's name can be modified
+     * This test case executes the modTeam command: rename the team from <name1> to <name2>
+     * @result Team "Goats Club" will be changed to "The Holy Trinity"
+     */
     @Test
     public void testSuccessfullyRenamedTeam() {
         try {
@@ -36,6 +43,11 @@ class ModTeamTest {
         }
     }
 
+    /**
+     * This test case tests if a non-existing team's name can be modified
+     * This test case executes the modTeam command: rename the team from <name1> to <name2>
+     * @result This action will not be performed since the team "The Holt Trinity" does not exist
+     */
     @Test
     public void testTeamNotExist() {
         try {
@@ -46,6 +58,12 @@ class ModTeamTest {
         }
     }
 
+    /**
+     * This test case tests if a non-admin team member can change the team's name
+     * This test case executes the modTeam command: rename the team from <name1> to <name2>
+     * @result This action will not be performed since the member "Rafa" is not an admin of the team,
+     * only admins of the team can perform this action.
+     */
     @Test
     public void testMemNotAdmin() {
         try {
@@ -56,6 +74,11 @@ class ModTeamTest {
         }
     }
 
+    /**
+     * This test case tests if a same team name can be repetitively used
+     * This test case executes the modTeam command: rename the team from <name1> to <name2>
+     * @result This action will not be performed since team "Goats Club" already exists
+     */
     @Test
     public void testRepetitiveTeam() {
         try {

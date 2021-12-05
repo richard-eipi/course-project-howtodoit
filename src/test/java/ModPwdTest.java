@@ -10,7 +10,9 @@ import usecases.DataMemoryUseCases;
 import usecases.UserAccountUseCases;
 import usecases.managers.UserList;
 
-
+/**
+ * This class is a test for class ModPwd
+ */
 class ModPwdTest {
     private final ModPwd modPwdCommand = new ModPwd();
     private UserList userList = new UserList();
@@ -22,6 +24,11 @@ class ModPwdTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    /**
+     * This test case tests if a user's password can be modified
+     * This test case executes the modPwd command: modify the password from <pw1> to <pw2>
+     * @result The password of user "Rafa" will be changed to "kingofclay"
+     */
     @Test
     public void testSuccessfullyChangedPwd() {
         try {
@@ -36,6 +43,11 @@ class ModPwdTest {
         }
     }
 
+    /**
+     * This test case tests if a user's password can be modified if the current password that the user inputted is wrong
+     * This test case executes the modPwd command: modify the password from <pw1> to <pw2>
+     * @result This action will not be performed since the current password that "Rafa" inputted is wrong
+     */
     @Test
     public void testCurrentPwdIncorrect() {
         try {

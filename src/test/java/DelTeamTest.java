@@ -11,7 +11,9 @@ import usecases.DataMemoryUseCases;
 import usecases.TeamUseCases;
 import usecases.managers.UserList;
 
-
+/**
+ * This class is a test for class DelTeam
+ */
 class DelTeamTest {
     private final DelTeam delTeamCommand = new DelTeam();
     private UserList userList;
@@ -23,6 +25,11 @@ class DelTeamTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    /**
+     * This test case tests if an existing team can be deleted
+     * This test case executes the DelTeam command: Delete the team called <name>.
+     * @result The team "Goat Club" will be deleted
+     */
     @Test
     public void testSuccessfullyDeletedTeam() {
         try {
@@ -37,6 +44,11 @@ class DelTeamTest {
         }
     }
 
+    /**
+     * This test case tests if a non-existing team can be deleted
+     * This test case executes the DelTeam command: Delete the team called <name>.
+     * @result This action will not be performed since the team "Baseline Gang" does not exist
+     */
     @Test
     public void testTeamNotExist() {
         try {
@@ -47,6 +59,12 @@ class DelTeamTest {
         }
     }
 
+    /**
+     * This test case tests if a non-admin member can delete the team
+     * This test case executes the DelTeam command: Delete the team called <name>.
+     * @result This action will not be performed since the user "Rafa" is not an admin of the team "Goats Club",
+     * only admins of the team can perform this action.
+     */
     @Test
     public void testMemNotAdmin() {
         try {

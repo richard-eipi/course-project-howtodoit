@@ -7,7 +7,7 @@ import controllers.UserAccountController;
  */
 public class ModPwd implements Command {
     /**
-     * This function executes the modUsn command: modify the password from <pw1> to <pw2>.
+     * This function executes the modPwd command: modify the password from <pw1> to <pw2>.
      *
      * @param username current username
      * @param args     a list of Strings with length 2, representing user arguments

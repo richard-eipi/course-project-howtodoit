@@ -7,7 +7,7 @@ import controllers.TaskController;
  */
 public class Unstar implements Command {
     /**
-     * This function executes the unstar command: Add a task called <name> to Starred label
+     * This function executes the unstar command: Unstar a task called <name>
      * The task must already exist in the system.
      *
      * @param username current username
