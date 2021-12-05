@@ -2,15 +2,14 @@ package driver.gui;
 
 import constants.Fonts;
 import controllers.DataMemoryController;
-import driver.cli.LoginRegisterExecutor;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
-import driver.cli.CommandExecutor;
 
 public class LoginRegisterScene {
     private static Scene loginRegisterScene;
@@ -138,10 +137,13 @@ public class LoginRegisterScene {
         loginButton.setOnAction(value -> {
             LoginExecutor loginExecutor = new LoginExecutor();
             try {
+                CommandExecutorgui commandExecutorgui = new CommandExecutorgui();
+                commandExecutorgui.setUsername(username);
                 DataMemoryController.getInstance().setTimeStamp();
                 loginExecutor.executeCommand(username, pw);
+                setUpWarningText(loginRegisterRoot, "Successlogin");
             } catch (Exception e) {
-                // TODO: show the exception message.
+                setUpWarningText(loginRegisterRoot, e.getMessage()); // TODO: show the exception message.
             }
             // GUI.switchToNewScene(UserActivityScene.getScene());
         });
@@ -156,26 +158,38 @@ public class LoginRegisterScene {
      * @param pwdTextArea       the text area where user enters password
      */
     private static void createRegisterButton(Pane loginRegisterRoot, TextArea usnTextArea, PasswordField pwdTextArea) {
-        Button registerButton = new Button("Register & Log In");
+        Button registerButton = new Button("Register");
         registerButton.setFont(Fonts.buttonFont);
         registerButton.setPrefSize(200, 30);
         registerButton.setLayoutX(xForCenter(loginRegisterRoot, registerButton));
         registerButton.setLayoutY(450);
         loginRegisterRoot.getChildren().add(registerButton);
+        String username = usnTextArea.getText();
+        String pw = pwdTextArea.getText();
         registerButton.setOnAction(value -> {
             RegisterExecutor registerExecutor = new RegisterExecutor();
             try {
-                String username = usnTextArea.getText();
-                String pw = pwdTextArea.getText();
+                CommandExecutorgui commandExecutorgui = new CommandExecutorgui();
+                commandExecutorgui.setUsername(username);
                 DataMemoryController.getInstance().setTimeStamp();
                 registerExecutor.executeCommand(username, pw);
+                setUpWarningText(loginRegisterRoot, "Successful");
             } catch (Exception e) {
-                // TODO:
-
+                setUpWarningText(loginRegisterRoot, e.getMessage());// TODO:
             }
         });
 
     }
+
+    private static void setUpWarningText(Pane loginRegisterRoot, String message) {
+        Label titleText = new Label(message);
+        titleText.setFont(Font.font("Arial"));
+        titleText.setPrefWidth(500);
+        titleText.setLayoutX(300);
+        titleText.setLayoutY(500);
+        loginRegisterRoot.getChildren().add(titleText);
+    }
+
 
     /**
      * This class returns the top-left x-position required to center the control horizontally in the given pane.
