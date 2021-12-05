@@ -10,7 +10,9 @@ import usecases.DataMemoryUseCases;
 import usecases.UserAccountUseCases;
 import usecases.managers.UserList;
 
-
+/**
+ * This class is a test for class ModUsn
+ */
 class ModUsnTest {
     private final ModUsn modUsnCommand = new ModUsn();
     private UserList userList = new UserList();
@@ -22,6 +24,11 @@ class ModUsnTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    /**
+     * This test case tests if an existing user can change the username
+     * This test case executes the modUsn command: modify the username from its current name to <name>
+     * @result The username of "Rafa" will be changed to "Nadal"
+     */
     @Test
     public void testSuccessfullyChangedUsn() {
         try {
@@ -36,6 +43,11 @@ class ModUsnTest {
         }
     }
 
+    /**
+     * This test case tests if the same username can be used by more than one user
+     * This test case executes the modUsn command: modify the username from its current name to <name>
+     * @result This action will not be performed since username "Nole" is already in use
+     */
     @Test
     public void testNewNameAlreadyExists() {
         try {

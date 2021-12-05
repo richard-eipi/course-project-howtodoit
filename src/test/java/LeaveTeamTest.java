@@ -11,7 +11,9 @@ import usecases.DataMemoryUseCases;
 import usecases.TeamUseCases;
 import usecases.managers.UserList;
 
-
+/**
+ * This class is a test for class LeaveTeam
+ */
 class LeaveTeamTest {
     private final LeaveTeam leaveTeamCommand = new LeaveTeam();
     private UserList userList = new UserList();
@@ -23,6 +25,11 @@ class LeaveTeamTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    /**
+     * This test case tests if a team member can leave the team
+     * This test case executes the leaveTeam command: remove the current user from the team <team name>
+     * @result The team "Goats Club" will no longer have team member "Rafa"
+     */
     @Test
     public void testSuccessfullyLeftTeam() {
         try {
@@ -39,6 +46,11 @@ class LeaveTeamTest {
         }
     }
 
+    /**
+     * This test case tests if a user can leave a non-existing team
+     * This test case executes the leaveTeam command: remove the current user from the team <team name>
+     * @result This action will not be performed since the team "The Holy Trinity" does not exist
+     */
     @Test
     public void testTeamNotExist() {
         try {

@@ -9,7 +9,9 @@ import usecases.DataMemoryUseCases;
 import usecases.QueryUseCases;
 import usecases.managers.UserList;
 
-
+/**
+ * This class is a test for class ViewTasksInProj
+ */
 class ViewTasksInProjTest {
     private final ViewTasksInProj viewTasksInProjCommand = new ViewTasksInProj();
 
@@ -19,6 +21,13 @@ class ViewTasksInProjTest {
         QueryController.getInstance().setInputBoundary(new QueryUseCases(userList));
     }
 
+    /**
+     * This test case tests if ViewTasksInProj shows all tasks in a particular project
+     * This test case executes the viewTasksInProj command: show all tasks in the project called <name>
+     * @result The returned string will be
+     * "This project <General> contains the following tasks:\nPractice: due on 2021-12-15; in project <General>;
+     * description: \n", assertion will be true
+     */
     @Test
     public void testSuccessfullyShowedTasks() {
         try {

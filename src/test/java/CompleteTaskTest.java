@@ -10,7 +10,9 @@ import usecases.DataMemoryUseCases;
 import usecases.TaskUseCases;
 import usecases.managers.UserList;
 
-
+/**
+ * This class is a test for class CompleteTask
+ */
 class CompleteTaskTest {
     private final CompleteTask completeTaskCommand = new CompleteTask();
     private UserList userList;
@@ -23,6 +25,12 @@ class CompleteTaskTest {
     }
 
     // test if user has the task and completes it.
+
+    /**
+     * This test case tests if the system deletes completed task
+     * This test case executes the completeTask command: delete the task that's already finished
+     * @result Task "Practice" will be deleted from user "Rafa"'s task list
+     */
     @Test
     public void testSuccessfullyCompletedTask() {
         try {
@@ -39,6 +47,11 @@ class CompleteTaskTest {
     }
 
     // test if user does not have the task.
+    /**
+     * This test case tests if the system can delete a non-existing task
+     * This test case executes the completeTask command: delete the task that's already finished
+     * @result The action will not be performed because the task "Exercsie" does not exist
+     */
     @Test
     public void testTaskExist() {
         try {

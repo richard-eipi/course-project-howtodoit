@@ -12,6 +12,9 @@ import usecases.managers.UserList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * This class is a test for class DataMemoryController
+ */
 class DataMemoryControllerTest {
     private UserList userList;
     private final DataMemoryController dataMemoryController = DataMemoryController.getInstance();
@@ -36,6 +39,10 @@ class DataMemoryControllerTest {
         dataMemoryController.setTimeStamp();
     }
 
+    /**
+     * This test case tests if the system saves data
+     * @result The "save" action will be performed
+     */
     @Test
     public void testSave() {
         String msg = dataMemoryController.save();
@@ -43,6 +50,10 @@ class DataMemoryControllerTest {
                 "Failure: Data has not been saved successfully.");
     }
 
+    /**
+     * This test case tests if the system can undo a non-existing action
+     * @result The "undo" action will not be performed since there's no action to undo
+     */
     @Test
     public void testNoActionsToUndo() {
         String msg = dataMemoryController.undo();
@@ -50,6 +61,10 @@ class DataMemoryControllerTest {
                 "Failure: Wrong message returned when there are no actions to undo.");
     }
 
+    /**
+     * This test case tests if the system can redo a non-existing action
+     * @result The "redo" action will not be performed since there's no action to redo
+     */
     @Test
     public void testNoActionsToRedo() {
         String msg = dataMemoryController.redo();
@@ -57,6 +72,10 @@ class DataMemoryControllerTest {
                 "Failure: Wrong message returned when there are no actions to redo.");
     }
 
+    /**
+     * This test case tests if the system can undo a previous action
+     * @result The "undo" action will be performed, the username will be changed from "Andy" back to "Nole"
+     */
     @Test
     public void testSuccessfulUndo() {
         userList.getUser("Nole").setName("Andy");
@@ -67,6 +86,11 @@ class DataMemoryControllerTest {
                 "Failure: Action has not been undone successfully.");
     }
 
+    /**
+     * This test case tests if the system can redo a previous action
+     * @result The "redo" action will be performed, the system will redo the action of changing the username from
+     * "Nole" to "Andy", the username will exventually be "Andy"
+     */
     @Test
     public void testSuccessfulRedo() {
         userList.getUser("Nole").setName("Andy");

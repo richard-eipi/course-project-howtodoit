@@ -11,6 +11,9 @@ import usecases.DataMemoryUseCases;
 import usecases.TeamUseCases;
 import usecases.managers.UserList;
 
+/**
+ * This class is a test for class NewTeam
+ */
 class NewTeamTest {
     private final NewTeam newTeamCommand = new NewTeam();
     private UserList userList;
@@ -22,6 +25,14 @@ class NewTeamTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    /**
+     * This test case tests if a new team can be created and will the creator join the team automatically
+     * as an admin.
+     * This test case executes the newTeam command: create a new team called <name> and join the team automatically
+     * as an admin.
+     * @result A new team called "Baseline Gang" will be created, the user "Rafa" will automatically be promoted as an
+     * admin of "Baseline Gang"
+     */
     @Test
     public void testSuccessfullyAddedTeam() {
         try {
@@ -36,7 +47,12 @@ class NewTeamTest {
             Assertions.fail(e.getMessage());
         }
     }
-
+    /**
+     * This test case tests if a same team name can be repetitively used
+     * This test case executes the newTeam command: create a new team called <name> and join the team automatically
+     * as an admin.
+     * @result This action will not be performed since team "Goats Club" already exists
+     */
     @Test
     public void testTeamAlreadyExists() {
         try {

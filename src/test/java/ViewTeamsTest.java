@@ -11,6 +11,9 @@ import usecases.managers.UserList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * This class is a test for class ViewTeams
+ */
 class ViewTeamsTest {
     private final ViewTeams viewTeamsCommand = new ViewTeams();
 
@@ -20,6 +23,12 @@ class ViewTeamsTest {
         QueryController.getInstance().setInputBoundary(new QueryUseCases(userList));
     }
 
+    /**
+     * This test case tests if ViewTeams shows all teams of the user
+     * This test case executes the viewTeams command: show all teams that the user is in
+     * @result The returned string will be
+     * "You are in the following teams:\nGoats Club\n", assertion will be true
+     */
     @Test
     public void testSuccessfullyShowedProjects() {
         try {

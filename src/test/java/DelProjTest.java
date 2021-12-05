@@ -10,7 +10,9 @@ import usecases.DataMemoryUseCases;
 import usecases.ProjectUseCases;
 import usecases.managers.UserList;
 
-
+/**
+ * This class is a test for class DelProj
+ */
 class DelProjTest {
     private final DelProj delProjCommand = new DelProj();
     private UserList userList = new UserList();
@@ -22,6 +24,11 @@ class DelProjTest {
         DataMemoryController.getInstance().setInputBoundary(new DataMemoryUseCases(userList));
     }
 
+    /**
+     * This test case tests if an existing project other than "General" can be deleted
+     * This test case executes the DelProj command: Delete the project called <name> and delete all its tasks.
+     * @result The project "Take Over" will be deleted from the user "Nole"
+     */
     @Test
     public void testSuccessfullyDeletedProj() {
         try {
@@ -36,6 +43,12 @@ class DelProjTest {
         }
     }
 
+    /**
+     * This test case tests if "General" project can be deleted
+     * This test case executes the DelProj command: Delete the project called <name> and delete all its tasks.
+     * @result This action will not be performed since "General" project is a default project, and it cannot be modified
+     * or deleted
+     */
     @Test
     public void testRemoveGeneralProj() {
         try {
@@ -46,6 +59,11 @@ class DelProjTest {
         }
     }
 
+    /**
+     * This test case tests if a non-existing project can be deleted
+     * This test case executes the DelProj command: Delete the project called <name> and delete all its tasks.
+     * @result This action will not be performed since the user "Rafa" does not have project "Take Over" to delete
+     */
     @Test
     public void testProjNotExist() {
         try {
