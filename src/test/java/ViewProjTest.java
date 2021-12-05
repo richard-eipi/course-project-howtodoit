@@ -1,11 +1,9 @@
-import controllers.DataMemoryController;
 import controllers.QueryController;
 import driver.commands.ViewProj;
 import helpers.TestingSystemSetUp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import usecases.DataMemoryUseCases;
 import usecases.QueryUseCases;
 import usecases.managers.UserList;
 

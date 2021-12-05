@@ -1,7 +1,6 @@
 import controllers.DataMemoryController;
 import controllers.TaskController;
 import driver.commands.AssignTask;
-import entities.Team;
 import entities.User;
 import helpers.TestingSystemSetUp;
 import org.junit.jupiter.api.Assertions;
