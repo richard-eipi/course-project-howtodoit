@@ -35,7 +35,7 @@ public class CLI {
     private static boolean dealWithLoginRegister(Scanner in, CommandExecutor commandExecutor) {
         LoginRegisterExecutor loginRegisterExecutor = new LoginRegisterExecutor();
         while (true) {
-            System.out.println("Please login or register to continue.");
+            System.out.println("Please login or register to continue.(please type register(login); username; password");
             String userInput = in.nextLine();
             if (userInput.equals("exit")) return false;
             try {
