@@ -4,6 +4,7 @@ import constants.Fonts;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 public class LoginRegisterScene {
     private static Scene loginRegisterScene;
@@ -16,9 +17,12 @@ public class LoginRegisterScene {
         // Create greeting title
         setUpTitleText(loginRegisterRoot);
 
+
         // Create usn and pwd text areas, split into 2 methods to be more flexible (yeah duplicate code)
         TextArea usnTextArea = getUsnTextArea(loginRegisterRoot);
         PasswordField pwdTextArea = getPswTextArea(loginRegisterRoot);
+
+
 
         // Create login and register buttons, split into 2 methods to be more flexible (yeah duplicate code)
         createLoginButton(loginRegisterRoot, usnTextArea, pwdTextArea);
@@ -157,7 +161,7 @@ public class LoginRegisterScene {
      * @param control ex: button, text area, etc.
      * @return the corresponding top-left x-position
      */
-    private static double xForCenter(Pane pane, Control control) {
+    static double xForCenter(Pane pane, Control control) {
         return (pane.getWidth() - control.getPrefWidth()) / 2;
     }
 }
