@@ -19,7 +19,7 @@ public class TaskManager implements TaskList, Serializable {
      * Checks whether this user has the given task.
      *
      * @param name task name
-     * @return true if has task
+     * @return true if the hashmap has tasks
      */
     @Override
     public boolean hasTask(String name) {

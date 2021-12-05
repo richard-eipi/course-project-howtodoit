@@ -20,7 +20,7 @@ public class ProjectManager implements ProjectList, Serializable {
      * Checks whether this user has the given project.
      *
      * @param name project name
-     * @return true if has project
+     * @return true if project manager has project
      */
     @Override
     public boolean hasProject(String name) {

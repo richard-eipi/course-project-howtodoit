@@ -19,7 +19,7 @@ public class TeamManager implements TeamList, Serializable {
      * Checks whether this user is in the given team.
      *
      * @param name team name
-     * @return true if has team
+     * @return true if the hashmap has teams
      */
     @Override
     public boolean hasTeam(String name) {

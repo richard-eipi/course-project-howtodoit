@@ -10,7 +10,7 @@ public interface TaskList {
      * Checks whether this user has the given task.
      *
      * @param name task name
-     * @return true if has task
+     * @return true if the task list has tasks
      */
     boolean hasTask(String name);
 

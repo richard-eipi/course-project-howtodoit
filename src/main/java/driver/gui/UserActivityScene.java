@@ -10,6 +10,9 @@ import javafx.scene.control.Button;
 
 import static driver.gui.LoginRegisterScene.xForCenter;
 
+/**
+ * UserActivityScene class
+ */
 public class UserActivityScene {
     private static Scene userActivityScene;
 

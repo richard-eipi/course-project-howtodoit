@@ -1,7 +1,9 @@
 package driver.gui;
 
 import controllers.LoginRegisterController;
-
+/**
+ * * Execute LoginRegisterExecutor.command.
+ */
 public class RegisterExecutor {
     public void executeCommand(String username, String pw) throws Exception {
         if (username == null | pw == null) {

@@ -12,6 +12,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
+
+/**
+ * This class creates and renders login scene.
+ */
 public class LoginRegisterScene {
     private static Scene loginRegisterScene;
 
@@ -129,6 +133,7 @@ public class LoginRegisterScene {
      * @param usnTextArea       the text area where user enters username
      * @param pwdTextArea       the text area where user enters password
      */
+    @SuppressWarnings("WriteOnlyObject")
     private static void createLoginButton(Pane loginRegisterRoot, TextArea usnTextArea, PasswordField pwdTextArea) {
         Button loginButton = new Button("Log In");
         loginButton.setFont(Fonts.buttonFont);
@@ -141,7 +146,7 @@ public class LoginRegisterScene {
         loginButton.setOnAction(value -> {
             LoginExecutor loginExecutor = new LoginExecutor();
             try {
-                CommandExecutorgui commandExecutorgui = new CommandExecutorgui();
+                CommandExecutorgui commandExecutorgui = new CommandExecutorgui(); //TODO: Fix Write only warning
                 commandExecutorgui.setUsername(username);
                 DataMemoryController.getInstance().setTimeStamp();
                 loginExecutor.executeCommand(username, pw);
@@ -173,7 +178,7 @@ public class LoginRegisterScene {
         registerButton.setOnAction(value -> {
             RegisterExecutor registerExecutor = new RegisterExecutor();
             try {
-                CommandExecutorgui commandExecutorgui = new CommandExecutorgui();
+                CommandExecutorgui commandExecutorgui = new CommandExecutorgui(); //TODO: Fix Write only warning
                 commandExecutorgui.setUsername(username);
                 DataMemoryController.getInstance().setTimeStamp();
                 registerExecutor.executeCommand(username, pw);

@@ -10,7 +10,7 @@ import usecases.managers.TeamManager;
 import usecases.managers.UserList;
 
 /**
- * This class helps testing classes set up a basic system before testing
+ * This class helps to test classes set up a basic system before testing
  */
 public class TestingSystemSetUp {
     /***
