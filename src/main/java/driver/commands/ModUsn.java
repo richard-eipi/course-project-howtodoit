@@ -16,6 +16,8 @@ public class ModUsn implements Command {
     @Override
     public String execute(String username, String[] args) throws Exception {
         if (args.length != 1) throw new Exception("Incorrect argument length!");
-        return UserAccountController.getInstance().modUsn(username, args[0]);
+        String output = UserAccountController.getInstance().modUsn(username, args[0]);
+        CommandExecutor.setUsername(args[0]);
+        return output;
     }
 }

@@ -1,10 +1,10 @@
 package usecases.managers;
 
+import entities.Project;
 import entities.Team;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * This class represents a list of teams.
@@ -13,7 +13,7 @@ public class TeamManager implements TeamList, Serializable {
     /**
      * A collection of teams.
      */
-    private final HashMap<String, Team> teams = new HashMap<>();
+    private final List<Team> teams = new ArrayList<>();
 
     /**
      * Checks whether this user is in the given team.
@@ -23,7 +23,12 @@ public class TeamManager implements TeamList, Serializable {
      */
     @Override
     public boolean hasTeam(String name) {
-        return this.teams.containsKey(name);
+        for (Team team : this.teams) {
+            if (team.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -34,7 +39,12 @@ public class TeamManager implements TeamList, Serializable {
      */
     @Override
     public Team getTeam(String name) {
-        return this.teams.getOrDefault(name, null);
+        for (Team team : this.teams) {
+            if (team.getName().equals(name)) {
+                return team;
+            }
+        }
+        return null;
     }
 
     /**
@@ -44,7 +54,9 @@ public class TeamManager implements TeamList, Serializable {
      */
     @Override
     public void addTeam(Team team) {
-        this.teams.putIfAbsent(team.getName(), team);
+        if (!this.hasTeam(team.getName())) {
+            this.teams.add(team);
+        }
     }
 
     /**
@@ -54,7 +66,7 @@ public class TeamManager implements TeamList, Serializable {
      */
     @Override
     public void delTeam(Team team) {
-        this.teams.remove(team.getName());
+        this.teams.remove(team);
     }
 
     /**
@@ -64,8 +76,7 @@ public class TeamManager implements TeamList, Serializable {
      */
     @Override
     public String toString() {
-        Team[] teams = this.teams.values().toArray(new Team[0]);
-        Arrays.sort(teams); // Sort them
+        Collections.sort(teams);
         StringBuilder output = new StringBuilder("You are in the following teams:\n");
         for (Team team : teams) {
             output.append(team.getName()).append('\n'); // Each line will be a team

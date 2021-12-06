@@ -3,8 +3,7 @@ package usecases.managers;
 import entities.Task;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * This class represents a list of tasks.
@@ -13,7 +12,7 @@ public class TaskManager implements TaskList, Serializable {
     /**
      * A collection of tasks.
      */
-    private final HashMap<String, Task> tasks = new HashMap<>();
+    private final List<Task> tasks = new ArrayList<>();
 
     /**
      * Checks whether this user has the given task.
@@ -23,7 +22,12 @@ public class TaskManager implements TaskList, Serializable {
      */
     @Override
     public boolean hasTask(String name) {
-        return this.tasks.containsKey(name);
+        for (Task task : this.tasks) {
+            if (task.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -34,7 +38,12 @@ public class TaskManager implements TaskList, Serializable {
      */
     @Override
     public Task getTask(String name) {
-        return this.tasks.getOrDefault(name, null);
+        for (Task task : this.tasks) {
+            if (task.getName().equals(name)) {
+                return task;
+            }
+        }
+        return null;
     }
 
     /**
@@ -44,7 +53,9 @@ public class TaskManager implements TaskList, Serializable {
      */
     @Override
     public void addTask(Task task) {
-        this.tasks.putIfAbsent(task.getName(), task);
+        if (!this.hasTask(task.getName())) {
+            this.tasks.add(task);
+        }
     }
 
     /**
@@ -54,7 +65,7 @@ public class TaskManager implements TaskList, Serializable {
      */
     @Override
     public void delTask(Task task) {
-        this.tasks.remove(task.getName());
+        this.tasks.remove(task);
     }
 
     /**
@@ -64,8 +75,7 @@ public class TaskManager implements TaskList, Serializable {
      */
     @Override
     public String toString() {
-        Task[] tasks = this.tasks.values().toArray(new Task[0]);
-        Arrays.sort(tasks); // Sort them
+        Collections.sort(tasks);
         StringBuilder output = new StringBuilder("You have the following upcoming tasks:\n");
         for (Task task : tasks) {
             output.append(task.toString()).append('\n'); // Each line will be a task

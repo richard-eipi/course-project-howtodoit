@@ -61,6 +61,21 @@ class AddMemTest {
     }
 
     /**
+     * This test case tests if a non-existent member can get added to the team
+     * This test case executes the addMem command: add a user called <username> to the team called <teamname>
+     * @result The action will not be performed since user "Andy" doesn't exist
+     */
+    @Test
+    public void testMemNotExist() {
+        try {
+            String[] args = {"Goats Club", "Andy"};
+            addMemCommand.execute("Roge", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    /**
      * This test case tests if a non-admin user can add an existing user to an existing team
      * This test case executes the addMem command: add a user called <username> to the team called <teamname>
      * @result The action will not be performed since the user "Rafa" is not an admin,

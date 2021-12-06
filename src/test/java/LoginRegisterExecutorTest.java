@@ -11,8 +11,6 @@ import usecases.managers.UserList;
  * This class is a test for class LoginRegisterExecuter
  */
 class LoginRegisterExecutorTest {
-    private final LoginRegisterExecutor loginRegisterExecutor = new LoginRegisterExecutor();
-
     @BeforeEach
     void setUp() {
         UserList userList = TestingSystemSetUp.SetUp();
@@ -28,7 +26,7 @@ class LoginRegisterExecutorTest {
     public void testSuccessfullyLoggedIn() {
         try {
             String arg = "login;Nole;1987";
-            String username = loginRegisterExecutor.executeCommand(arg);
+            String username = LoginRegisterExecutor.executeCommand(arg);
             // Check that the returned username is correct
             Assertions.assertEquals(username, "Nole",
                     "Failure: User logged into a different account.");
@@ -46,7 +44,7 @@ class LoginRegisterExecutorTest {
     public void testNoSuchUser() {
         try {
             String arg = "login;Andy;1987";
-            loginRegisterExecutor.executeCommand(arg);
+            LoginRegisterExecutor.executeCommand(arg);
             Assertions.fail("Failure: Expected Exception has not been thrown.");
         } catch (Exception ignored) {
         }
@@ -61,7 +59,7 @@ class LoginRegisterExecutorTest {
     public void testIncorrectPwd() {
         try {
             String arg = "login;Rafa;kingofclay";
-            loginRegisterExecutor.executeCommand(arg);
+            LoginRegisterExecutor.executeCommand(arg);
             Assertions.fail("Failure: Expected Exception has not been thrown.");
         } catch (Exception ignored) {
         }
@@ -76,7 +74,7 @@ class LoginRegisterExecutorTest {
     public void testSuccessfullyRegistered() {
         try {
             String arg = "register;Andy;1987";
-            loginRegisterExecutor.executeCommand(arg);
+            LoginRegisterExecutor.executeCommand(arg);
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
@@ -91,7 +89,22 @@ class LoginRegisterExecutorTest {
     public void testUserAlreadyExists() {
         try {
             String arg = "register;Rafa;kingofclay";
-            loginRegisterExecutor.executeCommand(arg);
+            LoginRegisterExecutor.executeCommand(arg);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    /**
+     * This test case tests if the username can be null or "" when registered
+     * This test case executes register
+     * @result This action will not be performed since we do not allow empty username
+     */
+    @Test
+    public void testNullUser() {
+        try {
+            String arg = "register;;1234";
+            LoginRegisterExecutor.executeCommand(arg);
             Assertions.fail("Failure: Expected Exception has not been thrown.");
         } catch (Exception ignored) {
         }
@@ -106,7 +119,7 @@ class LoginRegisterExecutorTest {
     public void testCommandNotFound() {
         try {
             String arg = "Login;Rafa;1986";
-            loginRegisterExecutor.executeCommand(arg);
+            LoginRegisterExecutor.executeCommand(arg);
             Assertions.fail("Failure: Expected Exception has not been thrown.");
         } catch (Exception ignored) {
         }
@@ -121,7 +134,7 @@ class LoginRegisterExecutorTest {
     public void testWrongArgLength() {
         try {
             String arg = "login;Rafa;1986;kingofclay";
-            loginRegisterExecutor.executeCommand(arg);
+            LoginRegisterExecutor.executeCommand(arg);
             Assertions.fail("Failure: Expected Exception has not been thrown.");
         } catch (Exception ignored) {
         }

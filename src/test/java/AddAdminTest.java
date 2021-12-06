@@ -63,6 +63,21 @@ class AddAdminTest {
     }
 
     /**
+     * This test case tests if a non-existent member can get added to the team
+     * This test case executes the addAdmin command: promote the user called <username> to an admin of <team name>
+     * @result The action will not be performed since user "Andy" doesn't exist
+     */
+    @Test
+    public void testMemNotExist() {
+        try {
+            String[] args = {"Goats Club", "Andy"};
+            addAdminCommand.execute("Roge", args);
+            Assertions.fail("Failure: Expected Exception has not been thrown.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    /**
      * This test case tests if a non-admin user can promote another existing user to an admin of an existing team
      * This test case executes the addAdmin command: promote the user called <username> to an admin of <team name>
      * @result The action will not be performed since the user "Rafa" is not an admin of the team,

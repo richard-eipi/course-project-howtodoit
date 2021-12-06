@@ -64,5 +64,6 @@ public class LoginRegisterController {
     public void register(String username, String password) throws Exception {
         Enums.RegisterResult registerResult = this.inputBoundary.register(username, password);
         if (registerResult == Enums.RegisterResult.FAILURE) throw new Exception("User already exists!");
+        if (registerResult == Enums.RegisterResult.NULL_USERNAME) throw new Exception("Empty username!");
     }
 }

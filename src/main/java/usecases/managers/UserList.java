@@ -5,8 +5,10 @@ import entities.Team;
 import entities.User;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * This class represents a list of users.
@@ -15,7 +17,7 @@ public class UserList implements Serializable {
     /**
      * A collection of users.
      */
-    private HashMap<String, User> users = new HashMap<>();
+    private List<User> users = new ArrayList<>();
 
     /**
      * Return a user by username.
@@ -24,7 +26,12 @@ public class UserList implements Serializable {
      * @return the user
      */
     public User getUser(String name) {
-        return this.users.getOrDefault(name, null);
+        for (User user : this.users) {
+            if (user.getName().equals(name)) {
+                return user;
+            }
+        }
+        return null;
     }
 
     /**
@@ -33,7 +40,9 @@ public class UserList implements Serializable {
      * @param user the user object
      */
     public void addUser(User user) {
-        this.users.put(user.getName(), user);
+        if (this.getUser(user.getName()) == null) {
+            this.users.add(user);
+        }
     }
 
     /**
@@ -61,12 +70,12 @@ public class UserList implements Serializable {
      *
      * @return a copy of users
      */
-    public HashMap<String, User> copy() {
-        HashMap<String, User> userListCopy = new HashMap<>();
+    public List<User> copy() {
+        List<User> userListCopy = new ArrayList<>();
         HashMap<String, Team> visitedTeams = new HashMap<>();
-        for (User user : this.users.values()) {
-            User userCopy = user.copy();
-            userListCopy.put(user.getName(), userCopy);
+        for (User user : this.users) {
+            User userCopy = user.copy(new TaskManager(), new ProjectManager(), new TeamManager());
+            userListCopy.add(userCopy);
             copyTeams(visitedTeams, user, userCopy);
         }
 

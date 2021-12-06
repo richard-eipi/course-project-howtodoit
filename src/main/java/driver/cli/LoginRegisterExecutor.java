@@ -13,7 +13,7 @@ public class LoginRegisterExecutor {
      * @return whatever String is returned by LoginRegisterController
      * @throws Exception when command is not found or when arguments are invalid
      */
-    public String executeCommand(String userInput) throws Exception {
+    public static String executeCommand(String userInput) throws Exception {
         String[] inputArray = userInput.split(";"); // Use ";" to split user input String
 
         if (inputArray.length != 3) {

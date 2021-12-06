@@ -1,11 +1,10 @@
 package usecases.managers;
 
 import entities.Project;
+import entities.Task;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * This class represents a list of projects.
@@ -14,7 +13,7 @@ public class ProjectManager implements ProjectList, Serializable {
     /**
      * A collection of projects.
      */
-    private final HashMap<String, Project> projects = new HashMap<>();
+    private final List<Project> projects = new ArrayList<>();
 
     /**
      * Checks whether this user has the given project.
@@ -24,7 +23,12 @@ public class ProjectManager implements ProjectList, Serializable {
      */
     @Override
     public boolean hasProject(String name) {
-        return this.projects.containsKey(name);
+        for (Project project : this.projects) {
+            if (project.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -35,7 +39,12 @@ public class ProjectManager implements ProjectList, Serializable {
      */
     @Override
     public Project getProject(String name) {
-        return this.projects.getOrDefault(name, null);
+        for (Project project : this.projects) {
+            if (project.getName().equals(name)) {
+                return project;
+            }
+        }
+        return null;
     }
 
     /**
@@ -45,7 +54,9 @@ public class ProjectManager implements ProjectList, Serializable {
      */
     @Override
     public void addProject(Project project) {
-        this.projects.putIfAbsent(project.getName(), project);
+        if (!this.hasProject(project.getName())) {
+            this.projects.add(project);
+        }
     }
 
     /**
@@ -55,7 +66,7 @@ public class ProjectManager implements ProjectList, Serializable {
      */
     @Override
     public void delProject(Project project) {
-        this.projects.remove(project.getName());
+        this.projects.remove(project);
     }
 
     /**
@@ -65,8 +76,7 @@ public class ProjectManager implements ProjectList, Serializable {
      */
     @Override
     public String toString() {
-        Project[] projects = this.projects.values().toArray(new Project[0]);
-        Arrays.sort(projects); // Sort them
+        Collections.sort(projects);
         StringBuilder output = new StringBuilder("You have the following projects:\n");
         for (Project project : projects) {
             output.append(project.getName()).append('\n'); // Each line will be a task
@@ -82,6 +92,6 @@ public class ProjectManager implements ProjectList, Serializable {
      */
     @Override
     public Iterator<Project> iterator() {
-        return this.projects.values().iterator();
+        return this.projects.iterator();
     }
 }

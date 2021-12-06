@@ -128,6 +128,8 @@ public class TeamUseCases implements TeamInputBoundary {
 
         if (!user.getTeamList().hasTeam(teamName)) {
             return false; // user must have teamName
+        } else if (member == null) {
+            return false; // member must exist
         } else if (!team.isAdmin(username)) {
             return false; // user must be an admin
         } else if (member.getTeamList().hasTeam(teamName)) {
@@ -177,6 +179,8 @@ public class TeamUseCases implements TeamInputBoundary {
 
         if (!user.getTeamList().hasTeam(teamName)) {
             return false; // user must have teamName
+        } else if (member == null) {
+            return false; // member must exist
         } else if (!team.isAdmin(username)) {
             return false; // user must be an admin
         } else if (!member.getTeamList().hasTeam(teamName)) {
