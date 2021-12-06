@@ -11,9 +11,18 @@ import javafx.scene.layout.Pane;
 
 import static helpers.GUISceneSetUp.xForCenter;
 
+/**
+ * This class represents the scene for login/register.
+ */
 public class LoginRegisterScene {
+    /**
+     * The scene object.
+     */
     private static Scene loginRegisterScene;
 
+    /**
+     * Set up the scene.
+     */
     public static void setUpScene() {
         // Set up login/register view root and scene
         Pane loginRegisterRoot = new Pane();

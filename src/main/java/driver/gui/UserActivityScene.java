@@ -5,14 +5,19 @@ import controllers.DataMemoryController;
 import driver.commands.CommandExecutor;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Border;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Button;
 
 import static helpers.GUISceneSetUp.xForCenter;
 
+/**
+ * This class represents the scene for user activities.
+ */
 public class UserActivityScene {
+    /**
+     * The scene object.
+     */
     private static Scene userActivityScene;
 
     /**
@@ -24,6 +29,9 @@ public class UserActivityScene {
         CommandExecutor.setUsername(username);
     }
 
+    /**
+     * Set up the scene.
+     */
     public static void setUpScene() {
         // Set up UserActivity view root and scene
         Pane userActivityRoot = new Pane();
@@ -57,9 +65,9 @@ public class UserActivityScene {
      * @param userActivityRoot the view root
      */
     private static void setUpUserActivityTitleText(Pane userActivityRoot) {
-        Label userActivity = new Label("Hi, " + CommandExecutor.getUsername());
+        Label userActivity = new Label("Hi there!");
         userActivity.setFont(Fonts.titleFont);
-        userActivity.setPrefWidth(200);
+        userActivity.setPrefWidth(150);
         userActivity.setLayoutX(xForCenter(userActivityRoot, userActivity));
         userActivity.setLayoutY(50);
         userActivityRoot.getChildren().add(userActivity);

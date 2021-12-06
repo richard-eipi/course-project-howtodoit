@@ -24,6 +24,10 @@ public class GUI extends Application {
         stage.setScene(scene);
     }
 
+    /**
+     * Start running.
+     * @param primaryStage the primary stage for javafx
+     */
     @Override
     public void start(Stage primaryStage) {
         stage = primaryStage;
