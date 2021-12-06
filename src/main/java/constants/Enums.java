@@ -12,5 +12,5 @@ public class Enums {
     /**
      * The result of registering.
      */
-    public enum RegisterResult {SUCCESS, FAILURE}
+    public enum RegisterResult {SUCCESS, FAILURE, NULL_USERNAME}
 }

@@ -1,9 +1,7 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * This class represents a Team.
@@ -13,11 +11,11 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
     /**
      * A collection of members.
      */
-    private final HashMap<String, User> members;
+    private final List<User> members;
     /**
      * A collection of admins.
      */
-    private final HashMap<String, User> admins;
+    private final List<User> admins;
     /**
      * Team name.
      */
@@ -30,8 +28,8 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
      */
     public Team(String name) {
         this.name = name;
-        this.members = new HashMap<>();
-        this.admins = new HashMap<>();
+        this.members = new ArrayList<>();
+        this.admins = new ArrayList<>();
     }
 
     /**
@@ -59,7 +57,12 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
      * @return whether the given user is a member
      */
     public boolean isMem(String name) {
-        return this.members.containsKey(name);
+        for (User mem : this.members) {
+            if (mem.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -69,7 +72,12 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
      * @return whether the given user is an admin
      */
     public boolean isAdmin(String name) {
-        return this.admins.containsKey(name);
+        for (User mem : this.admins) {
+            if (mem.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -79,7 +87,12 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
      * @return the member
      */
     public User getMem(String name) {
-        return this.members.getOrDefault(name, null);
+        for (User mem : this.members) {
+            if (mem.getName().equals(name)) {
+                return mem;
+            }
+        }
+        return null;
     }
 
     /**
@@ -88,7 +101,9 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
      * @param user the user object
      */
     public void addMem(User user) {
-        this.members.putIfAbsent(user.getName(), user);
+        if (!this.isMem(user.getName())) {
+            this.members.add(user);
+        }
     }
 
     /**
@@ -98,7 +113,9 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
      * @param user the user object
      */
     public void addAdmin(User user) {
-        this.admins.putIfAbsent(user.getName(), user);
+        if (!this.isAdmin(user.getName())) {
+            this.admins.add(user);
+        }
     }
 
     /**
@@ -107,8 +124,8 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
      * @param user the user object
      */
     public void delMem(User user) {
-        this.members.remove(user.getName());
-        this.admins.remove(user.getName());
+        this.members.remove(user);
+        this.admins.remove(user);
     }
 
     /**
@@ -118,8 +135,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
      */
     @Override
     public String toString() {
-        User[] members = this.members.values().toArray(new User[0]);
-        Arrays.sort(members); // Sort them
+        Collections.sort(members);
         StringBuilder output = new StringBuilder("This team <" + this.name + "> consists of the following members:\n");
         for (User user : members) {
             String admin = this.isAdmin(user.getName()) ? "*ADMIN* " : "";
@@ -135,7 +151,7 @@ public class Team implements Serializable, Iterable<User>, Comparable<Team> {
      */
     @Override
     public Iterator<User> iterator() {
-        return this.members.values().iterator();
+        return this.members.iterator();
     }
 
     /**

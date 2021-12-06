@@ -1,5 +1,6 @@
 package driver.gui;
 
+import constants.Commands;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -32,11 +33,12 @@ public class GUI extends Application {
         primaryStage.setWidth(800);
         primaryStage.setHeight(600);
 
-        // Set up scenes
+        // Set up login/register scene
         LoginRegisterScene.setUpScene();
-        UserActivityScene.setUpScene();
-
         switchToNewScene(LoginRegisterScene.getScene());
+
+        // Load commands
+        Commands.loadCommands();
 
         // Display the stage window and here we go
         primaryStage.show();

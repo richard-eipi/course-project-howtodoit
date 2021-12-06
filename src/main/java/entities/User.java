@@ -131,7 +131,7 @@ public class User implements Serializable, Comparable<User> {
      *
      * @return a copy of this user
      */
-    public User copy() {
+    public User copy(TaskList taskList, ProjectList projectList, TeamList teamList) {
         User userCopy = new User(this.name, this.password, taskList, projectList, teamList);
         for (Project project : this.projectList) {
             String projName = project.getName();

@@ -21,8 +21,8 @@ public class Commands {
         COMMANDS.put("modPwd", new ModPwd());
 
         COMMANDS.put("viewTeams", new ViewTeams());
-        COMMANDS.put("viewMemsIn", new ViewMemsInTeam());
-        COMMANDS.put("viewProj", new ViewProj());
+        COMMANDS.put("viewMemsInTeam", new ViewMemsInTeam());
+        COMMANDS.put("viewProjs", new ViewProj());
         COMMANDS.put("viewTasks", new ViewTasks());
         COMMANDS.put("viewTasksInProj", new ViewTasksInProj());
 

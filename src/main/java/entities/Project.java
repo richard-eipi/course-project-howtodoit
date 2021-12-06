@@ -1,9 +1,7 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * This class represents a project.
@@ -13,7 +11,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
     /**
      * The collection of tasks.
      */
-    private final HashMap<String, Task> tasks;
+    private final List<Task> tasks;
     /**
      * Project name.
      */
@@ -26,7 +24,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
      */
     public Project(String name) {
         this.name = name;
-        this.tasks = new HashMap<>();
+        this.tasks = new ArrayList<>();
     }
 
     /**
@@ -54,7 +52,12 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
      * @return true if has task
      */
     public boolean hasTask(String name) {
-        return this.tasks.containsKey(name);
+        for (Task task : this.tasks) {
+            if (task.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -63,7 +66,9 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
      * @param task the task object
      */
     public void addTask(Task task) {
-        this.tasks.putIfAbsent(task.getName(), task);
+        if (!this.hasTask(task.getName())) {
+            this.tasks.add(task);
+        }
     }
 
     /**
@@ -72,7 +77,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
      * @param task the task object
      */
     public void delTask(Task task) {
-        this.tasks.remove(task.getName());
+        this.tasks.remove(task);
     }
 
     /**
@@ -82,8 +87,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
      */
     @Override
     public String toString() {
-        Task[] tasks = this.tasks.values().toArray(new Task[0]);
-        Arrays.sort(tasks); // Sort them
+        Collections.sort(tasks);
         StringBuilder output = new StringBuilder("This project <" + this.name + "> contains the following tasks:\n");
         for (Task task : tasks) {
             output.append(task.toString()).append('\n'); // Each line will be a task
@@ -99,7 +103,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
      */
     @Override
     public Iterator<Task> iterator() {
-        return this.tasks.values().iterator();
+        return this.tasks.iterator();
     }
 
     /**

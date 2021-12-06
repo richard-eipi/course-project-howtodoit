@@ -2,15 +2,14 @@ package driver.gui;
 
 import constants.Fonts;
 import controllers.DataMemoryController;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import controllers.LoginRegisterController;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
+
+
+import static helpers.GUISceneSetUp.xForCenter;
 
 public class LoginRegisterScene {
     private static Scene loginRegisterScene;
@@ -23,16 +22,16 @@ public class LoginRegisterScene {
         // Create greeting title
         setUpTitleText(loginRegisterRoot);
 
-
         // Create usn and pwd text areas, split into 2 methods to be more flexible (yeah duplicate code)
         TextArea usnTextArea = getUsnTextArea(loginRegisterRoot);
         PasswordField pwdTextArea = getPswTextArea(loginRegisterRoot);
 
-
+        // Set up warning text label
+        Label warningText = setUpWarningText(loginRegisterRoot);
 
         // Create login and register buttons, split into 2 methods to be more flexible (yeah duplicate code)
-        createLoginButton(loginRegisterRoot, usnTextArea, pwdTextArea);
-        createRegisterButton(loginRegisterRoot, usnTextArea, pwdTextArea);
+        createLoginButton(loginRegisterRoot, usnTextArea, pwdTextArea, warningText);
+        createRegisterButton(loginRegisterRoot, usnTextArea, pwdTextArea, warningText);
     }
 
     /**
@@ -124,85 +123,76 @@ public class LoginRegisterScene {
 
     /**
      * Create the log in button.
-     *
-     * @param loginRegisterRoot the view root
+     *  @param loginRegisterRoot the view root
      * @param usnTextArea       the text area where user enters username
      * @param pwdTextArea       the text area where user enters password
+     * @param warningText       the label for warning text after failed login
      */
-    private static void createLoginButton(Pane loginRegisterRoot, TextArea usnTextArea, PasswordField pwdTextArea) {
+    private static void createLoginButton(Pane loginRegisterRoot, TextArea usnTextArea, PasswordField pwdTextArea, Label warningText) {
         Button loginButton = new Button("Log In");
         loginButton.setFont(Fonts.buttonFont);
         loginButton.setPrefSize(200, 30);
         loginButton.setLayoutX(xForCenter(loginRegisterRoot, loginButton));
         loginButton.setLayoutY(400);
         loginRegisterRoot.getChildren().add(loginButton);
-        String username = usnTextArea.getText();
-        String pw = pwdTextArea.getText();
         loginButton.setOnAction(value -> {
-            LoginExecutor loginExecutor = new LoginExecutor();
             try {
-                CommandExecutorgui commandExecutorgui = new CommandExecutorgui();
-                commandExecutorgui.setUsername(username);
+                String usn = usnTextArea.getText();
+                String pw = pwdTextArea.getText();
+                LoginRegisterController.getInstance().login(usn, pw);
                 DataMemoryController.getInstance().setTimeStamp();
-                loginExecutor.executeCommand(username, pw);
-                setUpWarningText(loginRegisterRoot, "Successlogin");
+                UserActivityScene.setUsername(usn);
+                UserActivityScene.setUpScene();
+                GUI.switchToNewScene(UserActivityScene.getScene());
             } catch (Exception e) {
-                setUpWarningText(loginRegisterRoot, e.getMessage()); // TODO: show the exception message.
+                warningText.setText(e.getMessage());
             }
-            // GUI.switchToNewScene(UserActivityScene.getScene());
         });
-        // loginButton.setId("login"); not the most useful here, but other command buttons will use setId
     }
 
     /**
      * Create the register button.
-     *
-     * @param loginRegisterRoot the view root
+     *  @param loginRegisterRoot the view root
      * @param usnTextArea       the text area where user enters username
      * @param pwdTextArea       the text area where user enters password
+     * @param warningText       the label for warning text after failed register
      */
-    private static void createRegisterButton(Pane loginRegisterRoot, TextArea usnTextArea, PasswordField pwdTextArea) {
+    private static void createRegisterButton(Pane loginRegisterRoot, TextArea usnTextArea, PasswordField pwdTextArea, Label warningText) {
         Button registerButton = new Button("Register");
         registerButton.setFont(Fonts.buttonFont);
         registerButton.setPrefSize(200, 30);
         registerButton.setLayoutX(xForCenter(loginRegisterRoot, registerButton));
         registerButton.setLayoutY(450);
         loginRegisterRoot.getChildren().add(registerButton);
-        String username = usnTextArea.getText();
-        String pw = pwdTextArea.getText();
         registerButton.setOnAction(value -> {
-            RegisterExecutor registerExecutor = new RegisterExecutor();
             try {
-                CommandExecutorgui commandExecutorgui = new CommandExecutorgui();
-                commandExecutorgui.setUsername(username);
+                String usn = usnTextArea.getText();
+                String pw = pwdTextArea.getText();
+                LoginRegisterController.getInstance().register(usn, pw);
                 DataMemoryController.getInstance().setTimeStamp();
-                registerExecutor.executeCommand(username, pw);
-                setUpWarningText(loginRegisterRoot, "Successful");
+                UserActivityScene.setUsername(usn);
+                UserActivityScene.setUpScene();
+                GUI.switchToNewScene(UserActivityScene.getScene());
             } catch (Exception e) {
-                setUpWarningText(loginRegisterRoot, e.getMessage());// TODO:
+                warningText.setText(e.getMessage());
             }
         });
 
     }
 
-    private static void setUpWarningText(Pane loginRegisterRoot, String message) {
-        Label titleText = new Label(message);
-        titleText.setFont(Font.font("Arial"));
-        titleText.setPrefWidth(500);
-        titleText.setLayoutX(300);
-        titleText.setLayoutY(500);
-        loginRegisterRoot.getChildren().add(titleText);
-    }
-
-
     /**
-     * This class returns the top-left x-position required to center the control horizontally in the given pane.
-     *
-     * @param pane    the pane view root
-     * @param control ex: button, text area, etc.
-     * @return the corresponding top-left x-position
+     * Set up warning text for login/register action.
+     * @param loginRegisterRoot the view root
+     * @return the label for the warning text
      */
-    static double xForCenter(Pane pane, Control control) {
-        return (pane.getWidth() - control.getPrefWidth()) / 2;
+    private static Label setUpWarningText(Pane loginRegisterRoot) {
+        Label warningText = new Label("");
+        warningText.setFont(Fonts.buttonFont);
+        warningText.setPrefWidth(200);
+        warningText.setLayoutX(xForCenter(loginRegisterRoot, warningText));
+        warningText.setLayoutY(350);
+        loginRegisterRoot.getChildren().add(warningText);
+        return warningText;
     }
+
 }

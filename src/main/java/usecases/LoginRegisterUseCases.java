@@ -56,6 +56,8 @@ public class LoginRegisterUseCases implements LoginRegisterInputBoundary {
     public Enums.RegisterResult register(String username, String password) {
         if (this.userList.getUser(username) != null) {
             return Enums.RegisterResult.FAILURE; // user already exists
+        } else if (username == null || username.equals("")) {
+            return Enums.RegisterResult.NULL_USERNAME;
         } else {
             User user = new User(username, password, new TaskManager(), new ProjectManager(), new TeamManager());
             userList.addUser(user);

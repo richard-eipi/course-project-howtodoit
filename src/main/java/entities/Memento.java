@@ -3,6 +3,7 @@ package entities;
 import usecases.managers.UserList;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * This class is the core object of the Memento Design Pattern.
@@ -19,14 +20,14 @@ public class Memento {
     public Memento next;
 
     // The current state of the system.
-    private HashMap<String, User> userListCopy;
+    private List<User> userListCopy;
 
     /**
      * Returns the state of the system stored.
      *
      * @return copy of the state of user list
      */
-    public HashMap<String, User> getState() {
+    public List<User> getState() {
         return this.userListCopy;
     }
 
