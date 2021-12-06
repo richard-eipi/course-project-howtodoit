@@ -25,9 +25,11 @@ class RenameTest {
     }
 
     // test if user has the task and renames it.
+
     /**
      * This test case tests if the name of an existing task can be modified
      * This test case executes the rename command: Change the name of a task from <name1> to <name2>
+     *
      * @result Name of task "Practice" will be changed to "Work out"
      */
     @Test
@@ -45,9 +47,11 @@ class RenameTest {
     }
 
     // test if user does not have the task.
+
     /**
      * This test case tests if the name of a non-existing task can be modified
      * This test case executes the rename command: Change the name of a task from <name1> to <name2>
+     *
      * @result This action will not be performed since the task "Exercise" does not exist
      */
     @Test
@@ -61,9 +65,11 @@ class RenameTest {
     }
 
     // test if new task name already exists.
+
     /**
      * This test case tests if a same task name can be repetitively used
      * This test case executes the rename command: Change the name of a task from <name1> to <name2>
+     *
      * @result This action will not be performed since the task "Practice" already exists
      */
     @Test

@@ -180,7 +180,7 @@ public class TaskUseCases implements TaskInputBoundary {
 
         if (!taskList.hasTask(taskName)) {
             return false; // non-existent task
-        }  else if (wrongDueDateFormat(dueDate)) {
+        } else if (wrongDueDateFormat(dueDate)) {
             return false; // wrong due date format
         } else if (LocalDate.parse(dueDate).isBefore(LocalDate.now())) {
             return false; // overdue task

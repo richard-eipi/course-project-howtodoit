@@ -28,6 +28,7 @@ class LeaveTeamTest {
     /**
      * This test case tests if a team member can leave the team
      * This test case executes the leaveTeam command: remove the current user from the team <team name>
+     *
      * @result The team "Goats Club" will no longer have team member "Rafa"
      */
     @Test
@@ -49,6 +50,7 @@ class LeaveTeamTest {
     /**
      * This test case tests if a user can leave a non-existing team
      * This test case executes the leaveTeam command: remove the current user from the team <team name>
+     *
      * @result This action will not be performed since the team "The Holy Trinity" does not exist
      */
     @Test

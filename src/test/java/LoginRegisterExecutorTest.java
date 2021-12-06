@@ -20,6 +20,7 @@ class LoginRegisterExecutorTest {
     /**
      * This test case tests if an existing user can successfully login
      * This test case executes login
+     *
      * @result The user "Nole" will be logged in
      */
     @Test
@@ -38,6 +39,7 @@ class LoginRegisterExecutorTest {
     /**
      * This test case tests if a non-existing user can login
      * This test case executes login
+     *
      * @result This action will not be performed because the user "Andy" does not exist
      */
     @Test
@@ -53,6 +55,7 @@ class LoginRegisterExecutorTest {
     /**
      * This test case tests if an existing user can successfully login with wrong password
      * This test case executes login
+     *
      * @result The action will not be performed since the password is wrong
      */
     @Test
@@ -68,6 +71,7 @@ class LoginRegisterExecutorTest {
     /**
      * This test case tests if a new user can ve registered
      * This test case executes register
+     *
      * @result A new user "Andy" will be registered
      */
     @Test
@@ -83,6 +87,7 @@ class LoginRegisterExecutorTest {
     /**
      * This test case tests if an existing user can be registered again
      * This test case executes register
+     *
      * @result This action will not be performed since the user "Rafa" already exists
      */
     @Test
@@ -98,6 +103,7 @@ class LoginRegisterExecutorTest {
     /**
      * This test case tests if the username can be null or "" when registered
      * This test case executes register
+     *
      * @result This action will not be performed since we do not allow empty username
      */
     @Test
@@ -113,6 +119,7 @@ class LoginRegisterExecutorTest {
     /**
      * This test case tests if non-existing command can be executed
      * This test case executes either login or register based on user input
+     *
      * @result This action will not be performed since the command is wrong
      */
     @Test
@@ -128,6 +135,7 @@ class LoginRegisterExecutorTest {
     /**
      * This test case tests if a user can be logged in with wrong argument length
      * This test case executes login
+     *
      * @result This action will not be performed since the argument length is incorrect
      */
     @Test

@@ -36,6 +36,7 @@ class DataMemoryControllerTest {
 
     /**
      * This test case tests if the system saves data
+     *
      * @result The "save" action will be performed
      */
     @Test
@@ -47,6 +48,7 @@ class DataMemoryControllerTest {
 
     /**
      * This test case tests if the system can undo a non-existing action
+     *
      * @result The "undo" action will not be performed since there's no action to undo
      */
     @Test
@@ -58,6 +60,7 @@ class DataMemoryControllerTest {
 
     /**
      * This test case tests if the system can redo a non-existing action
+     *
      * @result The "redo" action will not be performed since there's no action to redo
      */
     @Test
@@ -69,6 +72,7 @@ class DataMemoryControllerTest {
 
     /**
      * This test case tests if the system can undo a previous action
+     *
      * @result The "undo" action will be performed, the username will be changed from "Andy" back to "Nole"
      */
     @Test
@@ -83,6 +87,7 @@ class DataMemoryControllerTest {
 
     /**
      * This test case tests if the system can redo a previous action
+     *
      * @result The "redo" action will be performed, the system will redo the action of changing the username from
      * "Nole" to "Andy", the username will exventually be "Andy"
      */

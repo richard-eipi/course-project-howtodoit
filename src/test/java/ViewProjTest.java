@@ -22,6 +22,7 @@ class ViewProjTest {
     /**
      * This test case tests if ViewMemsInTeam shows all members in the team
      * This test case executes the viewMemsIn command: show all members in the team called <name>.
+     *
      * @result The returned string will be
      * "This team <Goats Club> consists of the following members:\nRafa\n*ADMIN* Roge\n", assertion will be true
      */

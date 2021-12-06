@@ -28,6 +28,7 @@ class NewTaskTest {
     /**
      * This test case tests if a new task can be added
      * This test case executes the newTask command: create a new task called <task name> with due date <time> and add it
+     *
      * @result A new task called "Practice" will be added to the default project "General"
      */
     @Test
@@ -47,9 +48,11 @@ class NewTaskTest {
     }
 
     // test if task with optional argument added successfully
+
     /**
      * This test case tests if a new task can be added to a designated project
      * This test case executes the newTask command: create a new task called <task name> with due date <time> and add it
+     *
      * @result A new task called "Practice" will be added to the project "Take Over"
      */
     @Test
@@ -69,9 +72,11 @@ class NewTaskTest {
     }
 
     // test if current user already has the task
+
     /**
      * This test case tests if a task can be added when the user already has the task
      * This test case executes the newTask command: create a new task called <task name> with due date <time> and add it
+     *
      * @result This action will not be performed since "Practice" is already a task of user "Rafa"
      */
     @Test
@@ -85,9 +90,11 @@ class NewTaskTest {
     }
 
     // test if due date format is incorrect
+
     /**
      * This test case tests if a new task can be added when the due-date format is incorrect
      * This test case executes the newTask command: create a new task called <task name> with due date <time> and add it
+     *
      * @result This action will not be performed since the due-date format of "Practice" is wrong
      */
     @Test
@@ -101,9 +108,11 @@ class NewTaskTest {
     }
 
     // test if due date is an invalid date
+
     /**
      * This test case tests if an overdue task can be added
      * This test case executes the newTask command: create a new task called <task name> with due date <time> and add it
+     *
      * @result This action will not be performed since "Practice" is already overdue, the due-date is invalid
      */
     @Test

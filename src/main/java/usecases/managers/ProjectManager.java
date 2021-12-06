@@ -1,10 +1,12 @@
 package usecases.managers;
 
 import entities.Project;
-import entities.Task;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * This class represents a list of projects.

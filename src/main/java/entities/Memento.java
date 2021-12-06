@@ -2,7 +2,6 @@ package entities;
 
 import usecases.managers.UserList;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**

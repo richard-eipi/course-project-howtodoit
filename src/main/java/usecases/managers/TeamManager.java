@@ -1,10 +1,11 @@
 package usecases.managers;
 
-import entities.Project;
 import entities.Team;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * This class represents a list of teams.

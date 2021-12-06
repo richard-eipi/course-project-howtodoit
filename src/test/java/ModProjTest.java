@@ -27,6 +27,7 @@ class ModProjTest {
     /**
      * This test case tests if an existing project can be renamed
      * This test case executes the modproj command: change a project’s name from <name1> to <name2>
+     *
      * @result The project "Take Over" will be renamed to "Join Goats Club"
      */
     @Test
@@ -46,6 +47,7 @@ class ModProjTest {
     /**
      * This test case tests if "General" project can be renamed
      * This test case executes the modproj command: change a project’s name from <name1> to <name2>
+     *
      * @result This action will not be performed since "General" project is a default project, and it cannot be modified
      * or deleted
      */
@@ -62,6 +64,7 @@ class ModProjTest {
     /**
      * This test case tests if "Assigned to me" project can be renamed
      * This test case executes the modproj command: change a project’s name from <name1> to <name2>
+     *
      * @result This action will not be performed since "Assigned to me" project is a default project,
      * and it cannot be modified or deleted
      */
@@ -78,6 +81,7 @@ class ModProjTest {
     /**
      * This test case tests if a non-existing project can be renamed
      * This test case executes the modproj command: change a project’s name from <name1> to <name2>
+     *
      * @result This action will not be performed since the project "NotExist" does not exist
      */
     @Test
@@ -93,6 +97,7 @@ class ModProjTest {
     /**
      * This test case tests if a same project name can be repetitively used
      * This test case executes the modproj command: change a project’s name from <name1> to <name2>
+     *
      * @result This action will not be performed since "General" project already exists, same name cannot be used
      * for more than one project
      */

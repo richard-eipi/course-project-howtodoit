@@ -26,9 +26,11 @@ class RedescTest {
     }
 
     // test if user has the task and changes the description.
+
     /**
      * This test case tests if the description of an existing task can be modified
      * This test case executes the redesc command: change the description of a task
+     *
      * @result The description of task "Practice" will be changed to "Hit 100 passing shots."
      */
     @Test
@@ -47,9 +49,11 @@ class RedescTest {
     }
 
     // test if user does not have the task.
+
     /**
      * This test case tests if the description of a non-existing task can be modified
      * This test case executes the redesc command: change the description of a task
+     *
      * @result This action will not be performed since the task "Exercise" does not exist
      */
     @Test

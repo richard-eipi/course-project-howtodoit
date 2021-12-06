@@ -26,9 +26,11 @@ class UnstarTest {
     }
 
     // test if user has the task and unstars it.
+
     /**
      * This test case tests if an existing starred task can be unstarred
      * This test case executes the unstar command: Unstar a task called <name>
+     *
      * @result The task "Practice" will be unstarred
      */
     @Test
@@ -47,9 +49,11 @@ class UnstarTest {
     }
 
     // test if user does not have the task.
+
     /**
      * This test case tests if a non-existing task can be unstarred
      * This test case executes the unstar command: Unstar a task called <name>
+     *
      * @result This action will not be performed since task "Exercise" does not exist
      */
     @Test

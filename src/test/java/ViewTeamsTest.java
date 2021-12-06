@@ -22,6 +22,7 @@ class ViewTeamsTest {
     /**
      * This test case tests if ViewTeams shows all teams of the user
      * This test case executes the viewTeams command: show all teams that the user is in
+     *
      * @result The returned string will be
      * "You are in the following teams:\nGoats Club\n", assertion will be true
      */

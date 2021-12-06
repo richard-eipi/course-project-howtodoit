@@ -22,6 +22,7 @@ class ViewTasksInProjTest {
     /**
      * This test case tests if ViewTasksInProj shows all tasks in a particular project
      * This test case executes the viewTasksInProj command: show all tasks in the project called <name>
+     *
      * @result The returned string will be
      * "This project <General> contains the following tasks:\nPractice: due on 2021-12-15; in project <General>;
      * description: \n", assertion will be true

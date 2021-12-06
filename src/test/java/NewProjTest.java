@@ -27,6 +27,7 @@ class NewProjTest {
     /**
      * This test case tests if a new project can be created
      * This test case executes the newProj command: create a new project with given params
+     *
      * @result A new project called "Recover" will be created
      */
     @Test
@@ -46,6 +47,7 @@ class NewProjTest {
     /**
      * This test case tests if a same project name can be repetitively used
      * This test case executes the newProj command: create a new project with given params
+     *
      * @result This action will not be performed since project "General" already exists
      */
     @Test

@@ -29,6 +29,7 @@ class CompleteTaskTest {
     /**
      * This test case tests if the system deletes completed task
      * This test case executes the completeTask command: delete the task that's already finished
+     *
      * @result Task "Practice" will be deleted from user "Rafa"'s task list
      */
     @Test
@@ -47,9 +48,11 @@ class CompleteTaskTest {
     }
 
     // test if user does not have the task.
+
     /**
      * This test case tests if the system can delete a non-existing task
      * This test case executes the completeTask command: delete the task that's already finished
+     *
      * @result The action will not be performed because the task "Exercsie" does not exist
      */
     @Test
