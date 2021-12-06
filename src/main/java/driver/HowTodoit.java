@@ -24,7 +24,7 @@ public class HowTodoit {
             CLI.run();
         }
 
-        // Write data into local files and exit the system
+        // Save and write data into local files and exit the system
         System.out.println(dataManager.writeData());
     }
 }

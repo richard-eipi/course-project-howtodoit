@@ -10,7 +10,7 @@ public interface TeamList {
      * Checks whether this user is in the given team.
      *
      * @param name team name
-     * @return true if has team
+     * @return true if the team list has teams
      */
     boolean hasTeam(String name);
 
