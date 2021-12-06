@@ -49,7 +49,7 @@ public class Project implements Serializable, Iterable<Task>, Comparable<Project
      * Checks if this project has the given task.
      *
      * @param name task name
-     * @return true if has task
+     * @return true if this project has the given task
      */
     public boolean hasTask(String name) {
         for (Task task : this.tasks) {

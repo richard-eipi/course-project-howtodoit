@@ -1,16 +1,11 @@
 import controllers.DataMemoryController;
-import entities.User;
-import gateway.DataManager;
 import gateway.DataSaver;
 import helpers.TestingSystemSetUp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import usecases.DataMemoryUseCases;
-import usecases.LoginRegisterUseCases;
 import usecases.managers.UserList;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * This class is a test for class DataMemoryController

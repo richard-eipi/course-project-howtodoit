@@ -11,11 +11,11 @@ import java.util.List;
  */
 public class Memento {
     /**
-     * The previous memento object. Go back to this one if undo.
+     * The previous memento object. Go back to this one if undo the command.
      */
     public Memento prev;
     /**
-     * The next memento object. Go to this one if redo.
+     * The next memento object. Go to this one if redo the command.
      */
     public Memento next;
 
