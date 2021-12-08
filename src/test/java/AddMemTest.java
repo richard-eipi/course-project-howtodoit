@@ -28,6 +28,7 @@ class AddMemTest {
     /**
      * This test case tests if an existing user can be added to an existing team
      * This test case executes the addMem command: add a user called <username> to the team called <teamname>
+     *
      * @result The user "Nole" will be added to the team "Goats Club"
      */
     @Test
@@ -48,6 +49,7 @@ class AddMemTest {
     /**
      * This test case tests if an existing user can be added to a non-existing team
      * This test case executes the addMem command: add a user called <username> to the team called <teamname>
+     *
      * @result The action will not be performed since the team "Serve & Volley Gang" does not exist
      */
     @Test
@@ -63,6 +65,7 @@ class AddMemTest {
     /**
      * This test case tests if a non-existent member can get added to the team
      * This test case executes the addMem command: add a user called <username> to the team called <teamname>
+     *
      * @result The action will not be performed since user "Andy" doesn't exist
      */
     @Test
@@ -78,6 +81,7 @@ class AddMemTest {
     /**
      * This test case tests if a non-admin user can add an existing user to an existing team
      * This test case executes the addMem command: add a user called <username> to the team called <teamname>
+     *
      * @result The action will not be performed since the user "Rafa" is not an admin,
      * only admins of the team can perform this action.
      */
@@ -94,6 +98,7 @@ class AddMemTest {
     /**
      * This test case tests if a team member can be re-added to the same team
      * This test case executes the addMem command: add a user called <username> to the team called <teamname>
+     *
      * @result The action will not be performed since the user "Rafa" is already in the team "Goats Club"
      */
     @Test

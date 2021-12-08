@@ -27,6 +27,7 @@ class DelTeamTest {
     /**
      * This test case tests if an existing team can be deleted
      * This test case executes the DelTeam command: Delete the team called <name>.
+     *
      * @result The team "Goat Club" will be deleted
      */
     @Test
@@ -46,6 +47,7 @@ class DelTeamTest {
     /**
      * This test case tests if a non-existing team can be deleted
      * This test case executes the DelTeam command: Delete the team called <name>.
+     *
      * @result This action will not be performed since the team "Baseline Gang" does not exist
      */
     @Test
@@ -61,6 +63,7 @@ class DelTeamTest {
     /**
      * This test case tests if a non-admin member can delete the team
      * This test case executes the DelTeam command: Delete the team called <name>.
+     *
      * @result This action will not be performed since the user "Rafa" is not an admin of the team "Goats Club",
      * only admins of the team can perform this action.
      */

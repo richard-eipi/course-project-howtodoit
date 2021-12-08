@@ -30,6 +30,7 @@ class NewTeamTest {
      * as an admin.
      * This test case executes the newTeam command: create a new team called <name> and join the team automatically
      * as an admin.
+     *
      * @result A new team called "Baseline Gang" will be created, the user "Rafa" will automatically be promoted as an
      * admin of "Baseline Gang"
      */
@@ -47,10 +48,12 @@ class NewTeamTest {
             Assertions.fail(e.getMessage());
         }
     }
+
     /**
      * This test case tests if a same team name can be repetitively used
      * This test case executes the newTeam command: create a new team called <name> and join the team automatically
      * as an admin.
+     *
      * @result This action will not be performed since team "Goats Club" already exists
      */
     @Test

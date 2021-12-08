@@ -25,9 +25,11 @@ class StarTest {
     }
 
     // test if user has the task and stars it.
+
     /**
      * This test case tests if an existing task can be starred
      * This test case executes the star command: Add a task called <name> to Starred label
+     *
      * @result The task "Practice" will be starred
      */
     @Test
@@ -45,9 +47,11 @@ class StarTest {
     }
 
     // test if user does not have the task.
+
     /**
      * This test case tests if a non-existing task can be starred
      * This test case executes the star command: Add a task called <name> to Starred label
+     *
      * @result This action will not be performed since task "Exercise" does not exist
      */
     @Test

@@ -27,6 +27,7 @@ class ModTeamTest {
     /**
      * This test case tests if a team's name can be modified
      * This test case executes the modTeam command: rename the team from <name1> to <name2>
+     *
      * @result Team "Goats Club" will be changed to "The Holy Trinity"
      */
     @Test
@@ -46,6 +47,7 @@ class ModTeamTest {
     /**
      * This test case tests if a non-existing team's name can be modified
      * This test case executes the modTeam command: rename the team from <name1> to <name2>
+     *
      * @result This action will not be performed since the team "The Holt Trinity" does not exist
      */
     @Test
@@ -61,6 +63,7 @@ class ModTeamTest {
     /**
      * This test case tests if a non-admin team member can change the team's name
      * This test case executes the modTeam command: rename the team from <name1> to <name2>
+     *
      * @result This action will not be performed since the member "Rafa" is not an admin of the team,
      * only admins of the team can perform this action.
      */
@@ -77,6 +80,7 @@ class ModTeamTest {
     /**
      * This test case tests if a same team name can be repetitively used
      * This test case executes the modTeam command: rename the team from <name1> to <name2>
+     *
      * @result This action will not be performed since team "Goats Club" already exists
      */
     @Test

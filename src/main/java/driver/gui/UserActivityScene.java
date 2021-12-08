@@ -4,10 +4,10 @@ import constants.Fonts;
 import controllers.DataMemoryController;
 import driver.commands.CommandExecutor;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
-import javafx.scene.control.Button;
 
 import static helpers.GUISceneSetUp.xForCenter;
 
@@ -82,7 +82,7 @@ public class UserActivityScene {
         return userActivityScene;
     }
 
-    private static TextArea getCommandTextArea(Pane userActivityRoot){
+    private static TextArea getCommandTextArea(Pane userActivityRoot) {
         TextArea commandTextArea = new TextArea();
         commandTextArea.setPrefSize(300, 40);
         commandTextArea.setLayoutX(xForCenter(userActivityRoot, commandTextArea));
@@ -97,9 +97,9 @@ public class UserActivityScene {
      * Set up enterCommand text.
      *
      * @param userActivityRoot the view root
-     * @param commandTextArea       the text area where user enters username
+     * @param commandTextArea  the text area where user enters username
      */
-    private static void setUpCommandText(Pane userActivityRoot, TextArea commandTextArea){
+    private static void setUpCommandText(Pane userActivityRoot, TextArea commandTextArea) {
         Label commandText = new Label("Command:");
         commandText.setFont(Fonts.buttonFont);
         commandText.setPrefWidth(100);
@@ -114,7 +114,7 @@ public class UserActivityScene {
      * @param userActivityRoot the view root
      * @return the label where results are displayed
      */
-    private static Label createResultLabel(Pane userActivityRoot){
+    private static Label createResultLabel(Pane userActivityRoot) {
         Label resultLabel = new Label();
         // resultLabel.setBorder(Border.EMPTY);
         resultLabel.setStyle("-fx-border-color: black");
@@ -130,12 +130,12 @@ public class UserActivityScene {
      * Create the undo button.
      *
      * @param userActivityRoot the view root
-     * @param resultLabel the label where results are displayed
+     * @param resultLabel      the label where results are displayed
      */
-    private static void createUndoButton(Pane userActivityRoot, Label resultLabel){
+    private static void createUndoButton(Pane userActivityRoot, Label resultLabel) {
         Button undoButton = new Button("Undo");
         undoButton.setFont(Fonts.buttonFont);
-        undoButton.setPrefSize(150,30);
+        undoButton.setPrefSize(150, 30);
         undoButton.setLayoutX(50);
         undoButton.setLayoutY(50);
         userActivityRoot.getChildren().add(undoButton);
@@ -149,12 +149,12 @@ public class UserActivityScene {
      * Create the redo button.
      *
      * @param userActivityRoot the view root
-     * @param resultLabel the label where results are displayed
+     * @param resultLabel      the label where results are displayed
      */
-    private static void createRedoButton(Pane userActivityRoot, Label resultLabel){
+    private static void createRedoButton(Pane userActivityRoot, Label resultLabel) {
         Button redoButton = new Button("Redo");
         redoButton.setFont(Fonts.buttonFont);
-        redoButton.setPrefSize(150,30);
+        redoButton.setPrefSize(150, 30);
         redoButton.setLayoutX(50);
         redoButton.setLayoutY(110);
         userActivityRoot.getChildren().add(redoButton);
@@ -168,12 +168,12 @@ public class UserActivityScene {
      * Create the save button.
      *
      * @param userActivityRoot the view root
-     * @param resultLabel the label where results are displayed
+     * @param resultLabel      the label where results are displayed
      */
-    private static void createSaveButton(Pane userActivityRoot, Label resultLabel){
+    private static void createSaveButton(Pane userActivityRoot, Label resultLabel) {
         Button saveButton = new Button("Save");
         saveButton.setFont(Fonts.buttonFont);
-        saveButton.setPrefSize(150,30);
+        saveButton.setPrefSize(150, 30);
         saveButton.setLayoutX(600);
         saveButton.setLayoutY(50);
         userActivityRoot.getChildren().add(saveButton);
@@ -188,10 +188,10 @@ public class UserActivityScene {
      *
      * @param userActivityRoot the view root
      */
-    private static void createLogOutButton(Pane userActivityRoot){
+    private static void createLogOutButton(Pane userActivityRoot) {
         Button logOutButton = new Button("Log Out");
         logOutButton.setFont(Fonts.buttonFont);
-        logOutButton.setPrefSize(150,30);
+        logOutButton.setPrefSize(150, 30);
         logOutButton.setLayoutX(600);
         logOutButton.setLayoutY(110);
         userActivityRoot.getChildren().add(logOutButton);
@@ -206,12 +206,12 @@ public class UserActivityScene {
      * Create the execute button.
      *
      * @param userActivityRoot the view root
-     * @param resultLabel the label where results are displayed
+     * @param resultLabel      the label where results are displayed
      */
-    private static void createExecuteButton(Pane userActivityRoot, TextArea commandTextArea, Label resultLabel){
+    private static void createExecuteButton(Pane userActivityRoot, TextArea commandTextArea, Label resultLabel) {
         Button executeButton = new Button("Execute");
         executeButton.setFont(Fonts.buttonFont);
-        executeButton.setPrefSize(150,30);
+        executeButton.setPrefSize(150, 30);
         executeButton.setLayoutX(600);
         executeButton.setLayoutY(210);
         userActivityRoot.getChildren().add(executeButton);

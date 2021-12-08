@@ -28,7 +28,7 @@ public class CLI {
     }
 
     /**
-     * @param in              the scanner
+     * @param in the scanner
      * @return true if user logs in, false if exit
      */
     private static boolean dealWithLoginRegister(Scanner in) {
@@ -50,7 +50,7 @@ public class CLI {
     /**
      * Let user type their driver.commands and execute them
      *
-     * @param in              the scanner
+     * @param in the scanner
      * @return true if user just logs out but does not exit the program (may log in again), false if exit
      */
     private static boolean executeCommands(Scanner in) {
@@ -83,7 +83,7 @@ public class CLI {
     /**
      * Helper method for executing one command.
      *
-     * @param userInput       user input String
+     * @param userInput user input String
      */
     private static void executeCommand(String userInput) {
         try {

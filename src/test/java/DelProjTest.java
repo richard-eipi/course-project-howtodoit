@@ -27,6 +27,7 @@ class DelProjTest {
     /**
      * This test case tests if an existing project other than "General" can be deleted
      * This test case executes the DelProj command: Delete the project called <name> and delete all its tasks.
+     *
      * @result The project "Take Over" will be deleted from the user "Nole"
      */
     @Test
@@ -46,6 +47,7 @@ class DelProjTest {
     /**
      * This test case tests if "General" project can be deleted
      * This test case executes the DelProj command: Delete the project called <name> and delete all its tasks.
+     *
      * @result This action will not be performed since "General" project is a default project, and it cannot be modified
      * or deleted
      */
@@ -62,6 +64,7 @@ class DelProjTest {
     /**
      * This test case tests if a non-existing project can be deleted
      * This test case executes the DelProj command: Delete the project called <name> and delete all its tasks.
+     *
      * @result This action will not be performed since the user "Rafa" does not have project "Take Over" to delete
      */
     @Test

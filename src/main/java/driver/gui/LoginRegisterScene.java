@@ -5,9 +5,10 @@ import controllers.DataMemoryController;
 import controllers.LoginRegisterController;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
-
 
 import static helpers.GUISceneSetUp.xForCenter;
 
@@ -132,7 +133,8 @@ public class LoginRegisterScene {
 
     /**
      * Create the log in button.
-     *  @param loginRegisterRoot the view root
+     *
+     * @param loginRegisterRoot the view root
      * @param usnTextArea       the text area where user enters username
      * @param pwdTextArea       the text area where user enters password
      * @param warningText       the label for warning text after failed login
@@ -161,7 +163,8 @@ public class LoginRegisterScene {
 
     /**
      * Create the register button.
-     *  @param loginRegisterRoot the view root
+     *
+     * @param loginRegisterRoot the view root
      * @param usnTextArea       the text area where user enters username
      * @param pwdTextArea       the text area where user enters password
      * @param warningText       the label for warning text after failed register
@@ -191,6 +194,7 @@ public class LoginRegisterScene {
 
     /**
      * Set up warning text for login/register action.
+     *
      * @param loginRegisterRoot the view root
      * @return the label for the warning text
      */

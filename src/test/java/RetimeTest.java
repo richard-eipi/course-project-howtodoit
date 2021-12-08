@@ -25,9 +25,11 @@ class RetimeTest {
     }
 
     // test if user has the task and retimed it.
+
     /**
      * This test case tests if the due-date of an existing task can be modified
      * This test case executes the retime command: change the due date of a task
+     *
      * @result The due-date of task "Practice" will be changed to "2021-12-20"
      */
     @Test
@@ -45,9 +47,11 @@ class RetimeTest {
     }
 
     // test if user does not have the task.
+
     /**
      * This test case tests if the due-date of a non-existing task can be modified
      * This test case executes the retime command: change the due date of a task
+     *
      * @result This action will not be performed since task "Exercise" does not exist, there's no due-date to work with
      */
     @Test
@@ -61,9 +65,11 @@ class RetimeTest {
     }
 
     // test if due date format is incorrect
+
     /**
      * This test case tests if the due-date of an existing task can be modified when the due-date format is incorrect
      * This test case executes the retime command: change the due date of a task
+     *
      * @result This action will not be performed since task "Exercise" the due-date format is incorrect
      */
     @Test
@@ -77,9 +83,11 @@ class RetimeTest {
     }
 
     // test if due date is an invalid date
+
     /**
      * This test case tests if the name of an overdue task can be modified
      * This test case executes the retime command: change the due date of a task
+     *
      * @result This action will not be performed since task "Practice" is already overdue
      */
     @Test

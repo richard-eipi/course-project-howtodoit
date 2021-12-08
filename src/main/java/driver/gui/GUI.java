@@ -26,6 +26,7 @@ public class GUI extends Application {
 
     /**
      * Start running.
+     *
      * @param primaryStage the primary stage for javafx
      */
     @Override

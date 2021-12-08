@@ -1,7 +1,6 @@
 package driver.commands;
 
 import constants.Commands;
-import driver.commands.Command;
 
 import java.util.Arrays;
 
@@ -32,14 +31,6 @@ public class CommandExecutor {
         } else {
             throw new Exception("Command not found!");
         }
-    }
-
-    /**
-     * Get the username.
-     * @return username
-     */
-    public static String getUsername() {
-        return CommandExecutor.username;
     }
 
     /**
